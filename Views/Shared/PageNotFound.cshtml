@@ -1,0 +1,26 @@
+﻿@model System.Web.Mvc.HandleErrorInfo
+
+@{
+    ViewBag.Title = "Error";
+
+    // remove this line if we are not showing error page with angular
+    Layout = null;
+}
+
+<div class="container inset-404">
+    <img class="404-image" width="168" height="168" src="/images/emptypizzabox.png">
+    <div class="title-404">
+        <h2><span>Oops.</span> There is something missing!</h2>
+    </div>
+    <div class="desc-404 ">
+        <p>
+            The page you were looking for could not be found. It may no longer be available or you might have typed the wrong address. 
+        </p>
+        <p>
+            Don't panic! Your Pizza is just a few clicks away.
+        </p>
+        <hr/>
+        <p>Here are some helpful links: </p>
+        <a href="/order/pizzas">Menu</a> <a href="/order/deals">Deals</a> <a href onclick="window.redirectToStore()">Stores</a>
+</div>
+</div>

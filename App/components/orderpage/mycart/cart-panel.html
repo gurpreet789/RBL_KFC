@@ -1,0 +1,140 @@
+﻿<div class="cart" ng-show="sidepanel.isButtonSelected(1)">
+    <h1>My Cart</h1>
+    <rb-cart-checkout></rb-cart-checkout>
+    <!-- #region Invoice -->
+
+
+    <table class="table cart-total">
+
+        <!-- #region Pizzas -->
+        <thead ng-show="cartpanel.data.hasPizza">
+            <tr>
+                <th colspan="5">Pizza</th>
+            </tr>
+        </thead>
+
+
+        <tbody ng-show="cartpanel.data.hasPizza"
+               ng-repeat="pizza in cartpanel.data.basketItems"
+               ng-if="pizza.productType=='Pizza'">
+            <tr>
+                <td><span class="fa fa-times" ng-click="cartpanel.removeProduct(pizza.basketItemId,pizza.description)" ng-if="!pizza.isOfferProduct" ga="['send','event','My Cart','Remove Product','In-cart']"></span></td>
+                <td>{{ pizza.quantity }} </td>
+                <td><span href="#" title="" class="cart-item-name edit">{{ pizza.description | characters:15 :true }}</span></td>
+                <td><span class="fa fa-pencil edit" ng-click="cartpanel.editProduct(pizza,false)" ng-if="!pizza.isOfferProduct" ga="['send','event','Menu','Customise','In-cart']"></span></td>
+                <td ng-if="!pizza.isOfferProduct">${{ pizza.lineTotal }}</td>
+            </tr>
+            <tr class="description">
+                <td></td>
+                <td></td>
+                <td colspan="3">
+                    <p ng-if="pizza.reference.length<=0" ng-repeat="item in pizza.basketItemCollection | filter: { configurationAlias : '!Coverage'}">{{ item.description }}</p>
+                    <p ng-if="pizza.reference.length>0">Customised</p>
+                </td>
+            </tr>
+        </tbody>
+        <!-- #endregion -->
+        <!-- #region Drinks -->
+
+        <thead ng-show="cartpanel.data.hasSides">
+            <tr>
+                <th colspan="5">Sides</th>
+            </tr>
+        </thead>
+
+        <tbody ng-show="cartpanel.data.hasSides"
+               ng-repeat="side in cartpanel.data.basketItems"
+               ng-if="side.productType=='Sides'">
+            <tr>
+                <td><span class="fa fa-times" ng-click="cartpanel.removeProduct(side.basketItemId,side.description)" ng-if="!side.isOfferProduct"></span></td>
+                <td>{{ side.quantity }}</td>
+                <td>{{ side.description | characters:17 :true }}</td>
+                <td>&nbsp;</td>
+                <td ng-if="!side.isOfferProduct">${{ side.lineTotal }}</td>
+            </tr>
+        </tbody>
+        <!-- #endregion -->
+        <!-- #region Offers -->
+        <thead ng-show="cartpanel.data.hasOffers">
+            <tr>
+                <th colspan="5">Deals</th>
+            </tr>
+        </thead>
+
+
+        <tbody ng-show="cartpanel.data.hasOffers"
+               ng-repeat="offer in cartpanel.data.basketItems"
+               ng-if="offer.productType=='Offers'">
+
+            <tr>
+                <td><span class="fa fa-times" ng-click="cartpanel.removeProduct(offer.basketItemId,offer.description)"></span></td>
+                <td>{{ offer.quantity }} </td>
+                <td><span class="cart-item-name edit">{{ offer.description | characters:17 :true }}</span></td>
+                <td></td>
+                <td>${{ offer.lineTotal }}</td>
+            </tr>
+
+            <tr class="description" ng-repeat="item in offer.basketItemCollection">
+                <td></td>
+                <td></td>
+                <td>
+                    <div class="basket-item">
+                        {{ item.description | characters:17 :true }}
+                    </div>
+                    <div class="inner-item" ng-repeat="innerItem in item.basketItemCollection | filter: { configurationAlias : '!Coverage'}">
+                        {{ innerItem.description }}
+                    </div>
+                </td>
+                <td><span class="fa fa-pencil edit" ng-if="item.productType=='Pizza'" ng-click="cartpanel.editProduct(item,true)"></span></td>
+                <td></td>
+            </tr>
+
+        </tbody>
+        <!-- #endregion -->
+
+        <tbody ng-show="cartpanel.data.deliveryChargeAmount > 0">
+            <tr class="delivery">
+                <td colspan="5">Delivery {{ cartpanel.data.deliveryChargeAmount | currency }}</td>
+            </tr>
+        </tbody>
+        <tbody></tbody>
+    </table>
+    <!-- #endregion -->
+    <!-- #region Voucher -->
+    <div class="voucher">
+        <div ng-show="!cartpanel.isVoucherApplied">
+            <label>Voucher</label>
+            <input type="text" class="form-control" placeholder="" ng-model="cartpanel.voucherCode">
+            <button type="button" class="btn-apply" ng-click="cartpanel.addvoucher()" ga="['send','event','My Cart','Voucher Apply','In-cart']">
+                Apply
+            </button>
+        </div>
+
+    </div>
+    <div class="voucher-applied vocher-border">
+        <div class="voucher-panel">
+            <div class="pull-left voucher-remove">
+                <span class="fa fa-times" ng-click="cartpanel.removeVoucher()" ng-show="cartpanel.isVoucherApplied"></span>
+
+            </div>
+            <div class="pull-left voucher-description">
+                <label class="voucher-error vocher-padding">{{cartpanel.voucherMessage}}</label>
+                <label ng-if="cartpanel.voucherDiscountAmount !=0" ng-show="cartpanel.isVoucherApplied" class="pull-right">Your voucher: - {{ cartpanel.voucherDiscountAmount | currency }}</label>
+            </div>
+        </div>
+    </div>
+    <!-- #endregion -->
+    <!-- #region Promotion -->
+    <div class="upsell">
+        <!-- promo item with svg image and content -->
+        <rb-promo-item promo-style="happy-hour" promo-data="/Images/happy-hour.svg">
+            <h1>HAPPY HOUR</h1>
+            <p>Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur se.</p>
+            <a href="#/order" title="">Find out more<i class="fa fa-chevron-right"></i></a>
+        </rb-promo-item>
+    </div>
+    <!-- #endregion -->
+</div>
+<script>
+    $('table.table').after($("rb-cart-checkout div.total").clone());
+</script>

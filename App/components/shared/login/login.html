@@ -1,0 +1,75 @@
+﻿<div class="modal fade" id="login-dialog" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content login">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" ng-click="login.onClose()"><span aria-hidden="true" class="side-panel-close fa fa-times-circle-o"></span></button>
+                <h1 class="bordernone">Login</h1>
+            </div>
+            <form id="form_login" name="form_login" ng-submit="login.onLogin()" novalidate>
+                <div class="modal-body">
+                    <div ng-show="login.isLoading" class="cart-loading-panel">
+                        <i class="fa fa-refresh fa-spin fa-3x" style="color: white;"></i>
+                    </div>
+                    <fieldset>
+                        <legend>Login</legend>
+                        <p class="modal-error-message" ng-show="form_login.loginEmail.$touched">{{ login.model.errorMessage }}</p>
+                        <!--Email-->
+                        <p>
+                            <label for="loginEmail">Email<span>*</span></label>
+                            <span class="messageContainer" ng-if="form_login.loginEmail.$touched" ng-messages="form_login.loginEmail.$error">
+                                <label class="errorMessage" ng-message="required">Email must be entered.</label>
+                                <label class="errorMessage" ng-message="email">Invalid email.</label>
+                                <label class="errorMessage" ng-message="pattern">Invalid email.</label>
+                            </span>
+                            <input type="email" class="form-control" placeholder="Email" id="loginEmail" name="loginEmail"
+                                   ng-model="login.model.username"
+                                   ng-model-options="{allowInvalid: true, updateOn: blur}"
+                                   ng-maxlength="60"
+                                   maxlength="60"
+                                   required
+                                   focusme>
+                            <i class="check-field fa fa-check-circle-o"
+                               ng-class="{ 'check-field-completed' : form_login.loginEmail.$valid}"
+                               ng-if="!(form_login.loginEmail.$invalid && (form_login.loginEmail.$touched))"></i>
+                            <i class="glyphicon glyphicon-exclamation-sign exclamation-mark"
+                               ng-if="!form_login.loginEmail.$valid && (form_login.loginEmail.$touched)"></i>
+                        </p>
+                        <p>
+                            <label for="loginPassword">Your password<span>*</span></label>
+                            <span class="messageContainer" ng-if="form_login.loginPassword.$touched" ng-messages="form_login.loginPassword.$error">
+                                <label class="errorMessage" ng-message="required">Password must be entered.</label>
+                            </span>
+                            <input type="password" class="form-control" placeholder="Your password" id="loginPassword" name="loginPassword" ng-model="login.model.password" ng-focus="login.resetLoginButton()" required>
+
+                            <i class="check-field fa fa-check-circle-o"
+                               ng-class="{ 'check-field-completed' : form_login.loginPassword.$valid}"
+                               ng-if="!(form_login.loginPassword.$invalid && (form_login.loginPassword.$touched))"></i>
+
+                            <i class="glyphicon glyphicon-exclamation-sign exclamation-mark"
+                               ng-if="!form_login.loginPassword.$valid && (form_login.loginPassword.$touched )"></i>
+                        </p>
+                        <p>
+                            <label>
+                                <input type="checkbox" id="rememberMeCheckBox"
+                                       name="rememberMeCheckBox"
+                                       ng-model="login.model.rememberMe"
+                                       ng-checked="login.model.rememberMe" /> Remember Me
+                            </label>
+                        </p>
+                    </fieldset>
+                    <div class="forgot-create-user">
+                        <a href="#" data-toggle="modal" data-target="#forgotpassword" title="" data-dismiss="modal" id="clearfogotpassword" ng-click="login.onClose()" ga="['send','event','Forms','','Forgot Password']">Forgot your password?</a>
+                        <p>
+                            Don't have an account? <a href="#" title="" class="btn-create-login" ng-click="login.onClose();" data-toggle="modal" data-target="#register-dialog" data-dismiss="modal" ga="['send','event','Forms','','Register']"> Register here</a>
+                        </p>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-canel-cta" data-dismiss="modal" ng-click="login.onClose()">Cancel</button>
+                    <button type="submit" class="btn btn-primary-cta btn-login" ng-click="login.onLogin()" ng-disabled="form_login.$invalid" ga="['send','event','Forms','','Login']">Login &amp; continue</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

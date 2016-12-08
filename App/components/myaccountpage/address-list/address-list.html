@@ -1,0 +1,54 @@
+﻿<div id="address-list" ng-repeat="address in addressList.model.addressObjList ">
+    <rb-edit-group group-name="edit-address-{{address.model.addressId}}">
+        <span name="group-name">Edit - My address - {{$index + 1}}</span>
+        <div name="group-form">
+            <form name="address.editAddressForm" ng-submit="address.submitForm(editAddressForm.$valid)" novalidate>
+                <div ng-show="addressList.isLoading" class="cart-loading-panel myaccount-loading-panel">
+                    <i class="fa fa-refresh fa-spin fa-3x"></i>
+                </div>
+                <fieldset>
+                    <legend>Edit my address</legend>
+                    <input type="hidden" name="addressId" value="{{address.model.addressId}}" />
+                    <input type="hidden" name="formValid" value="{{address.editAddressForm.fullAddress.$dirty && address.model.selectedAddress ==''}}" />
+                    <label for="fullAddress">Your address</label>
+                    <div class="addressHelperText">
+                        <span>Address format: Flat no. or Unit no. or Building no., Street Address, Suburb, City. </span>
+                        <i class="fa fa-info-circle" data-toggle="tooltip" rb-display-tooltip data-placement="top" data-html="true" data-original-title="<b>ADDRESS EXAMPLES</b><ul><li>5/666 Great South Road, Penrose, Auckland</li><li>Unit 3, 666 Great South Road, Penrose, Auckland</li></ul>"></i>
+                    </div>
+                    <label class="errorMessage" ng-if="address.editAddressForm.fullAddress.$touched && address.model.selectedAddress =='' && address.model.fullAddress.length>0">Invalid Address.</label>
+                    <label class="errorMessage"
+                           ng-if="address.editAddressForm.fullAddress.$invalid && (address.editAddressForm.fullAddress.$touched)">
+                        Address must be entered.
+                    </label>
+                    <input type="text" name="fullAddress" class="form-control ui-autocomplete-input" placeholder="No./Street Address, Suburb, City"
+                           ng-model="address.model.fullAddress"
+                           autocomplete="off"
+                           typeahead="address for address  in addressList.onAddressFind(address)"
+                           typeahead-min-length="3"
+                           typeahead-wait-ms="150"
+                           typeahead-on-select="addressList.onAddressSelected($item, $model, $label,{{$index}})"
+                           ng-model-options="{allowInvalid: true}"
+                           ng-change="address.model.selectedAddress=''"
+                           ng-class="{ 'ng-invalid-typeahead' : address.editAddressForm.fullAddress.$invalid && address.model.selectedAddress ==''}"
+                           required>
+                    <span class=" glyphicon glyphicon-exclamation-sign exclamation-mark"
+                          ng-if="address.editAddressForm.fullAddress.$dirty && address.model.selectedAddress ==''">
+                    </span>
+                    <i class=" myaccount-check-field fa fa-check-circle-o"
+                       ng-class="{ 'myaccount-check-field-completed' : address.model.selectedAddress !==''}"
+                       ng-if="!(address.editAddressForm.fullAddress.$invalid && address.model.selectedAddress =='')"></i>
+
+                    <label for="comment">Special Delivery Instructions</label>
+                    <label class="errorMessage" ng-show="address.editAddressForm.comment.$invalid && address.editAddressForm.comment.$dirty">Invalid Comment.</label>
+                    <textarea name="comment" class="form-control comment" placeholder="Delivery instructions" ng-model="address.model.customerAddressDescription" ng-maxlength="200" maxlength="200"></textarea>
+                    <span class="glyphicon glyphicon-exclamation-sign exclamation-mark"
+                          ng-show="address.editAddressForm.comment.$invalid && address.editAddressForm.comment.$dirty">
+                    </span>
+
+                </fieldset>
+            </form>
+        </div>
+    </rb-edit-group>
+</div>
+
+<rb-add-address-button></rb-add-address-button>

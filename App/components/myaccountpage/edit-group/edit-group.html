@@ -1,0 +1,17 @@
+﻿<div ng-multi-transclude-controller id="{{groupName}}">
+    <h3>
+        <span class=""></span>
+        <span class="group-name" ng-multi-transclude="group-name"></span>
+        <span class="fa fa-chevron-up" style="display:none"></span>
+        <span class="fa fa-chevron-down"></span>
+    </h3>
+    <div class="edit-group {{groupName}}" style="display:none">
+        <p class="modal-error-message"></p>
+        <div ng-multi-transclude="group-form"></div>
+        <div class="account-save">
+            <button type="button" class="btn btn-canel-cta" ng-click="resetForm()">Cancel</button>
+            <button type="button" class="btn btn-primary-cta btn-save" ng-click="submitForm()">Save</button>
+            <button type="button" class="btn btn-primary-cta btn-saved hide">Saved</button>
+        </div>
+    </div>
+</div>

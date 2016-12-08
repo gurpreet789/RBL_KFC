@@ -1,0 +1,73 @@
+﻿<!-- Modal - Add a new address -->
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" ng-click="addAddressModal.onCancel()"><span aria-hidden="true" class="side-panel-close fa fa-times-circle-o"></span></button>
+    <h1 class="no-borderbottom">ADD A NEW ADDRESS</h1>
+</div>
+
+<p class="modal-error-message" ng-show="addAddressModal.model.isDisplayErrorMessage">{{ addAddressModal.model.errorMessage }}</p>
+<form id="form_add_new_address" name="form_add_new_address" ng-submit="addAddressModal.onSubmit()" novalidate>
+    <div class="modal-body">
+        <div ng-show="addAddressModal.isLoading" class="cart-loading-panel">
+            <i class="fa fa-refresh fa-spin fa-3x" style="color: white;"></i>
+        </div>
+        <fieldset class="ui-widget">
+            <legend>Add a new address</legend>
+            <label for="NewAccountAddressTitle">Your address</label>
+            <div class="addressHelperText">
+                <span>Address format: Flat no. or Unit no. or Building no., Street Address, Suburb, City. </span>
+                <i class="fa fa-info-circle" data-toggle="tooltip" rb-display-tooltip data-placement="top" data-html="true" data-original-title="<b>ADDRESS EXAMPLES</b><ul><li>5/666 Great South Road, Penrose, Auckland</li><li>Unit 3, 666 Great South Road, Penrose, Auckland</li></ul>"></i>
+            </div>
+            <label class="errorMessage"
+                   ng-if="form_add_new_address.NewAccountAddressTitle.$touched && addAddressModal.model.selectedAddress=='' && addAddressModal.model.address.length>0">
+                Invalid address.
+            </label>
+            <label class="errorMessage"
+                   ng-if="form_add_new_address.NewAccountAddressTitle.$invalid && (form_add_new_address.NewAccountAddressTitle.$touched)">
+                Address must be entered.
+            </label>
+
+            <input type="text" class="form-control ui-autocomplete-input" placeholder="No., Street Address, Suburb, City"
+                   id="NewAccountAddressTitle" name="NewAccountAddressTitle" value=""
+                   ng-model="addAddressModal.model.address"
+                   typeahead="address for address  in addAddressModal.onAddressFind()"
+                   typeahead-min-length="3"
+                   typeahead-wait-ms="150"
+                   typeahead-on-select="addAddressModal.onAddressSelected($item, $model, $label)"
+                   autocomplete="off"
+                   ng-change="addAddressModal.model.selectedAddress=''"
+                   ng-class="{ 'ng-invalid-typeahead' : (form_add_new_address.NewAccountAddressTitle.$touched) && (form_add_new_address.NewAccountAddressTitle.$invalid || (addAddressModal.model.selectedAddress=='' && addAddressModal.model.address.length>0))}"
+                   required>
+
+            <input type="text"
+                   ng-model="addAddressModal.model.selectedAddress"
+                   ng-hide="true"
+                   id="hiddenAddressValueAddAddress"
+                   name="hiddenAddressValueAddAddress"
+                   ng-required="(addAddressModal.model.addressData.length>0
+                                   && form_add_new_address.NewAccountAddressTitle.$touched)" />
+
+            <i class=" check-field fa fa-check-circle-o"
+               ng-class="{ 'check-field-completed' : addAddressModal.model.IsValidAddress && addAddressModal.model.address.length>0}"
+               ng-if="!((form_add_new_address.NewAccountAddressTitle.$touched ) && (form_add_new_address.NewAccountAddressTitle.$invalid || (addAddressModal.model.selectedAddress=='' && addAddressModal.model.address.length>0)))"></i>
+
+            <i class="glyphicon glyphicon-exclamation-sign exclamation-mark"
+               ng-if="(form_add_new_address.NewAccountAddressTitle.$touched ) && (form_add_new_address.NewAccountAddressTitle.$invalid || (addAddressModal.model.selectedAddress=='' && addAddressModal.model.address.length>0))"></i>
+
+            <label for="editAccountComment">Special Delivery Instructions</label>
+            <label class="errorMessage" ng-show="form_add_new_address.EditAccountComment.$invalid && form_add_new_address.EditAccountComment.$dirty">Invalid comment.</label>
+            <textarea class="form-control" placeholder="Delivery instructions" name="EditAccountComment" id="editAccountComment" ng-maxlength="200" maxlength="200" ng-model="addAddressModal.model.comment"></textarea>
+            <span class="glyphicon glyphicon-exclamation-sign exclamation-mark"
+                  ng-show="form_add_new_address.EditAccountComment.$invalid && form_add_new_address.EditAccountComment.$dirty">
+            </span>
+
+        </fieldset>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-canel-cta" data-dismiss="modal" ng-click="addAddressModal.onCancel()">Cancel</button>
+        <button type="button" class="btn disabled  btn-primary-cta" data-dismiss="modal" ng-class="{ 'disabled ' : (form_add_new_address.NewAccountAddressTitle.$touched || form_add_new_address.NewAccountAddressTitle.$dirty) && (form_add_new_address.NewAccountAddressTitle.$invalid || (addAddressModal.model.selectedAddress=='' && addAddressModal.model.address.length>0))}" ng-click="addAddressModal.onSubmit()">Save</button>
+    </div>
+    <script>
+    </script>
+</form>
+
+

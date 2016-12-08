@@ -1,0 +1,62 @@
+﻿<!-- Four column tile -->
+
+<div ng-class="{ 'container product-list':!isNested, 'product-list':!isNested, 'bgloader': product.loading }">
+    <div class="row {{::headerClass}}">
+        <h1 ng-if="hasTitle">{{::headerTitle}}</h1>
+
+        <select class="product-list-filter"
+                ng-show="product.hasFilters"
+                ng-if="hasFilter"
+                ng-change="changeFilter()"
+                ng-model="product.selectedFilter">
+            <option value="">All</option>
+            <option ng-repeat="filter in product.filterList"
+                    ng-selected="{{filter.value == product.selectedFilter}}"
+                    value="{{filter.value}}">
+                {{filter.name}}
+            </option>
+        </select>
+
+    </div>
+
+    <div class="row row-1 body-content-margin" ng-if="product.hasProducts">
+        <div class="col-lg-3 col-sm-6 col-xs-12 product flip slide-down" ng-class="animation" ng-repeat="product in product.productListLive | filter:product.matchProductFilter">
+            <rb-product-item b-item="product">
+                <p ng-if="product.productType == 1 || product.bestSeller">
+
+                    <a class="btn-customise" ng-href="#" ng-click="customise(product.productId,product.name)" ng-if="product.enableOrderNow" ga="['send','event','Menu','Customise','In-menu']">Customise</a>
+                    <a class="btn btn-quick-order" ng-href="#" ng-click="addQuickPizzaToCart(product.productId)" ng-if="product.enableOrderNow" ga="['send','event','Menu','Pizzas','{{footer.eventTrackingAction}}']">
+                        Add to Cart
+                    </a>
+                    <a class="btn-customise" ng-click="customise(product.productId,product.name)" ng-if="!product.enableOrderNow" ga="['send','event','Menu','Customise','In-menu']">
+                        Customise
+                    </a>
+                </p>
+
+                <!--//Sides//-->
+                <p ng-if="product.productType == 2">
+                    <a ng-switch="true" class="btn btn-order" ng-href="#" ng-click="addSideToCart(product.productId)" ga="['send','event','Menu','Order Now','Sides']">
+                        Add to Cart
+                    </a>
+                </p>
+
+                <!--//Deals//-->
+                <p ng-if="product.productType == 3">
+                    <a ng-switch="true" class="btn btn-deal" href="/order/deal-detail?dealId={{product.productId}}" ga="['send','event','Menu','Order Now','Deals']">
+                        Add to Cart
+                    </a>
+                </p>
+            </rb-product-item>
+        </div>
+        <div ng-if="!product.hasProducts">
+            no product list data
+        </div>
+        <div class="col-sm-12 col-sm-push-0 col-xs-10 col-xs-push-1 alert alert-warning" ng-if="hasFilter && (product.productList | filter:product.matchProductFilter).length === 0">
+            <p>
+                Sorry, we couldn't find any Pizzas that matched your choice of <strong>{{product.selectedFilter}}</strong>.
+            </p>
+        </div>
+
+    </div>
+</div>
+

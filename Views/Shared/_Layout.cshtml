@@ -1,0 +1,115 @@
+﻿@using System.Configuration
+@using RB.PizzaHut.Common.Extensions;
+@using RB.PizzaHut.Common.Framework.SessionManagement
+@using RB.PizzaHut.Common.Utils
+
+@{
+    // get browser name
+    string browser = (Request.Browser.Browser == "InternetExplorer") ? "ie" : Request.Browser.Browser.ToLower();
+
+    // get browser major version
+    string browserVersion = browser + Request.Browser.MajorVersion;
+
+}
+
+<!DOCTYPE html>
+<!--[if lt IE 9]> <html class="ie lt-ie9  "> <![endif]-->
+<!--[if gte IE 9]><!-->
+<html class="@browser @browserVersion ">
+<!--<![endif]-->
+<head>
+    <title>Pizza Hut</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-itunes-app" content="app-id=1030235266">
+    <meta name="google-play-app" content="app-id=nz.co.pizzahut">
+    <meta name="HandheldFriendly" content="true">
+
+    <link rel="android-touch-icon" sizes="57x57" href="~/Images/pizzaHut-android-57x57px.png" />
+    <link rel="android-touch-icon" sizes="72x72" href="~/Images/pizzaHut-android-72x72px.png" />
+    <link rel="android-touch-icon" sizes="114x114" href="~/Images/pizzaHut-android-114x114px.png" />
+    <link rel="android-touch-icon" sizes="144x144" href="~/Images/pizzaHut-android-144x144px.png" />
+
+    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="~/Images/pizzaHut-57x57px.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="~/Images/pizzaHut-72x72px.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="~/Images/pizzaHut-144x144px.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="~/Images/pizzaHut-144x144px.png" />
+
+    <base href="/">
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,900,700' rel='stylesheet' type='text/css'>
+    @Styles.Render( "~/Styles/library/css" )
+
+    <!--Need to add IE10 view port css and javascript-->
+    @Scripts.Render( "~/startup/js" )
+
+    <!-- Tracking script -->
+    <script type="text/javascript">
+        setTimeout(function(){var a=document.createElement("script");
+        var b=document.getElementsByTagName("script")[0];
+        a.src=document.location.protocol+"//script.crazyegg.com/pages/scripts/0045/7691.js?"+Math.floor(new Date().getTime()/3600000);
+        a.async=true;a.type="text/javascript";b.parentNode.insertBefore(a,b)}, 1);
+    </script>
+
+</head>
+<body data-ng-app="main" data-ng-controller="rbRoot.controller">
+    <iframe frameborder="0" scrolling="no" width="0" height="0" src="https://www.remintrex.com/ceng/pub/c-remintrex.html?advertiserId=axrdomzshb-0997-EN&pageType=home&productId=testproduct&category=category0&totalamount=99.99"></iframe>
+    <div id="sp-nav" class="menu-overflow">
+        <rb-burger-menu></rb-burger-menu>
+    </div>
+    <!-- Create a login -->
+    <div id="sp-page" style="height:100%">
+        @*
+            <div class="nojs-message">Welcome to PizzaHut. Javacript feature in your browser is turned off. You need to turn on javascript to use this website.</div>
+            <div class="old-browser-message">Welcome to PizzaHut. You are using old browser that is not supported by this website. Please upgrade your browser to the newest one. </div>*@
+
+        <!-- Header -->
+        @*@Html.RenderHtmlFile("~/App/components/shared/header/header.html")*@
+        <rb-header></rb-header>
+
+        <!-- Page Content -->
+        @RenderBody()
+
+        <!-- Footer -->
+        @*@Html.RenderHtmlFile("~/App/components/shared/footer/footer.html")*@
+        <rb-footer></rb-footer>
+        <div id="burgurmenu-overlay"></div>
+    </div>
+    <!-- Create a login -->
+    <rb-create-login></rb-create-login>
+
+    <!-- Login -->
+    <rb-login></rb-login>
+
+    <!-- Forgot Password -->
+    <rb-forgot-password></rb-forgot-password>
+
+
+
+    <!-- Scripts -->
+    @Scripts.Render( "~/scripts/js" )
+    @Scripts.Render( "~/partials" )
+    @*@Html.Raw( JSNLog.JavascriptLogging.Configure().Trim().Replace( "//<![CDATA[", "" ).Replace( "//]]>", "" ).Replace( "\r\n", "" ) )*@
+    @if ( !bool.Parse( ConfigurationManager.AppSettings[ "BundleOptimisation" ].ToLower() ) )
+    {
+        <script type="text/javascript">
+            (function() {
+                angular.module('main').constant("OPTIMISATION", @(ConfigurationManager.AppSettings["BundleOptimisation"].ToLower()));
+                angular.module('main').constant("CONSTANT1", "@(ConfigurationManager.AppSettings["RBCookieToken"])");
+            })();
+        </script>
+    }
+
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+         m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', '@ApplicationSettings.GAAnalyticsCode', 'auto');
+        @if (HttpContext.Current.Request.IsSecureConnection) {@Html.Raw("ga('set', 'forceSSL', true);")}
+        @if (ApplicationSettings.GAEcommerceRequire) { @Html.Raw("ga('require', 'ecommerce');") }
+
+    </script>
+
+</body>
+
+</html>

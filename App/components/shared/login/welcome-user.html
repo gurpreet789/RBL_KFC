@@ -1,0 +1,18 @@
+﻿<div class="login-logout">
+    <p class="welcome-back " ng-if="welcomeuser.model.isLoggedIn">
+        <a target="_self" href="/myaccount">
+            Welcome back<br />
+            <span style="-ms-word-break:break-all;word-break:break-all">
+                {{welcomeuser.model.customername | formattedusername:20 :true }}
+            </span>
+        </a>
+    </p>
+    <span ng-show="!welcomeuser.model.isLoggedOut">
+        <a class=" btn btn-lg btn-log-in" role="button" data-toggle="modal" data-target="#login-dialog" ng-show="!welcomeuser.model.isLoggedOut" ng-click="welcomeuser.setCursor()" ga="['send','event','Forms','','Login']">
+            Login
+        </a>
+    </span>
+    <span ng-if="welcomeuser.model.isLoggedIn">
+        <a class="btn btn-lg btn-logout " ng-show="welcomeuser.model.isLoggedIn" ng-click="welcomeuser.onLogOut()" ga="['send','event','Forms','','LogOut']">LOG OUT</a>
+    </span>
+</div>

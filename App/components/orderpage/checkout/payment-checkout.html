@@ -1,0 +1,159 @@
+﻿<div class="modal-content quick-signup" ng-show="checkoutPayment.showModal">
+    <div class="modal-header">
+        <button type="button" class="close" ng-click="checkoutPayment.CancelCheckout()" ga="['send','event','Checkout','Cancel','Payment']">
+            <span aria-hidden="true" class="side-panel-close fa fa-times-circle-o"></span>
+        </button>
+        <h1>Checkout {{"("+checkoutPayment.orderClass+")"}}</h1>
+        <div class="total">
+            <p ng-show="checkoutPayment.isDelivery">
+                <strong>Price {{checkoutPayment.totalPrice | currency}} incl. delivery fee</strong>
+            </p>
+            <p ng-hide="checkoutPayment.isDelivery">
+                <strong>Price {{checkoutPayment.totalPrice | currency}}</strong>
+            </p>
+        </div>
+        <div ng-show="checkoutPayment.isDisplayError">
+            <p class="modal-error-message">{{ checkoutPayment.errorMessage }}</p>
+        </div>
+        <div class="customer-type" ng-hide="checkoutPayment.CustomerInfo.hasOwnProperty('firstName')">
+            <p>Please fill in the form below</p>
+        </div>
+    </div>
+    <div ng-show="checkoutPayment.isLoading" class="cart-loading-panel">
+        <i class="fa fa-refresh fa-spin fa-3x" style="color: white; display: table; margin: 120px auto auto;"></i>
+    </div>
+    <div id="checkout-delivery-form" class="modal-body">
+        <form id="new_customer_checkout" name="new_customer_checkout" ng-submit="new_customer_checkout.$valid && checkoutPayment.buyNow()" novalidate>
+            <fieldset>
+                <legend>Quick Signup</legend>
+                <p>
+                    <label for="firstname_new">First name <span>&#42;</span></label>
+                    <span class="messageContainer" ng-if="(new_customer_checkout.firstname_new.$invalid) && new_customer_checkout.firstname_new.$touched">
+                        <label class="errorMessage" ng-if="new_customer_checkout.firstname_new.$error.required && new_customer_checkout.firstname_new.$touched">First name must be entered.</label>
+                        <label class="errorMessage" ng-if="new_customer_checkout.firstname_new.$error.maxlengt && new_customer_checkout.firstname_new.$touchedh">Invalid first name.</label>
+                    </span>
+                    <input type="text" class="form-control" placeholder="Your first name" id="firstname_new" name="firstname_new"
+                           ng-model="firstname_new"
+                           ng-maxlength="64"
+                           maxlength="64"
+                           ng-disabled="checkoutPayment.CustomerInfo.hasOwnProperty('firstName') && new_customer_checkout.firstname_new.$valid"
+                           required>
+
+                    <i class="check-field fa fa-check-circle-o"
+                       ng-class="{ 'check-field-completed' : new_customer_checkout.firstname_new.$valid}"
+                       ng-if="!(new_customer_checkout.firstname_new.$invalid && (new_customer_checkout.firstname_new.$touched))"></i>
+                    <i class="glyphicon glyphicon-exclamation-sign exclamation-mark"
+                       ng-if="!new_customer_checkout.firstname_new.$valid && (new_customer_checkout.firstname_new.$touched)"></i>
+                </p>
+                <p>
+                    <label for="lastname_new">Last name <span>&#42;</span></label>
+                    <span class="messageContainer" ng-if="(new_customer_checkout.lastname_new.$invalid) && new_customer_checkout.lastname_new.$touched">
+                        <label class="errorMessage" ng-if="new_customer_checkout.lastname_new.$error.required && new_customer_checkout.lastname_new.$touched">Last name must be entered.</label>
+                        <label class="errorMessage" ng-if="new_customer_checkout.lastname_new.$error.maxlength && new_customer_checkout.lastname_new.$touched">Invalid last name.</label>
+                    </span>
+                    <input type="text" class="form-control" placeholder="Your last name" id="lastname_new" name="lastname_new"
+                           ng-model="lastname_new"
+                           ng-maxlength="64"
+                           maxlength="64"
+                           ng-disabled="checkoutPayment.CustomerInfo.hasOwnProperty('firstName') && new_customer_checkout.lastname_new.$valid"
+                           required>
+                    <i class="check-field fa fa-check-circle-o"
+                       ng-class="{ 'check-field-completed' : new_customer_checkout.lastname_new.$valid}"
+                       ng-if="!(new_customer_checkout.lastname_new.$invalid && (new_customer_checkout.lastname_new.$touched))"></i>
+                    <i class="glyphicon glyphicon-exclamation-sign exclamation-mark"
+                       ng-if="!new_customer_checkout.lastname_new.$valid && (new_customer_checkout.lastname_new.$touched)"></i>
+                </p>
+                <p>
+                    <label for="phone_new">Phone <span>&#42;</span></label>
+                    <span class="messageContainer" ng-if="(new_customer_checkout.phone_new.$invalid) && new_customer_checkout.phone_new.$touched">
+                        <label class="errorMessage" ng-if="new_customer_checkout.phone_new.$error.required && new_customer_checkout.phone_new.$touched">Phone number must be entered.</label>
+                        <label class="errorMessage"
+                               ng-if="(new_customer_checkout.phone_new.$error.minlength || new_customer_checkout.phone_new.$error.maxlength || new_customer_checkout.phone_new.$error.pattern) && new_customer_checkout.phone_new.$touched">
+                            Invalid phone.
+                        </label>
+                    </span>
+                    <input type="text" class="form-control" placeholder="Your phone number" id="phone_new"
+                           name="phone_new"
+                           ng-model="phone_new"
+                           ng-minlength="8"
+                           ng-maxlength="25"
+                           maxlength="25"
+                           ng-disabled="checkoutPayment.CustomerInfo.hasOwnProperty('firstName') && new_customer_checkout.phone_new.$valid"
+                           ng-pattern="checkoutPayment.nzPhonePattern" required />
+                    <i class="check-field fa fa-check-circle-o"
+                       ng-class="{ 'check-field-completed' : new_customer_checkout.phone_new.$valid}"
+                       ng-if="!(new_customer_checkout.phone_new.$invalid && (new_customer_checkout.phone_new.$touched))"></i>
+                    <i class="glyphicon glyphicon-exclamation-sign exclamation-mark"
+                       ng-if="!new_customer_checkout.phone_new.$valid && (new_customer_checkout.phone_new.$touched)"></i>
+                </p>
+                <p ng-show="checkoutPayment.orderOption == checkoutPayment.OrderClass.Delivery">
+                    <label for="deliveryAddress">Your address <span ng-hide="checkoutPayment.orderOption == checkoutPayment.OrderClass.Delivery">*</span></label>
+                    <label class="errorMessage" ng-if="checkoutPayment.customerAddress =='' || new_customer_checkout.deliveryAddress_new.$error.required && new_customer_checkout.deliveryAddress_new.$touched">Invalid Address.</label>
+                    <input type="text" class="form-control ui-autocomplete-input" placeholder="No., Street Address, Suburb, City" id="deliveryAddress_new" name="deliveryAddress_new"
+                           ng-model="deliveryAddress_new"
+                           ng-init="(checkoutPayment.orderOption == checkoutPayment.OrderClass.Delivery)? deliveryAddress_new = checkoutPayment.selectedUserAddress : deliveryAddress_new = 'None'"
+                           ng-disabled="true"
+                           ng-change="checkoutPayment.customerAddress = ''" autocomplete="off" required>
+                    <input type="text"
+                           ng-model="deliveryAddress_new"
+                           ng-hide="true"
+                           id="hiddenAddressValue"
+                           name="hiddenAddressValue"
+                           ng-required="(checkoutPayment.customerAddress.length>0 && new_customer_checkout.deliveryAddress_new..$touched)" />
+                    <i class=" check-field fa fa-check-circle-o"
+                       ng-class="{ 'check-field-completed' : new_customer_checkout.hiddenAddressValue.$valid && checkoutPayment.customerAddress.length>0 }"
+                       ng-if="!(checkoutPayment.customerAddress =='' || new_customer_checkout.deliveryAddress_new.$error.required && new_customer_checkout.deliveryAddress_new.$touched)"></i>
+
+                    <i class="glyphicon glyphicon-exclamation-sign exclamation-mark"
+                       ng-if="checkoutPayment.customerAddress =='' || new_customer_checkout.deliveryAddress_new.$error.required && new_customer_checkout.deliveryAddress_new.$touched"></i>
+                </p>
+                <p>
+                    <label for="email_new">Email <span>&#42;</span></label>
+                    <span class="messageContainer" ng-if="(new_customer_checkout.email_new.$invalid ) && new_customer_checkout.email_new.$touched">
+                        <label class="errorMessage" ng-if="(new_customer_checkout.email_new.$error.email || new_customer_checkout.email_new.$error.pattern|| new_customer_checkout.email_new.$error.maxlength) && new_customer_checkout.email_new.$touched">Invalid email.</label>
+                        <label class="errorMessage" ng-if="new_customer_checkout.email_new.$error.required && new_customer_checkout.email_new.$touched">Email must be entered.</label>
+                    </span>
+                    <input type="email" class="form-control" placeholder="Your email" id="email_new" name="email_new"
+                           ng-model="email_new"
+                           ng-disabled="checkoutPayment.CustomerInfo.hasOwnProperty('firstName') && new_customer_checkout.email_new.$valid"
+                           ng-pattern="checkoutPayment.emailPattern"
+                           ng-maxlength="60"
+                           maxlength="60"
+                           required>
+                    <i class="check-field fa fa-check-circle-o"
+                       ng-class="{ 'check-field-completed' : new_customer_checkout.email_new.$valid}"
+                       ng-if="!(new_customer_checkout.email_new.$invalid)"></i>
+                    <i class="glyphicon glyphicon-exclamation-sign exclamation-mark"
+                       ng-if="!new_customer_checkout.email_new.$valid && (new_customer_checkout.email_new.$touched )"></i>
+                </p>
+                <p>
+                    <label for="comment_new">Comment</label>
+                    <input type="text" class="form-control" placeholder="Your Comments (48 characters  max)" id="comment_new" name="comment_new" ng-model="Comments" maxlength="48" ng-maxlength="48"></input>
+                    <i class="glyphicon glyphicon-exclamation-sign exclamation-mark"
+                       ng-show="!new_customer_checkout.comment_new.$valid"></i>
+                </p>
+            </fieldset>
+            <h2>Payment type</h2>
+            <div class="check-item">
+                <!--<p ng-show="checkoutPayment.CustomerInfo.hasOwnProperty('firstName')" ng-if="checkoutPayment.CustomerInfo.hasOwnProperty('firstName')">
+                    {{checkoutPayment.creditCardMessage}}
+                </p>-->
+                <p ng-click="checkoutPayment.choosePayment(paymentionOption.paymentTypeId)" ng-repeat="paymentionOption in checkoutPayment.paymentOptions" ga="['send','event','Checkout','{{paymentionOption.paymentType}}','Payment']">
+                    <i class="fa fa-check-circle-o"
+                       ng-class="{ 'check-item-selected': paymentionOption.paymentTypeId == checkoutPayment.selectedPaymentMethod }"></i>
+                    <span>{{paymentionOption.paymentType}}</span><span ng-if="paymentionOption.paymentTypeId == 2">(Fee {{checkoutPayment.mobileEFTPOSCharge | currency}})</span>
+                </p>
+            </div>
+
+        </form>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-canel-cta" data-dismiss="modal" ng-click="checkoutPayment.CancelCheckout()" ga="['send','event','Checkout','Cancel','Payment']">Cancel</button>
+        <button type="submit" class="btn btn-checkout-buynow "
+                ng-click="new_customer_checkout.$valid && checkoutPayment.buyNow()"
+                ng-disabled="!new_customer_checkout.$valid"
+                ga="['send', 'pageview', '/checkout/BuyNow']">
+            Place My Order
+        </button>
+    </div>
+    </div>
+</div>

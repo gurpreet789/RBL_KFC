@@ -1,0 +1,202 @@
+﻿<div class="modal fade" id="register-dialog" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+
+    <div class="modal-dialog">
+        <div class="modal-content create-login">
+            <div ng-show="createLogin.isLoading" class="cart-loading-panel">
+                <i class="fa fa-refresh fa-spin fa-3x" style="color: white;"></i>
+            </div>
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" ng-click="createLogin.onClose()"><span aria-hidden="true" class="fa fa-times-circle-o"></span></button>
+                <h1>Create a login</h1>
+            </div>
+            <div id="register-form-body" class="modal-body">
+                <p class="modal-error-message" ng-show="createLogin.model.isDisplayErrorMessage">{{ createLogin.model.errorMessage }}</p>
+                <form id="form_create_login" name="form_create_login" ng-submit="createLogin.onSubmit()" ng-init="createLogin.onLoaded()" novalidate>
+                    <fieldset>
+                        <legend>Create a login</legend>
+                        <!--First Name-->
+                        <div>
+                            <label for="CreateLoginFirstName">First name<span>*</span></label>
+                            <span class="messageContainer" ng-if="(form_create_login.CreateLoginFirstName.$invalid && form_create_login.CreateLoginFirstName.$dirty) || form_create_login.CreateLoginFirstName.$touched">
+                                <label class="errorMessage" ng-if="form_create_login.CreateLoginFirstName.$error.required">First name must be entered.</label>
+                                <label class="errorMessage" ng-if="form_create_login.CreateLoginFirstName.$error.maxlength">Invalid first name.</label>
+                            </span>
+                            <input type="text" class="form-control" placeholder="Your first name" id="CreateLoginFirstName" name="CreateLoginFirstName" ng-model="createLogin.model.firstName"
+                                   ng-maxlength="64" maxlength="64" required>
+                            <i class="check-field fa fa-check-circle-o"
+                               ng-class="{ 'check-field-completed' : form_create_login.CreateLoginFirstName.$valid}"
+                               ng-if="!(form_create_login.CreateLoginFirstName.$invalid && (form_create_login.CreateLoginFirstName.$touched || form_create_login.CreateLoginFirstName.$dirty))"></i>
+                            <i class="glyphicon glyphicon-exclamation-sign exclamation-mark"
+                               ng-if="!form_create_login.CreateLoginFirstName.$valid && (form_create_login.CreateLoginFirstName.$touched || form_create_login.CreateLoginFirstName.$dirty)"></i>
+                        </div>
+                        <!--Last Name-->
+                        <div>
+                            <label for="CreateLoginLastName">Last name<span>*</span></label>
+                            <span class="messageContainer" ng-if="(form_create_login.CreateLoginLastName.$invalid && form_create_login.CreateLoginLastName.$dirty) || form_create_login.CreateLoginLastName.$touched">
+                                <label class="errorMessage" ng-if="form_create_login.CreateLoginLastName.$error.required">Last name must be entered.</label>
+                                <label class="errorMessage" ng-if="form_create_login.CreateLoginLastName.$error.maxlength">Invalid last name.</label>
+                            </span>
+                            <input type="text" class="form-control" placeholder="Your last name" id="CreateLoginLastName" name="CreateLoginLastName" ng-model="createLogin.model.lastName"
+                                   ng-maxlength="64" maxlength="64" required>
+                            <i class="check-field fa fa-check-circle-o"
+                               ng-class="{ 'check-field-completed' : form_create_login.CreateLoginLastName.$valid}"
+                               ng-if="!(form_create_login.CreateLoginLastName.$invalid && (form_create_login.CreateLoginLastName.$touched || form_create_login.CreateLoginLastName.$dirty))"></i>
+                            <i class="glyphicon glyphicon-exclamation-sign exclamation-mark"
+                               ng-if="!form_create_login.CreateLoginLastName.$valid && (form_create_login.CreateLoginLastName.$touched || form_create_login.CreateLoginLastName.$dirty)"></i>
+                        </div>
+                        <!--Phone-->
+                        <div>
+                            <label for="CreateLoginPhone">Phone<span>*</span></label>
+                            <span class="messageContainer" ng-if="(form_create_login.CreateLoginPhone.$invalid && form_create_login.CreateLoginPhone.$dirty) || form_create_login.CreateLoginPhone.$touched">
+                                <label class="errorMessage" ng-if="form_create_login.CreateLoginPhone.$error.required">Phone number must be entered.</label>
+                                <label class="errorMessage"
+                                       ng-if="form_create_login.CreateLoginPhone.$error.minlength || form_create_login.CreateLoginPhone.$error.maxlength || form_create_login.CreateLoginPhone.$error.pattern">
+                                    Invalid phone.
+                                </label>
+                            </span>
+                            <input type="text" class="form-control" placeholder="Your phone number" id="CreateLoginPhone" name="CreateLoginPhone" ng-model="createLogin.model.phone"
+                                   ng-minlength="8" ng-maxlength="25" maxlength="25"
+                                   ng-pattern="createLogin.nzPhonePattern" required>
+                            <i class="check-field fa fa-check-circle-o"
+                               ng-class="{ 'check-field-completed' : form_create_login.CreateLoginPhone.$valid}"
+                               ng-if="!(form_create_login.CreateLoginPhone.$invalid && (form_create_login.CreateLoginPhone.$touched || form_create_login.CreateLoginPhone.$dirty))"></i>
+                            <i class="glyphicon glyphicon-exclamation-sign exclamation-mark"
+                               ng-if="!form_create_login.CreateLoginPhone.$valid && (form_create_login.CreateLoginPhone.$touched || form_create_login.CreateLoginPhone.$dirty)"></i>
+                        </div>
+                        <!--Address-->
+                        <div>
+                            <label for="CreateLoginAddress1">Your address<span>*</span></label>
+                            <div class="addressHelperText">
+                                <span>Address format: Flat no. or Unit no. or Building no., Street Address, Suburb, City. </span>
+                                <i class="fa fa-info-circle" data-toggle="tooltip" rb-display-tooltip data-placement="top" data-html="true" data-original-title="<b>ADDRESS EXAMPLES</b><ul><li>5/666 Great South Road, Penrose, Auckland</li><li>Unit 3, 666 Great South Road, Penrose, Auckland</li></ul>"></i>
+                            </div>
+                            <label class="errorMessage" ng-if="form_create_login.hiddenAddressValue.$invalid && form_create_login.CreateLoginAddress1.$dirty">Invalid Address.</label>
+                            <label class="errorMessage"
+                                   ng-if="form_create_login.CreateLoginAddress1.$invalid && (form_create_login.CreateLoginAddress1.$touched || form_create_login.CreateLoginAddress1.$dirty)">
+                                Address must be entered.
+                            </label>
+                            <input type="text" class="form-control ui-autocomplete-input" placeholder="No., Street Address, Suburb, City" id="CreateLoginAddress1" name="CreateLoginAddress1"
+                                   ng-model="createLogin.model.customerAddressWorking"
+                                   typeahead="address for address in createLogin.onAddressFind()"
+                                   typeahead-min-length="3"
+                                   typeahead-wait-ms="150"
+                                   typeahead-on-select="createLogin.onAddressSelected($item, $model, $label)"
+                                   ng-class="{ 'ng-invalid-typeahead' :form_create_login.hiddenAddressValue.$invalid && form_create_login.CreateLoginAddress1.$dirty}"
+                                   ng-change="createLogin.model.customerAddress = ''" autocomplete="off" required>
+                            <input type="text"
+                                   ng-model="createLogin.model.customerAddress"
+                                   ng-hide="true"
+                                   id="hiddenAddressValue"
+                                   name="hiddenAddressValue"
+                                   ng-required="(createLogin.model.customerAddressWorking.length>0
+                                   && form_create_login.CreateLoginAddress1.$dirty)" />
+                            <i class=" check-field fa fa-check-circle-o"
+                               ng-class="{ 'check-field-completed' : form_create_login.hiddenAddressValue.$valid && createLogin.model.customerAddressWorking.length>0 && !form_create_login.CreateLoginPhone.$error.required }"
+                               ng-if="!(form_create_login.hiddenAddressValue.$invalid && (form_create_login.CreateLoginAddress1.$touched || form_create_login.CreateLoginAddress1.$dirty) ||
+                                        form_create_login.CreateLoginAddress1.$error.required && (form_create_login.CreateLoginAddress1.$touched || form_create_login.CreateLoginAddress1.$dirty))"></i>
+                            <i class="glyphicon glyphicon-exclamation-sign exclamation-mark"
+                               ng-if="!form_create_login.hiddenAddressValue.$valid && (form_create_login.CreateLoginAddress1.$touched || form_create_login.CreateLoginAddress1.$dirty) ||
+                                        form_create_login.CreateLoginAddress1.$error.required && (form_create_login.CreateLoginAddress1.$touched || form_create_login.CreateLoginAddress1.$dirty)"></i>
+                        </div>
+                        <!--Email-->
+                        <div>
+                            <label for="CreateLoginEmail1">Email<span>*</span></label>
+                            <span class="messageContainer" ng-if="(form_create_login.CreateLoginEmail1.$invalid && form_create_login.CreateLoginEmail1.$dirty) || form_create_login.CreateLoginEmail1.$touched">
+                                <label class="errorMessage" ng-if="form_create_login.CreateLoginEmail1.$error.email || form_create_login.CreateLoginEmail1.$error.pattern|| form_create_login.CreateLoginEmail1.$error.maxlength">Invalid email.</label>
+                                <label class="errorMessage" ng-if="form_create_login.CreateLoginEmail1.$error.required">Email must be entered.</label>
+                            </span>
+                            <input type="email" class="form-control" placeholder="Your email" id="CreateLoginEmail1" name="CreateLoginEmail1"
+                                   ng-model="createLogin.model.email"
+                                   ng-model-options="{allowInvalid: true}"
+                                   ng-pattern="createLogin.emailPattern"
+                                   ng-maxlength="60"
+                                   maxlength="60"
+                                   required>
+                            <i class="check-field fa fa-check-circle-o"
+                               ng-class="{ 'check-field-completed' : form_create_login.CreateLoginEmail1.$valid}"
+                               ng-if="!(form_create_login.CreateLoginEmail1.$invalid && (form_create_login.CreateLoginEmail1.$touched || form_create_login.CreateLoginEmail1.$dirty))"></i>
+                            <i class="glyphicon glyphicon-exclamation-sign exclamation-mark"
+                               ng-if="!form_create_login.CreateLoginEmail1.$valid && (form_create_login.CreateLoginEmail1.$touched || form_create_login.CreateLoginEmail1.$dirty)"></i>
+
+                        </div>
+                        <!--Password-->
+                        <div>
+                            <label for="CreatePassword1">Password<span>*</span></label>
+                            <span class="messageContainer" ng-if="(form_create_login.CreatePassword1.$invalid && form_create_login.CreatePassword1.$dirty) || form_create_login.CreatePassword1.$touched">
+                                <label class="errorMessage" ng-if="form_create_login.CreatePassword1.$error.required">Password must be entered.</label>
+                                <label class="errorMessage" ng-if="form_create_login.CreatePassword1.$error.minlength || form_create_login.CreatePassword1.$error.maxlength || form_create_login.CreatePassword1.$error.pattern">
+                                    Invalid password.
+                                </label>
+                            </span>
+                            <input type="password" class="form-control" placeholder="Password" id="CreatePassword1" name="CreatePassword1" ng-model="createLogin.model.password"
+                                   ng-pattern="createLogin.passwordPattern"
+                                   ng-minlength="6" ng-maxlength="39" maxlength="39" required>
+                            <i class="check-field fa fa-check-circle-o"
+                               ng-class="{ 'check-field-completed' : form_create_login.CreatePassword1.$valid}"
+                               ng-if="!(form_create_login.CreatePassword1.$invalid && (form_create_login.CreatePassword1.$touched || form_create_login.CreatePassword1.$dirty))"></i>
+                            <i class="glyphicon glyphicon-exclamation-sign exclamation-mark"
+                               ng-if="!form_create_login.CreatePassword1.$valid && (form_create_login.CreatePassword1.$touched || form_create_login.CreatePassword1.$dirty)"></i>
+
+                        </div>
+                        <!--Repeat Password-->
+                        <div>
+                            <label for="CreatePassword2">Repeat password<span>*</span></label>
+                            <span class="messageContainer" ng-if="(form_create_login.CreatePassword2.$invalid && form_create_login.CreatePassword2.$dirty) || form_create_login.CreatePassword2.$touched">
+                                <label class="errorMessage" ng-if="form_create_login.CreatePassword2.$error.required">Repeat password must be entered.</label>
+                                <label class="errorMessage" ng-if="form_create_login.CreatePassword2.$error.minlength || form_create_login.CreatePassword2.$error.maxlength || form_create_login.CreatePassword2.$error.pattern">
+                                    Invalid password.
+                                </label>
+                                <label class="errorMessage" ng-if="!form_create_login.CreatePassword2.$error.minlength && !form_create_login.CreatePassword2.$error.maxlength && !form_create_login.CreatePassword2.$error.required && !form_create_login.CreatePassword2.$error.pattern && form_create_login.CreatePassword2.$error.match">Oops! Your password don’t match.</label>
+                            </span>
+                            <input type="password" class="form-control" placeholder="Repeat your password" id="CreatePassword2" name="CreatePassword2" ng-model="createLogin.model.repeatPassword"
+                                   ng-pattern="createLogin.passwordPattern"
+                                   ng-minlength="6" ng-maxlength="39" maxlength="39"
+                                   match-with="createLogin.model.password"
+                                   required>
+                            <i class="check-field fa fa-check-circle-o"
+                               ng-class="{ 'check-field-completed' : form_create_login.CreatePassword2.$valid}"
+                               ng-if="!(form_create_login.CreatePassword2.$invalid && (form_create_login.CreatePassword2.$touched || form_create_login.CreatePassword2.$dirty))"></i>
+                            <i class="glyphicon glyphicon-exclamation-sign exclamation-mark"
+                               ng-if="!form_create_login.CreatePassword2.$valid && (form_create_login.CreatePassword2.$touched || form_create_login.CreatePassword2.$dirty)"></i>
+
+                        </div>
+
+                        <!--Address desscription-->
+                        <div class="hide">
+                            <label for="DeliveryInstruction">Delivery instructions</label>
+                            <span class="messageContainer" ng-if="(form_create_login.DeliveryInstruction.$invalid && form_create_login.DeliveryInstruction.$dirty) || form_create_login.DeliveryInstruction.$touched">
+                                <label class="errorMessage" ng-if="form_create_login.DeliveryInstruction.$error.required">Repeat password must be entered.</label>
+                                <label class="errorMessage" ng-if="form_create_login.DeliveryInstruction.$error.minlength || form_create_login.DeliveryInstruction.$error.maxlength || form_create_login.DeliveryInstruction.$error.pattern">
+                                    Invalid password.
+                                </label>
+                                <label class="errorMessage" ng-if="!form_create_login.DeliveryInstruction.$error.minlength && !form_create_login.DeliveryInstruction.$error.maxlength && !form_create_login.DeliveryInstruction.$error.required && !form_create_login.DeliveryInstruction.$error.pattern && form_create_login.DeliveryInstruction.$error.match">Oops! Your password don’t match.</label>
+                            </span>
+                            <textarea type="password" class="form-control" placeholder="Delivery instruction" id="DeliveryInstruction" name="DeliveryInstruction" ng-model="createLogin.model.customerAddressData.customerAddressDescription"
+                                      ng-minlength="6" ng-maxlength="39" maxlength="39"></textarea>
+                            <i class="check-field fa fa-check-circle-o delivery-instruction"
+                               ng-class="{ 'check-field-completed' : form_create_login.DeliveryInstruction.$valid && form_create_login.DeliveryInstruction.$touched}"
+                               ng-if="!(form_create_login.DeliveryInstruction.$invalid && (form_create_login.DeliveryInstruction.$touched || form_create_login.DeliveryInstruction.$dirty))"></i>
+                            <i class="glyphicon glyphicon-exclamation-sign exclamation-mark delivery-instruction"
+                               ng-if="!form_create_login.DeliveryInstruction.$valid && (form_create_login.DeliveryInstruction.$touched || form_create_login.DeliveryInstruction.$dirty)"></i>
+
+                        </div>
+
+                        <!--Checkout Discount-->
+                        <div>
+                            <label for="CreateLoginDiscounts">
+                                <input type="checkbox" id="CreateLoginDiscounts" value="option1" ng-model="createLogin.model.checkoutDiscount">
+                                <div class="checkout-discount-label">Please send me info on discounts, promos and other news</div>
+                                <a href="/privacy-policy" title="Privacy Policy" ga="['send','event','Footer','','Privacy policy']">View our Privacy Policy</a>
+                            </label>
+                        </div>
+                    </fieldset>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-canel-cta" data-dismiss="modal" ng-click="createLogin.onClose()">Cancel</button>
+                        <button type="submit" class="btn btn-primary-cta btn-buy-now" ng-click="createLogin.onSubmit()" ng-disabled="form_create_login.$invalid || form_create_login.CreateLoginPhone.$error.required" ga="['send','event','Forms','','Login Create']">Save &amp; continue</button>
+                    </div>
+                </form>
+            </div>
+            
+        </div>
+    </div>
+</div>

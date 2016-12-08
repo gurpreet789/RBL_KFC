@@ -1,0 +1,26 @@
+﻿<div class="container order-sub-menu" ng-multi-transclude-controller>
+    <div class="order-sub-menu-border">
+        <h1 ng-multi-transclude="title-container"></h1>
+        <!-- Show drop down in mobile view. -->
+        <!--<select class="type-selector" ng-model="orderSubMenu.selectedType" ng-change="orderSubMenu.load(orderSubMenu.selectedType)">
+            <option value="left">{{leftCaption}}</option>
+            <option value="right">{{rightCaption}}</option>
+        </select>-->
+
+        <!-- Shown as full tabs in desktop view, and shown as single tab in mobile view. -->
+        <tabset class="type-spliter" justified="true">
+            <tab active="orderSubMenu.isLeftTabActive" ng-click="orderSubMenu.load('left',true)">
+                <tab-heading>
+                    {{leftCaption}}
+                </tab-heading>
+                <div ng-multi-transclude="left-content"></div>
+            </tab>
+            <tab active="orderSubMenu.isRightTabActive" ng-click="orderSubMenu.load('right',true)" >
+                <tab-heading>
+                    {{rightCaption}}
+                </tab-heading>
+                <div ng-multi-transclude="right-content"></div>
+            </tab>
+        </tabset>
+    </div>
+</div>

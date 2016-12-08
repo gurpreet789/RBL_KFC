@@ -1,0 +1,81 @@
+﻿<!-- Footer Component -->
+<div class="wrapper-footer">
+    <footer>
+        <div class="container footer-mobile-padding">
+            <div class="pull-right  backtotop-border-bottom row row-1 margin-left-zero footer-backtotop"><a ng-click="backToTop()" href="" class="back-to-top homepage-footer-margin">Top <i class="fa fa-chevron-up"></i></a></div>
+        </div>
+        <div class="container footer-mobile-padding">
+            <!-- Footer Row 1 -->
+            <div class="row row-1 footer-row-1">
+
+                <div class="col-sm-12 col-xs-12 col-md-3 col-lg-3">
+                    <div class="say-hello">
+                        <span>Get Social:</span>
+                        <a href="https://www.facebook.com/pizzahutnz" title="Connect on Facebook" ga="['send','event','Footer','{{footer.eventTrackingAction}}','Facebook']" class="fa fa-facebook-square" target="_blank"></a>
+                        <a href="https://www.instagram.com/pizzahutnz/" title="Connect on Instagram" ga="['send','event','Footer','{{footer.eventTrackingAction}}','Instagram']" class="fa fa-instagram" target="_blank"></a>
+                        <a href="https://www.youtube.com/nzpizzahut" title="Connect on YouTube" ga="['send','event','Footer','{{footer.eventTrackingAction}}','YouTube']" class="fa fa-youtube" target="_blank"></a>
+                    </div>
+                </div>
+
+                <div class="col-sm-12 col-xs-12 col-md-12 col-lg-9 margin-top-getoffer">
+                    <form action="" method="post" id="mc-embedded-subscribe-form" name="subscribeform" novalidate ng-submit="subscribeform.$valid && subscribeform.SubscribeClick()">
+                        <div class="get-offers clearfix">
+                            <div class="col-sm-12 col-md-2 clearfix form-control-wrap offer-label">
+                                <span class="getdeal">Get Deals: </span>
+                            </div>
+                            <div class="col-sm-12 col-md-3 clearfix form-control-wrap">
+                                <span class="invalidemailerror Mailchimpemail" ng-if="(subscribeform.FNAME.$invalid && subscribeform.FNAME.$dirty) || subscribeform.FNAME.$touched">
+                                    <span class="errorMessage Mailchimpemail" ng-if="subscribeform.FNAME.$error.required">Enter first name.</span>
+                                </span>
+                                <input type="text" value="" name="FNAME" class="form-control" id="mce-FNAME" placeholder="First name" ng-model="footer.model.FNAME" required>
+                                <!--<input type="text" class="form-control" id="mce-FNAME" placeholder="First name" ng-model="footer.model.FNAME" name="FNAME" required>-->
+                            </div>
+                            <div class="col-sm-12 col-md-3 clearfix form-control-wrap">
+
+                                <span class="invalidemailerror Mailchimpemail" ng-if="(subscribeform.LNAME.$invalid && subscribeform.LNAME.$dirty) || subscribeform.LNAME.$touched">
+                                    <span class="errorMessage Mailchimpemail" ng-if="subscribeform.LNAME.$error.required">Enter last name.</span>
+                                </span>
+                                <input type="text" value="" name="LNAME" class="form-control" id="mce-LNAME" placeholder="Last name" ng-model="footer.model.LNAME" required>
+                                <!--<input type="text" class="form-control" id="mce-lname" placeholder="Last name" ng-model="footer.model.LNAME" name="LNAME" required>-->
+                            </div>
+                            <div class="col-sm-12 col-md-3 clearfix form-control-wrap">
+                                <span class="invalidemailerror Mailchimpemail" ng-if="(subscribeform.EMAIL.$invalid && subscribeform.EMAIL.$dirty) || subscribeform.EMAIL.$touched">
+                                    <span class="errorMessage invalid-email-span Mailchimpemail" ng-if="subscribeform.EMAIL.$error.email || subscribeform.EMAIL.$error.pattern">Invalid email.</span>
+                                    <span class="errorMessage invalid-email-span Mailchimpemail" ng-if="subscribeform.EMAIL.$error.required">Enter email.</span>
+                                </span>
+                                <input type="email" value="" name="EMAIL" id="mce-EMAIL" class="form-control" placeholder="Email" ng-model="footer.model.EMAIL" required>
+                                <!--<input type="text" class="form-control " placeholder="email" name="LNAME" ng-pattern="footer.emailPattern" ng-model="footer.model.EMAIL" id="mce-EMAIL" required>-->
+                            </div>
+                            <div class="col-sm-12 col-md-1 clearfix form-control-wrap">
+                                <input type="submit" value="Sign up" name="subscribe" id="mc-embedded-subscribe" class="btn btn-quick-order pull-left" ng-disabled="subscribeform.$invalid" ng-click="footer.SubscribeClick($event)" ga="['send','event','Forms','{{footer.eventTrackingAction}}','Signup']">
+                                <!--<input type="submit" name="Sign up" value="Sign up" id="mc-embedded-subscribe" class="btn btn-quick-order pull-left" ng-disabled="subscribeform.$invalid">--> <!--ng-click="footer.SubscribeClick($event)"-->
+                            </div>
+
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+            <!-- Footer Row 2 -->
+            <div class="row row-1 footer-row-2">
+                <ul>
+                    <li>&copy; 2015 Pizza Hut</li>
+                </ul>
+                <ul>
+                    <li><a target="_self" href="/opening-hours.html" ga="['send','event','Footer','{{footer.eventTrackingAction}}','Stores']">Store list</a></li>
+                    <li><a target="_self" href="/nutritional-info.html" ga="['send','event','Footer','{{footer.eventTrackingAction}}','Nutrition']">Nutrition</a></li>
+                    <li><a target="_self" href="/allergen-info.html" ga="['send','event','Footer','{{footer.eventTrackingAction}}','Allergens']">Allergens</a></li>
+                    <li><a href="http://www.servingupthefuture.co.nz/pizza-hut/work-with-us" ga="['send','event','Footer','{{footer.eventTrackingAction}}','Work with us']">Work with us</a></li>
+                    <li><a target="_self" href="/franchising" ga="['send','event','Footer','{{footer.eventTrackingAction}}','Franchising']">Franchising</a></li>
+                    <li><a target="_self" href="/about-us" ga="['send','event','Footer','{{footer.eventTrackingAction}}','About us']">About us</a></li>
+                    <li><a target="_self" href="https://gem.desk.com/?b_id=13881" ga="['send','event','Footer','{{footer.eventTrackingAction}}','FAQ']">FAQ</a></li>
+                    <li><a target="_self" href="https://gem.desk.com/customer/portal/emails/new?b_id=13881  " ga="['send','event','Footer','{{footer.eventTrackingAction}}','Contact us']">Contact us</a></li>
+                    <li><a target="_self" href="/privacy-policy" ga="['send','event','Footer','{{footer.eventTrackingAction}}','Privacy policy']">Privacy policy</a></li>
+                    <li><a target="_self" href="/terms-and-conditions" ga="['send','event','Footer','{{footer.eventTrackingAction}}','Terms & conditions']">Terms &amp; conditions</a></li>
+                    <li><a target="_blank" href="http://www.restaurantbrands.co.nz" ga="['send','event','Footer','{{footer.eventTrackingAction}}','Restaurant brands']">Restaurant Brands</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </footer>
+</div>

@@ -1,0 +1,82 @@
+﻿<rb-edit-group group-name="edit-details">
+    <span name="group-name">Edit my contact details</span>
+    <div name="group-form">
+        <form name="editContactDetailsForm" id="editContactDetailsForm" ng-submit="contactDetails.submitForm(editContactDetailsForm.$valid)" novalidate>
+            <div ng-show="contactDetails.isLoading" class="cart-loading-panel myaccount-loading-panel">
+                <i class="fa fa-refresh fa-spin fa-3x"></i>
+            </div>
+            <fieldset>
+                <legend>Edit my contact details</legend>
+                <input type="hidden" id="edit-details-customer-id" ng-value="contactDetails.model.customerId">
+
+                <label for="edit-details-firstname">First name<span>*</span></label>
+                <span class="messageContainer" ng-if="(editContactDetailsForm.firstName.$invalid) && editContactDetailsForm.firstName.$touched">
+                    <label class="errorMessage" ng-if="editContactDetailsForm.firstName.$error.required && editContactDetailsForm.firstName.$touched"> First name must be entered. </label>
+                    <label class="errorMessage" ng-if="editContactDetailsForm.firstName.$error.maxlength && editContactDetailsForm.firstName.$touched">Invalid first name.</label>
+                </span>
+                <input type="text" name="firstName" class="form-control coba" placeholder="Your first name" id="edit-details-firstname" ng-model="contactDetails.model.firstName"
+                       ng-maxlength="64" maxlength="64" ng-keyup="contactDetails.checkKeyUp($event)" required>
+
+                <span class="glyphicon glyphicon-exclamation-sign exclamation-mark"
+                      ng-show="(editContactDetailsForm.firstName.$invalid && !editContactDetailsForm.firstName.$pristine
+                      || editContactDetailsForm.firstName.$error.maxlength || editContactDetailsForm.firstName.$error.required) && editContactDetailsForm.firstName.$touched">
+                </span>
+
+                <i class=" myaccount-check-field fa fa-check-circle-o"
+                   ng-class="{ 'myaccount-check-field-completed' : editContactDetailsForm.firstName.$valid}"
+                   ng-hide="editContactDetailsForm.firstName.$invalid && (editContactDetailsForm.firstName.$touched)"></i>
+
+                <label for="edit-details-lastname">Last name<span>*</span></label>
+                <span class="messageContainer" ng-if="(editContactDetailsForm.lastName.$invalid) && editContactDetailsForm.lastName.$touched">
+                    <label class="errorMessage" ng-if="editContactDetailsForm.lastName.$error.required && editContactDetailsForm.phone.$touched"> Last name must be entered. </label>
+                    <label class="errorMessage" ng-if="editContactDetailsForm.lastName.$error.maxlength && editContactDetailsForm.phone.$touched">Invalid last name.</label>
+                </span>
+                <input type="text" name="lastName" class="form-control" placeholder="Your last name" id="edit-details-lastname" ng-model="contactDetails.model.lastName"
+                       ng-maxlength="64" maxlength="64" ng-keyup="contactDetails.checkKeyUp($event)" required>
+
+                <span class="glyphicon glyphicon-exclamation-sign exclamation-mark"
+                      ng-show="(editContactDetailsForm.lastName.$invalid && !editContactDetailsForm.lastName.$pristine
+                      || editContactDetailsForm.lastName.$error.maxlength || editContactDetailsForm.lastName.$error.required) && editContactDetailsForm.lastName.$touched">
+                </span>
+
+                <i class=" myaccount-check-field fa fa-check-circle-o"
+                   ng-class="{ 'myaccount-check-field-completed' : editContactDetailsForm.lastName.$valid}"
+                   ng-hide="editContactDetailsForm.lastName.$invalid && (editContactDetailsForm.lastName.$touched)"></i>
+
+
+                <label for="edit-details-phone">Phone<span>*</span></label>
+                <span class="messageContainer" ng-if="(editContactDetailsForm.phone.$invalid) && editContactDetailsForm.phone.$touched">
+                    <label class="errorMessage" ng-if="editContactDetailsForm.phone.$error.required">Phone number must be entered.</label>
+                    <label class="errorMessage"
+                           ng-show="(editContactDetailsForm.phone.$error.minlength || editContactDetailsForm.phone.$error.maxlength || editContactDetailsForm.phone.$error.pattern) && editContactDetailsForm.phone.$touched">
+                        Invalid phone.
+                    </label>
+                </span>
+                <input type="text" name="phone" class="form-control" placeholder="Your phone number" id="edit-details-phone" ng-model="contactDetails.model.contactTelephonePrimary"
+                       ng-minlength="8" ng-maxlength="25" maxlength="25"
+                       ng-pattern="contactDetails.nzPhonePattern" ng-keyup="contactDetails.checkKeyUp($event)" required>
+                <i class=" myaccount-check-field fa fa-check-circle-o"
+                   ng-class="{ 'myaccount-check-field-completed' : editContactDetailsForm.phone.$valid}"
+                   ng-hide="editContactDetailsForm.phone.$invalid && (editContactDetailsForm.phone.$touched)"></i>
+
+                <label for="contactDetailsEmail1">Email<span>*</span></label>
+                <span class="messageContainer" ng-if="(editContactDetailsForm.contactDetailsEmail1.$invalid ) && editContactDetailsForm.contactDetailsEmail1.$touched">
+                    <label class="errorMessage" ng-if="(editContactDetailsForm.contactDetailsEmail1.$error.email || editContactDetailsForm.contactDetailsEmail1.$error.pattern|| editContactDetailsForm.contactDetailsEmail1.$error.maxlength) && editContactDetailsForm.contactDetailsEmail1.$touched">Invalid email.</label>
+                    <label class="errorMessage" ng-if="(editContactDetailsForm.contactDetailsEmail1.$error.required) && editContactDetailsForm.contactDetailsEmail1.$touched">Email must be entered.</label>
+                </span>
+                <input type="email" class="form-control" placeholder="Your email" id="contactDetailsEmail1" name="contactDetailsEmail1"
+                       ng-model="contactDetails.model.contactEmailPrimary"
+                       ng-pattern="contactDetails.emailPattern"
+                       ng-maxlength="60"
+                       maxlength="60"
+                       required>
+                <i class=" myaccount-check-field fa fa-check-circle-o"
+                   ng-class="{ 'myaccount-check-field-completed' : editContactDetailsForm.contactDetailsEmail1.$valid}"
+                   ng-hide="editContactDetailsForm.contactDetailsEmail1.$invalid && (editContactDetailsForm.contactDetailsEmail1.$touched )"></i>
+
+
+            </fieldset>
+            <div ng-init="contactDetails.setForm(editContactDetailsForm)"></div>
+        </form>
+    </div>
+</rb-edit-group>

@@ -1,0 +1,27 @@
+﻿@using RB.PizzaHut.Common.Extensions
+
+@{
+    Layout = null;
+}
+
+<div class="home-page">
+    <!-- Hero Block -->
+    <rb-hero container-class="homepage-promo" show-deal="true"></rb-hero>
+
+    <!-- Order now -->
+    <div class="wrapper-order-now">
+        <a class="btn btn-lg primary-order-now" href="/order/pizzas" role="button">View Menu</a>
+    </div>
+
+    <div class="product-list-homepage">
+        <!-- List products -->
+        <rb-product-list header-title="Bestsellers" product-tab="bestsellers" has-title="true"></rb-product-list>
+    </div>
+
+    <!-- Promo Blocks -->
+    <rb-promo-list></rb-promo-list>
+</div>
+
+<!-- #region right hand panel section -->
+<rb-right-hand-panel></rb-right-hand-panel>
+<!-- #endregion -->

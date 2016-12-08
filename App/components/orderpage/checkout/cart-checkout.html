@@ -1,0 +1,14 @@
+﻿<!--#region Total Price-->
+<div class="total clear-both">
+    <p>Total <span>${{ cartpanel.data.basketTotal }}</span></p>
+</div>
+<!--#endregion-->
+<!--#region CTA-->
+<div class="primary-cta">
+    <button type="button" class="btn btn-primary-cta btn-check-out" ng-disabled="!cartpanel.canCheckout" ng-click="checkout.showCheckOut(cartpanel.data)"
+            ga="['send', 'pageview', '/checkout/StoreAndDeliveryOptions']">
+        Check Out
+    </button>
+    <button type="submit" class="btn btn-canel-cta btn-cancel btn-reset-customise btn-add-products" ng-click="sidepanel.closePanel()" ga="['send','event','My Cart','Add Product','In-cart']">Add More Products</button>
+</div>
+<!--#endregion-->

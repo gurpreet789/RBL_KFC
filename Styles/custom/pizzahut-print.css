@@ -1,0 +1,39 @@
+﻿@media print {
+  .modal-open div,
+  .modal-open rb-right-hand-panel,
+  .modal-open rb-forgot-password,
+  .modal-open rb-login,
+  .modal-open rb-create-login,
+  .modal-open rb-hero {
+    display: none;
+  }
+  .modal-open .modal,
+  .modal-open .modal div,
+  .modal-open .receipt {
+    display: block;
+    border: none;
+    position: relative;
+    top: 0;
+    margin: 0;
+    padding: 0;
+  }
+  .modal-open .modal a[href]:after {
+    content: "";
+  }
+  .modal .close,
+  .modal-open .modal div.modal-footer,
+  .modal-open .modal div.total,
+  .delivery-summary span,
+  .delivery-summary p,
+  .modal-open .modal i,
+  .voucherfailuremessage {
+    display: none;
+  }
+  .modal-open .modal div.panel-collapse {
+    height: auto!important;
+  }
+  /*.order-page-promo, .productTabContainer, .navbar-wrapper, .wrapper-footer, rb-right-hand-panel, rb-forgot-password, rb-login, rb-create-login, rb-hero{
+        display: none!important;
+    }*/
+}
+/*# sourceMappingURL=pizzahut-print.css.map */

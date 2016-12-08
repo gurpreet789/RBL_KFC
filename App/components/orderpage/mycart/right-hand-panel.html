@@ -1,0 +1,36 @@
+﻿<!-- #region Right Hand Panel -->
+<div class="side-panel-bg-overlay" ng-show="sidepanel.toggle" ng-click="sidepanel.closeCart(true)" ng-style="{'height': sidepanel.overLayheight}"></div>
+
+<div class="side-panel" ng-class="{'side-panel-open': sidepanel.toggle}">
+    <!-- #region Side Panel -->
+
+    <div ng-show="sidepanel.isLoading" class="cart-loading-panel ">
+        <!--<i class="fa fa-refresh fa-spin fa-3x" style="color: white; display: table; margin: 120px auto auto;"></i>-->
+    </div>
+    <!-- #endregion -->
+    <!-- #region Tab Button -->
+    <div ng-hide="!sidepanel.isEnabled">
+        <span class="tab tab-cart" ng-click="!sidepanel.isEnabled && !sidepanel.isButtonSelected(2) || sidepanel.selectButton(1)" ng-class="{'tab-selected': sidepanel.isButtonSelected(1) || sidepanel.isButtonSelected(2)}">
+            <img ng-src="{{sidepanel.ItemsInCart}}" class="side-panel-icon-selected " alt="my cart"  />
+           
+        </span>
+        <span class="tab tab-customise-pizza" ng-click="!sidepanel.isEnabled || sidepanel.selectButton(2)" ng-class="{'tab-selected': sidepanel.isButtonSelected(2)}">
+            <img ng-src="/Images/icon-customise.svg" class="side-panel-icon" alt="customise button" />
+        </span>
+    </div>
+    <!-- #endregion -->
+    <!-- #region MyCart Panel -->
+    <div class="pull-right">
+        <span class="btn-side-panel-close side-panel-close fa fa-times-circle-o" ng-click="sidepanel.closePanel(true)"></span>
+    </div>
+    <rb-cart-panel></rb-cart-panel>
+    <!-- #endregion -->
+    <!-- #region Customize Panel -->
+    <rb-customize-panel></rb-customize-panel>
+    <!-- #endregion -->
+
+
+
+
+</div>
+<!-- #endregion -->

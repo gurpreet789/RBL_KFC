@@ -1,0 +1,187 @@
+﻿<!-- Receipt -->
+
+    <meta name="Total" content="{{checkoutReceipt.receipt.order.orderTotal}}" />
+    <script>
+        (function () {
+            var _fbq = window._fbq || (window._fbq = []);
+            if (!_fbq.loaded) {
+                var fbds = document.createElement('script');
+                fbds.async = true;
+                fbds.src = '//connect.facebook.net/en_US/fbds.js';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(fbds, s);
+                _fbq.loaded = true;
+            }
+        })();
+        var value = $('[name=Total]').attr("content"); 
+        window._fbq = window._fbq || [];
+        window._fbq.push(['track', '6043029125314', { 'value': window.orderTotal+ "", 'currency': 'NZD' }]);
+    </script>
+    <noscript><img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/tr?ev=6043029125314&amp;cd[value]={{checkoutReceipt.receipt.order.orderTotal}}&amp;cd[currency]=NZD&amp;noscript=1" /></noscript>
+
+
+
+<div class="modal-content receipt" ga="['send', 'pageview', '/checkout/ThankYou']" ga-on="init">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" ng-click="checkoutReceipt.Close()">
+            <span aria-hidden="true" class="side-panel-close fa fa-times-circle-o"></span>
+        </button>
+        <h1>Thank you</h1>
+        <div class="total">
+            <p ng-show="checkoutReceipt.isDelivery">
+                <strong>Price {{checkoutReceipt.receipt.order.orderTotal | currency}} incl. delivery fee</strong>
+            </p>
+            <p ng-hide="checkoutReceipt.isDelivery">
+                <strong>Price {{checkoutReceipt.receipt.order.orderTotal | currency}}</strong>
+            </p>
+        </div>
+        <div class="customer-summary">
+            <p>
+                <strong>
+                    An email confirmation has been sent to your email address:
+                    <span class="checkoutbreakword">
+                        {{checkoutReceipt.receipt.customerEmailAddress}}
+                    </span>
+                </strong>
+            </p>
+        </div>
+    </div>
+    <div ng-show="checkoutReceipt.isLoading" class="cart-loading-panel">
+        <i class="fa fa-refresh fa-spin fa-3x" style="color: white; display: table; margin: 120px auto auto;"></i>
+    </div>
+    <div class="modal-body ">
+        <div class="delivery-info" ng-show="true">
+            <h3>Order number</h3>
+            <p>{{checkoutReceipt.receipt.order.orderId}}</p>
+            <p>Order created at {{checkoutReceipt.createdOrderTime}}</p>
+        </div>
+        <div class="delivery-store" ng-show="checkoutReceipt.orderComment">
+            <h3>Comment</h3>
+            <p class="commentWrap">
+                {{checkoutReceipt.orderComment}}
+            </p>
+        </div>
+        <div class="delivery-time" ng-show="checkoutReceipt.SelectedPickupTime">
+            <h3>{{checkoutReceipt.orderClass}} time</h3>
+            <p>
+                {{checkoutReceipt.receipt.order.dateOrderRequired | date: 'h:mm a. EEEE, dd  MMMM yyyy'}}
+            </p>
+            <p ng-show="checkoutReceipt.timeFeedbackMessage">
+                <label class="voucherfailuremessage redcolortext">{{checkoutReceipt.timeFeedbackMessage}}</label>
+            </p>
+        </div>
+        <div class="delivery-store" ng-show="checkoutReceipt.selectedStore">
+            <h3>{{checkoutReceipt.orderClass}} Store</h3>
+            <p>
+                <strong>{{checkoutReceipt.selectedStore.storeName}}</strong><br />
+                {{checkoutReceipt.selectedStore.storeAddress.buildingName.length>0 ? checkoutReceipt.selectedStore.storeAddress.buildingName +", ":"" }}
+                {{checkoutReceipt.selectedStore.storeAddress.buildingNumber.length>0 && checkoutReceipt.selectedStore.storeAddress.buildingNumber !== "0" ? checkoutReceipt.selectedStore.storeAddress.buildingNumber +" ":"" }}
+                {{checkoutReceipt.selectedStore.storeAddress.streetName.length>0 ? checkoutReceipt.selectedStore.storeAddress.streetName +", ":""}}
+                {{checkoutReceipt.selectedStore.storeAddress.district.length>0 ? checkoutReceipt.selectedStore.storeAddress.district +", ":""}}
+                {{checkoutReceipt.selectedStore.storeAddress.townCity}}
+            </p>
+            <p>Telephone: {{checkoutReceipt.selectedStore.telephoneNumber}}</p>
+        </div>
+        <accordion close-others="oneAtATime">
+            <div class="printreceipt-accordion">
+                <accordion-group is-open="true" ng-init="status.open = true">
+                    <accordion-heading>
+                        <h3>
+                            Your order summary
+                            <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
+                        </h3>
+                    </accordion-heading>
+
+                    <div class="delivery-summary">
+                        <table class="table cart-total" style="display:table;">
+                            <thead ng-show="checkoutReceipt.receipt.order.hasPizza">
+                                <tr>
+                                    <th class="text-left">Pizza</th>
+                                    <th class="text-center">Quantity</th>
+                                    <th class="text-center">Price</th>
+                                </tr>
+                            </thead>
+                            <tbody ng-show="checkoutReceipt.receipt.order.hasPizza"
+                                   ng-repeat="pizza in checkoutReceipt.receipt.order.orderItems"
+                                   ng-if="pizza.productType=='Pizza'">
+                                <tr>
+                                    <td class="orderconfirm-productwidth text-left">{{pizza.productText}}</td>
+                                    <td class="text-center">{{pizza.quantity}}</td>
+                                    <td class="text-center">{{pizza.price | currency}}</td>
+                                </tr>
+                            </tbody>
+
+                            <thead ng-show="checkoutReceipt.receipt.order.hasSides">
+                                <tr>
+                                    <th class="text-left">Sides</th>
+                                    <th class="text-center">Quantity</th>
+                                    <th class="text-center">Price</th>
+                                </tr>
+                            </thead>
+                            <tbody ng-show="checkoutReceipt.receipt.order.hasSides"
+                                   ng-repeat="side in checkoutReceipt.receipt.order.orderItems"
+                                   ng-if="side.productType=='Sides'">
+                                <tr>
+                                    <td class="orderconfirm-productwidth text-left">{{side.productText}}</td>
+                                    <td class="text-center">{{side.quantity}}</td>
+                                    <td class="text-center">{{side.price | currency}}</td>
+                                </tr>
+                            </tbody>
+
+                            <thead ng-show="checkoutReceipt.receipt.order.hasOffers">
+                                <tr>
+                                    <th class="text-left">Offers</th>
+                                    <th class="text-center">Quantity</th>
+                                    <th class="text-center">Price</th>
+                                </tr>
+                            </thead>
+                            <tbody ng-show="checkoutReceipt.receipt.order.hasOffers"
+                                   ng-repeat="offer in checkoutReceipt.receipt.order.orderItems"
+                                   ng-if="offer.productType=='Offers'">
+                                <tr>
+                                    <td class="orderconfirm-productwidth text-left">{{offer.productText}}</td>
+                                    <td class="text-center">{{offer.quantity}}</td>
+                                    <td class="text-center">{{offer.price | currency}}</td>
+                                </tr>
+                            </tbody>
+
+                            <thead ng-show="checkoutReceipt.receipt.order.hasOther">
+                                <tr>
+                                    <th class="text-left">Other</th>
+                                    <th>&nbsp;</th>
+                                    <th class="text-center">Fee</th>
+                                </tr>
+                            </thead>
+                            <tbody ng-show="checkoutReceipt.receipt.order.hasOther"
+                                   ng-repeat="other in checkoutReceipt.receipt.order.orderItems"
+                                   ng-if="other.productType=='Other'">
+                                <tr>
+                                    <td class="orderconfirm-productwidth text-left">{{other.productText}}</td>
+                                    <td>&nbsp;</td>
+                                    <td class="text-center">{{other.productText=='Voucher' ? '-' : ''}}{{other.price | currency}}</td>
+                                </tr>
+                            </tbody>
+
+                            <tfoot>
+                                <tr>
+                                    <td class="text-left">Total</td>
+                                    <td>&nbsp;</td>
+                                    <td class="text-center">{{checkoutReceipt.receipt.order.orderTotal | currency}}</td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </accordion-group>
+            </div>
+        </accordion>
+        <div class="delivery-summary" ng-hide="checkoutReceipt.isLoggedIn">
+            <p>
+                Don't like filling in forms? For faster ordering save your details <a href="#" title="" class="btn-create-login" ng-click="checkoutReceipt.Close();" data-toggle="modal" data-target="#register-dialog" data-dismiss="modal"> Register here</a>
+            </p>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-canel-cta" data-dismiss="modal" ng-click="checkoutReceipt.Close()">Close</button>
+        <button class="btn btn-primary-cta btn-print-receipt" ng-click="checkoutReceipt.printReceipt()" ga="['send','event','Checkout','Print Receipt','Thank you']"><i class="fa fa-print"></i>Print this receipt</button>
+    </div>
+</div>

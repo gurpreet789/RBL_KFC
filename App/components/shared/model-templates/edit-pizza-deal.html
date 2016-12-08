@@ -1,0 +1,25 @@
+﻿<div class="modal-header">
+    <button type="button" class="close" ng-click="close()">
+        <span aria-hidden="true" class="side-panel-close fa fa-times-circle-o"></span>
+    </button>
+    <h1>Which item do you want to delete?</h1>
+</div>
+
+<div class="modal-body">
+    
+    <p ng-show="showError">Please select an item to delete</p>
+
+    <p ng-repeat="item in items">
+
+        <input type="checkbox"
+               name="selectedFruits[]"
+               value="{{item.productName}}"
+               ng-model="item.selected"> {{item.productName}} <span ng-show="item.currentChangeCount > 1">(customised)</span>
+
+    </p>
+</div>
+
+<div class="modal-footer ng-scope">
+    <button class="btn btn-primary" ng-click="yes()">Yes</button>
+    <button class="btn btn-warning" ng-click="no()">No</button>
+</div>

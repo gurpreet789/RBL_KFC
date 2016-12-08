@@ -1,0 +1,25 @@
+﻿<div class="modal-header">
+
+    <button type="button" class="close" ng-click="close()">
+        <span aria-hidden="true" class="side-panel-close fa fa-times-circle-o"></span>
+    </button>
+
+    <h1>{{title}}</h1>
+</div>
+
+<div class="modal-body">
+
+    <span ng-if="message == ''">
+        Are you sure?
+    </span>
+    
+    <span ng-if="message != ''">
+        {{message}}
+    </span>
+
+</div>
+
+<div class="modal-footer ng-scope">
+    <button class="btn btn-canel-cta" ng-click="yes()">Yes</button>
+    <button class="btn btn-primary-cta" ng-click="no()">No</button>
+</div>

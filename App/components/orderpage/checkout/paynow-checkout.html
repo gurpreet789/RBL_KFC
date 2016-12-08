@@ -1,0 +1,28 @@
+﻿<!-- Receipt -->
+<div class="modal-content" ng-show="checkoutPayNow.showModal">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" ng-click="checkoutPayNow.Close()">
+            <span aria-hidden="true" class="side-panel-close fa fa-times-circle-o"></span>
+        </button>
+        <h1>Payment</h1>
+        <div class="total">
+            <p ng-show="checkoutPayNow.isDelivery">
+                <strong>Price {{checkoutPayNow.totalPrice|currency}} incl. delivery fee</strong>
+            </p>
+            <p ng-hide="checkoutPayNow.isDelivery">
+                <strong>Price <span> {{checkoutPayNow.totalPrice|currency}} </span></strong>
+            </p>
+        </div>
+        <div class="customer-summary">
+            <p><strong>Please complete all fields and do not close or reload this page until payment complete</strong></p>
+        </div>
+    </div>
+    <div id="payment-loading" class="cart-loading-panel">
+        <i class="fa fa-refresh fa-spin fa-3x" style="color: white; display: table; margin: 120px auto auto;"></i>
+    </div>
+    <div class="modal-body">
+        <div class="embed-responsive embed-responsive-16by9 paynow-iframe-container">
+            <iframe id="paymentFrame" class="embed-responsive-item paynow-iframe" scrolling="no" ng-src="{{checkoutPayNow.trustSrc(checkoutPayNow.paymentURL)}}" iframe-onload="onloadCallback()"></iframe>
+        </div>
+    </div>
+</div>

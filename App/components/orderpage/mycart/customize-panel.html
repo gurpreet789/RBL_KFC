@@ -1,0 +1,199 @@
+﻿<div class="customise-pizza" ng-show="sidepanel.isButtonSelected(2)" style="display: block; min-height: 300px;">
+    
+    <div ng-show="vm.hasPizza">
+        <div  class="side-panel-close-allignment">
+            <h2 class="carttopping">{{ vm.mainProductName }}</h2>
+        </div>
+<!--StephenW - KFC	Start
+		<div class="total">
+            <p>Price per Pizza <span>${{ vm.data.price }}</span></p>
+        </div>
+-->
+
+        <div class="total">
+            <p>Order Price <span>${{ vm.data.price }}</span></p>
+        </div>		
+		
+
+        <div class="primary-cta" ng-show="!vm.isDeal">
+            <button type="button" class="btn btn-primary-cta btn-add-to-cart" ng-click="vm.completeOrder()" ga="['send','event','My Cart','Update Cart','In-cart']">{{ vm.cartButtonLabel }}</button>
+            <button type="button" class="btn btn-canel-cta btn-cancel btn-reset-customise" ng-click="vm.cancelOrder()">Cancel</button>
+        </div>
+        
+        <div class="primary-cta" ng-show="vm.isDeal">
+            <button type="button" class="btn btn-primary-cta btn-add-to-cart" ng-click="vm.completeCustomise()" ga="['send','event','My Cart','Update Cart','In-cart']">{{ vm.cartButtonLabel }}</button>
+            <button type="button" class="btn btn-canel-cta btn-cancel btn-reset-customise" ng-click="vm.cancelOrder()">Cancel</button>
+        </div>
+
+        <div class="half-and-half">
+
+                
+            <table class="table select-pizza-options">
+                <tbody>
+                
+                    <tr ng-show="vm.data.isHalfAndHalf">
+                        <td><label>Section</label></td>
+                        <td>
+
+                            <select class="form-control "
+                                    ng-change="vm.changeSection()"
+                                    ng-model="vm.selectedSection"
+                                    ng-options="item as item.description for item in vm.data.sections"></select>
+            
+                        </td>
+                    </tr>
+
+                    <tr ng-show="vm.data.isHalfAndHalf">
+                        <td><label>Speciality</label></td>
+                        <td>
+
+                            <select class="form-control "
+                                    ng-change="vm.changeSpeciality()"
+                                    ng-model="vm.selectedSpeciality"
+                                    ng-options="item as item.title for item in vm.data.specialities"></select>
+
+                        </td>
+                    </tr>
+
+                    <tr ng-show="!vm.isDeal">
+                        <td><label for="Quantity">Quantity</label></td>
+                        <td>
+
+                            <select class="form-control "
+                                    ng-model="vm.quantity"
+                                    ng-options="item as item for item in vm.qyantityItems"></select>
+
+                        </td>
+                    </tr>
+					
+				<!--StephenW - KFC	Start        	
+                <tr>
+                    <td><label for="PizzaSize">Size</label></td>
+                    <td>
+                        
+                        <select class="form-control "
+                                ng-model="vm.selectedSize"
+                                ng-change="vm.changeSize()"
+                                ng-options="item as item.description for item in vm.data.sizes"></select>
+
+                    </td>
+
+                </tr>
+				
+				-->
+				
+				                <tr>
+
+					<!--StephenW - KFC	Start        
+					<td><label for="PizzaBase">Base</label></td>
+					-->
+					
+					<td><label for="PizzaBase">Fillet</label></td>
+					
+					
+                    <td>
+
+                        <select class="form-control "
+                                ng-model="vm.selectedBase"
+                                ng-change="vm.changeBaseType()"
+                                    ng-options="item as item.title for item in vm.data.baseTypes"></select>
+
+                    </td>
+                </tr>
+				
+				
+                <tr>
+                <tr>
+                    <td><label for="PizzaSauce">Sauce</label></td>
+                    <td>
+
+                        <select class="form-control "
+                                ng-disabled="vm.data.isHalfAndHalf"
+                                ng-model="vm.selectedSauce"
+                                ng-change="vm.changeSauce()"
+                                ng-options="item as item.title for item in vm.data.defaultState.sauces"></select>
+
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+
+        <div class="toppings-filter">
+
+		<!--StephenW - KFC	Start        
+            <h2>Current Toppings</h2>
+			-->
+			
+		<h2>Current Fillings</h2>	
+			
+            <div class="extra-toppings">
+                
+                <button type="button"
+                        ng-disabled="vm.data.isHalfAndHalf"
+                        class="btn btn-selected btn-extra-topping"
+                        ng-click="vm.removeTopping(item.productToppingId, item.parentProductToppingGroupId)"
+                        ng-repeat="item in vm.data.defaultState.selectedToppings track by item.productToppingId">
+                    {{item.title}} +${{item.price}}
+                    <i class="fa fa-times" ng-hide="vm.data.isHalfAndHalf"></i>
+                </button>
+                
+                <span ng-show="vm.canselectExtraTopping"
+                      class="topping-lmit"> Reached the limit of maximum toppings.</span>
+
+            </div>
+                <div 
+                    class="add-toppings-list" 
+                    ng-hide="vm.data.isHalfAndHalf">
+
+					<!--StephenW - KFC	Start        
+                    <h2>Additional Toppings</h2>
+					-->
+				 <h2>Additional Fillings</h2>
+					
+                    <select ng-disabled="vm.canChangeToppings"
+                            class="form-control "
+                            ng-model="vm.selectedTopping"
+                            ng-change="vm.addTopping(item.productToppingId, item.parentProductToppingGroupId)"
+                            ng-options="item as item.dropdownDisplay for item in vm.data.toppings"><option value="" disabled selected>- Select Your Topping -</option></select>
+
+            </div>
+        </div>
+
+<!--StephenW - KFC	Start        
+            <div class="total">
+                <p>Price per Pizza <span>${{vm.data.price}}</span></p>
+            </div>
+			-->
+			
+            <div class="total">
+                <p>Order Price  <span>${{vm.data.price}}</span></p>
+            </div>			
+			
+
+            <div class="primary-cta" ng-show="!vm.isDeal">
+                <button type="button" class="btn btn-primary-cta btn-add-to-cart" ng-click="vm.completeOrder()">{{ vm.cartButtonLabel }}</button>
+                <button type="button" class="btn btn-canel-cta btn-cancel btn-reset-customise" ng-click="vm.cancelOrder()">Cancel</button>
+            </div>
+
+            <div class="primary-cta" ng-show="vm.isDeal">
+                <button type="button" class="btn btn-primary-cta btn-add-to-cart" ng-click="vm.completeCustomise()">{{ vm.cartButtonLabel }}</button>
+                <button type="button" class="btn btn-canel-cta btn-cancel btn-reset-customise" ng-click="vm.cancelOrder()">Cancel</button>
+            </div>
+
+
+        <div class="upsell">
+            <article class="promotion happy-hour">
+                <object type="image/svg+xml" data="/Images/happy-hour.svg" class="promotion-icon"></object>
+                <div>
+                    <h1>Happy hour</h1>
+                    <p>Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur se.</p>
+                    <a href="#" title="">Find out more<i class="fa fa-chevron-right"></i></a>
+                </div>
+            </article>
+        </div>
+        </div>
+    
+    </div>
+</div>
+    

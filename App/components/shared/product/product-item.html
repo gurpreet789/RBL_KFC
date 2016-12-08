@@ -1,0 +1,33 @@
+﻿<div class="card">
+    <div class="face front">
+        <div>
+            <img class="product" preload-image default-image="/Images/missing-image.png" fallback-image="/Images/missing-image.png" ng-src="{{::productItemController.productItem.imageSource}}"
+                 style="width: 250px; height: 150px;" alt="{{::productItemController.productItem.ingredients}}" />
+            <h2>{{::productItemController.productItem.name | characters:25}}</h2>
+            <h3 ng-show="canShowPrice">${{::productItemController.productItem.price | number:2}}</h3>
+            <p class="flip-me">Tell me more<span class="fa fa-chevron-right"></span></p>
+            <span class="info hide"
+                  data-displayorder="{{productItemController.productItem.displayOrder}}"
+                  data-newdisplayorder="{{productItemController.productItem.newDisplayOrder}}"
+                  data-bestdisplayorder="{{productItemController.productItem.bestSellerDisplayOrder}}"
+                  data-validity="{{productItemController.productItem.validity}}"></span>
+        </div>
+        <div class="order-product" ng-transclude>
+        </div>
+    </div>
+    <div class="face back">
+        <div class="title">
+            <p class="flip-me"><span class="fa fa-times-circle"></span></p>
+            <h2>{{::productItemController.productItem.name | characters: 25}}</h2>
+            <h3>${{::productItemController.productItem.price | number:2}}</h3>
+        </div>
+        <div class="description">
+            <ul>
+                <li></li>
+            </ul>
+            <p>{{::productItemController.productItem.ingredients}}</p>
+        </div>
+        <div class="order-product" ng-transclude>
+        </div>
+    </div>
+</div>

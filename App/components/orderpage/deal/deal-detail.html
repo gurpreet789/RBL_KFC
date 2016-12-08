@@ -1,0 +1,96 @@
+﻿<div class="container product-list deals-detail" data-ng-init="dealDetail.initialise()">
+
+    <div class="deals-loading-overlay bgloader"
+         ng-show="dealDetail.isloading">
+
+    </div>
+
+    <div class="deal-item" ng-show="dealDetail.isInitialised">
+        <h1>
+            ${{dealDetail.deal.dealPrice | number:2}} {{dealDetail.deal.title}}
+            <sup>
+                <a ng-click="dealDetail.cancelDeal()" ng-href="#">
+                    <span class="deal-close fa fa-times-circle-o deal-delete"></span>
+                </a>
+            </sup>
+        </h1>
+    </div>
+
+    <span class="dealssubhead"> {{dealDetail.deal.description}}</span>
+
+    <div class="deal-detail">
+
+        <accordion close-others="true">
+
+            <accordion-group ng-repeat="section in dealDetail.deal.steps" is-open="section.isOpen">
+
+                <accordion-heading>
+                    <h3 class="accordion-title" style="min-height:40px" ng-class="{'open': section.isOpen, 'selected': section.selectedStepCount == section.totalStepCount}">
+                        <div style="  width: 92%;float: left;">
+                            <i class="check-field custom-check check-field-completed check-selected"
+                               ng-show="section.selectedStepCount == section.totalStepCount" style="padding-left:5px"></i>
+                            {{section.name}}
+                        </div>
+
+                        <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': section.isOpen, 'glyphicon-chevron-right': !section.isOpen}" style="float:left"></i>
+
+
+                    </h3>
+                </accordion-heading>
+
+
+                <div class="row row-1">
+                    <div class="col-lg-3 col-sm-6 col-xs-12 product flip" ng-repeat="product in section.products" ng-class="{'disabled': !product.isSelected && section.selectedStepCount == section.totalStepCount}">
+
+                        <div class="deal-delete-popup-container" ng-if="product.isSelected && product.canShowRemoveButton">
+                            <div class="deal-delete-popup">
+                                <span class="btn-side-panel-close side-panel-close fa fa-times-circle-o deal-edit-button"
+                                      ng-click="dealDetail.removeProduct(product,section)"
+                                      ng-show="product.canShowRemoveButton"></span>
+
+                                <span class="glyphicon glyphicon-pencil deal-close-button"
+                                      ng-click="dealDetail.editCustomisedProduct(product)"
+                                      ng-show="product.productType == 1"></span>
+                            </div>
+                        </div>
+                        <p class="productType ng-hide">  {{product.productType}}</p>
+                        <rb-product-item b-item="product" is-deal="true">
+
+                            <a class="btn-customise"
+                               ng-href="#"
+                               ng-disabled="section.selectedStepCount == section.totalStepCount"
+                               ng-click="dealDetail.startCustomise(product)"
+                               ng-show="product.productType == 1" ga="['send','event','Menu','Customise','In-menu']">
+                                Customise
+                            </a>
+            
+                            <a class="btn-quick-order btn-canel-cta btnaddtodeal btn btn-quick-order"
+                               ng-show="product.productType == 1"
+                               ng-disabled="section.selectedStepCount == section.totalStepCount"
+                               ng-click="dealDetail.addToDeal(product,section)" ga="['send','event','Menu','Add Deal','Deals']">
+                                Add to deal
+                            </a>
+
+                            <a class="btn-quick-order btn-canel-cta btnaddtodeal btn btn-quick-order"
+                               ng-show="product.productType == 2"
+                               ng-disabled="section.selectedStepCount == section.totalStepCount"
+                               ng-click="dealDetail.addSideToDeal(product,section)" ga="['send','event','Menu','Add Deal','Deals']">
+                                Add to deal
+                            </a>
+
+                        </rb-product-item>
+                    </div>
+                </div>
+
+            </accordion-group>
+
+        </accordion>
+
+    </div>
+
+
+</div>
+
+
+
+

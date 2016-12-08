@@ -1,0 +1,96 @@
+﻿<p class="welcome-back burgermenu-username" ng-if="burgermenu.model.isLoggedIn">
+    <a target="_self" href="/myaccount">
+        Welcome back<br />
+        <span class="usernamewrap">
+            {{burgermenu.model.customername | formattedusername:20 :true }}
+        </span>
+    </a>
+</p>
+<ul style="clear:both">
+    <li class="burger-title">
+        <p> Menu</p>
+    </li>
+    <li ng-click="selectSection('pizzas')">
+        <a>Pizza</a>
+        <i class="pull-right fa fa-angle-right" />
+    </li>
+    <li ng-click="selectSection('new-products')">
+        <a>New</a>
+        &nbsp;
+        <span class="display-num" ng-if="burgermenu.model.newProductCount >0"> {{burgermenu.model.newProductCount}}</span>
+        <i class="pull-right fa fa-angle-right" />
+    </li>
+    <li ng-class="{'opened' : burgermenu.model.isDealOpened}">
+        <accordion close-others="oneAtATime">
+            <accordion-group is-open="status.open">
+                <accordion-heading>
+                    <h3 ng-click="DealOpened()">
+                        <span class="accordion-title">
+                            Deals
+                        </span>
+                        <i class="pull-right fa" ng-class="{'fa fa-angle-up': status.open, 'fa fa-angle-down': !status.open}"></i>
+                    </h3>
+                </accordion-heading>
+
+                <div ng-click="subMenu('deals','pickup')" class="submenu-height">
+                    <a class="paddingbottom">Pickup deals</a>
+                    <i class="pull-right fa fa-angle-right" />
+                </div>
+                <div ng-click="subMenu('deals','delivery')" class="submenu-item-padding">
+                    <a class="paddingbottom">Delivery deals</a>
+                    <i class="pull-right fa fa-angle-right" />
+                </div>
+            </accordion-group>
+        </accordion>
+    </li>
+    <!--<li ng-click="selectSection('deals')">
+        <a>Deals</a>
+        <i class="pull-right fa fa-angle-right" />
+    </li>-->
+    <li style="border-bottom:none" class="no-close">
+        <accordion close-others="oneAtATime">
+            <accordion-group is-open="status.open">
+                <accordion-heading>
+                    <h3>
+                        <span class="accordion-title">
+                            Sides
+                        </span>
+                        <i class="pull-right fa" ng-class="{'fa fa-angle-up': status.open, 'fa fa-angle-down': !status.open}"></i>
+                    </h3>
+                </accordion-heading>
+                <div ng-click="subMenu('sides','foodandsauces')" class="submenu-height">
+                    <a class="paddingbottom">Food & Sauces</a>
+                    <i class="pull-right fa fa-angle-right" />
+                </div>
+                <div ng-click="subMenu('sides','drinks')" class="submenu-item-padding">
+                    <a class="paddingbottom">Drink</a>
+                    <i class="pull-right fa fa-angle-right" />
+                </div>
+            </accordion-group>
+        </accordion>
+    </li>
+    <li class="menu-item stores-menu textcolor bottom-link">
+        <a target="_self" href="#" ng-click="burgermenu.trackAndRedirect('/opening-hours.html','Footer','Stores','Stores')">Stores </a>
+    </li>
+    <li class="menu-item textcolor bottom-link" ng-show="!burgermenu.model.isLoggedOut" data-toggle="modal" data-target="#login-dialog" ng-click="loadSpecialMenu()">Login </li>
+    <li class="menu-item textcolor bottom-link" ng-show="burgermenu.model.isLoggedIn" ng-click="burgermenu.onLogOut()">Logout </li>
+		                    <!--StephenW - add help to the top bar-->	
+	    <li class="menu-item stores-menu textcolor bottom-link">
+        <a target="_self" href="https://gem.desk.com/?b_id=13881">Help </a>
+		                    <!--StephenW - add help to the top bar-->	
+    </li>
+	
+	
+	
+	
+</ul>
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,24 @@
+﻿@using RB.PizzaHut.Common.Extensions;
+
+@{
+    Layout = null;
+}
+
+<rb-hero container-class="order-page-promo" show-deal="false"></rb-hero>
+
+<!-- Four columns Deals -->
+<div class="container ">
+
+    @Html.RenderHtmlFile("~/App/components/myaccountpage/myaccount-header/myaccount-header.html")
+
+    <div class="col-lg-6 col-sm-9 col-xs-12 my-account my-account-desktop">
+
+        <rb-contact-details></rb-contact-details>
+
+        <rb-edit-password></rb-edit-password>
+
+        <rb-address-list></rb-address-list>
+    </div>
+</div>
+
+<br />

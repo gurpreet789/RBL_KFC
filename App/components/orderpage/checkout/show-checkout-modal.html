@@ -1,0 +1,315 @@
+﻿<div class="modal-content" ng-show="checkOutOptions.showModal">
+    <div ng-show="checkOutOptions.isLoading" class="cart-loading-panel">
+        <i class="fa fa-refresh fa-spin fa-3x" style="color: white; display: table; margin: 120px auto auto;"></i>
+    </div>
+    <form id="pickupForm" name="pickup" novalidate ng-submit="pickup.$valid && pickup.submit()">
+        <div class="modal-body modal-body-padding">
+            <div class="model-checkout-padding">
+                <button type="button" class="close" ng-click="checkOutOptions.Close();"><span aria-hidden="true" class="side-panel-close fa fa-times-circle-o"></span></button>
+                <div class="ng-hide" ng-show="checkOutOptions.user.hasOwnProperty('firstName')">
+                    <h1 class="username breakword">Hi {{checkOutOptions.user.firstName}} {{checkOutOptions.user.lastName}},</h1>
+                    <p style="display: table; margin: auto; text-align: center">
+                        Please make sure your order options shown are correct.
+                    </p>
+                </div>
+                <div class="ng-hide" ng-show="!checkOutOptions.user.hasOwnProperty('firstName')">
+                    <h1 class="username checkoutpheaderpadding">PICK UP OR DELIVERY</h1>
+                    <p style="display: table; margin: auto; text-align: center">
+                        HAVE A PIZZA HUT ACCOUNT? <br />
+                        <a class="btn-login" role="button" href="javascript:void(0)" data-toggle="modal" data-target="#login-dialog" data-dismiss="modal" ng-click="checkOutOptions.Close();" ga="['send','event','Checkout','Sign In','Login']">Sign in</a> to quickly access information saved to your account.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Choose Pickup / Delivery-->
+            <div class="checkoutHeadingBackground">
+                <div class="order-type">
+                    <div class="pickup" ng-class="{'order-type-selected':checkOutOptions.isPickup}" ng-click="checkOutOptions.SetPickup()" ga="['send','event','Checkout','Pickup','Checkout']">
+                        <span class="fa pickup-icon"></span>
+                        <p class="pickUpText" style="clear:both">Pickup</p>
+                    </div>
+                    <div class="delivery" ng-class="{'order-type-selected':checkOutOptions.isDelivery}" ng-click="checkOutOptions.SetDelivery()" ga="['send','event','Checkout','Delivery','Checkout']">
+                        <span class="fa fa-automobile"></span>
+                        <p class="pickUpText" style="clear:both;margin-bottom:0">
+                            Delivery
+                        </p>
+                        <span style="clear: both; font-size: 12px; text-align: center">Delivery fee applies <!--${{checkOutOptions.deliveryPrice}}--></span>
+                    </div>
+                </div>
+            </div>
+            <div class="model-checkout-padding">
+                <div id="checkoutpopupheader" ng-show="pickup.$invalid || checkOutOptions.invalidBasketAmount > 0 || checkOutOptions.minimumDelivery <= 0 || !checkOutOptions.validStores || !checkOutOptions.isValidTimeSlot || checkOutOptions.isMissingDeliveryTimeSlot || checkOutOptions.isServiceNotAvailable">
+                    <p class="ng-hide">You've choosen a deal for pickup only.</p>
+                    <p class="ng-hide" ng-show="checkOutOptions.isDelivery && !checkOutOptions.isAllowDelivery">Your cart did not reach the $20 minimum order including delivery fee.</p>
+                    <p class="ng-hide" ng-show="!checkOutOptions.validStores && !checkOutOptions.isDelivery">Cannot find store in your area.</p>
+                    <p class="ng-hide" ng-show="!checkOutOptions.validStores && checkOutOptions.isDelivery">We're sorry; we are unable to locate a store in this area for delivery.</p>
+                    <p ng-hide="checkOutOptions.invalidProductsName.length <= 0 || !checkOutOptions.validStores">
+                        <strong ng-repeat="invalidProd in checkOutOptions.invalidProductsName">{{invalidProd}}{{$last ? ' ' : ', '}}</strong>is not available at <strong>{{checkOutOptions.store.storeName}}</strong>.
+                        <a href="javascript:void(0);" ng-click="checkOutOptions.RemoveInvalidProductFromBasket()">Click here to remove</a>
+                    </p>
+                    <p class="ng-hide" ng-show="!checkOutOptions.isValidTimeSlot && !checkOutOptions.isMissingDeliveryTimeSlot && !checkOutOptions.isServiceNotAvailable && checkOutVm.isNotAllowASAP">Time slot is not available for the selected date. Please select another date.</p>
+                    <p class="ng-hide" ng-show="checkOutOptions.isServiceNotAvailable">We're sorry; {{checkOutOptions.isPickup?"pickup":"delivery"}} service is currently unavailable in this store.</p>
+                    <p class="ng-hide" ng-show="checkOutOptions.isMissingDeliveryTimeSlot">You have lost your delivery time slot. Please confirm your delivery time again.</p>
+                </div>
+                <a class="centerallign"
+                   ng-if="(checkOutOptions.isDelivery && !checkOutOptions.isAllowDelivery) || !checkOutOptions.hasProductsInCart"
+                   ng-click="checkOutOptions.AddProductCancelCheckout()"
+                   href="javascript:void(0);">Change your order now</a>
+                <!-- End-->
+                <!-- Choose Store-->
+                <div class="choose-region" ng-hide="!checkOutOptions.hasProductsInCart">
+                    <div class="choose-district ng-hide container-fluid no-gutter" ng-show="checkOutOptions.isPickup">
+                        <label for="pickup-district">Your Suburb<span>*</span></label>
+                        <label ng-show="checkOutOptions.customerAddressPickup.$touched && checkOutOptions.customerAddressPickup.$error.required" class="errorMessage">Suburb or City must be entered.</label>
+                        <div class="input-group">
+                            <input type="text" id="pickup-district" class="form-control district" placeholder="Suburb or City must be entered." name="district" ng-model="checkOutOptions.customerAddressPickup"
+                                   ng-required="checkOutOptions.isPickup"
+                                   pickup-district>
+                            <div class="input-group-addon button">
+                                <button ng-click="checkOutOptions.GetStoreByDistrict(checkOutOptions.customerAddressPickup)" ng-disabled="checkOutOptions.customerAddressPickup.$invalid" class="btn btn-secondary-cta btn-search-district padding-desktop" type="submit" ga="['send','event','Checkout','Find Store','Checkout']">Find Store</button>
+                                <span class="padding-desktop-check-icon">
+                                    <i ng-hide="checkOutOptions.customerAddressPickup.$touched && checkOutOptions.customerAddressPickup.$error.required" ng-class="{ 'check-field-completed' : checkOutOptions.customerAddressPickup.$valid && !checkOutOptions.customerAddressPickup.$error.required}" class="check-field fa fa-check-circle-o"></i>
+                                    <i ng-show="checkOutOptions.customerAddressPickup.$touched && checkOutOptions.customerAddressPickup.$error.required" class="glyphicon glyphicon-exclamation-sign exclamation-mark"></i>
+                                </span>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="choose-district ng-hide" ng-show="checkOutOptions.isDelivery && checkOutOptions.isAllowDelivery && !checkOutOptions.user.hasOwnProperty('firstName')">
+                        <label for="address1">Your address <span>*</span></label>
+                        <div class="addressHelperText">
+                            <span>Address format: Flat no. or Unit no. or Building no., Street Address, Suburb, City. </span>
+                            <i class="fa fa-info-circle" data-toggle="tooltip" rb-display-tooltip data-placement="top" data-html="true" data-original-title="<b>ADDRESS EXAMPLES</b><ul><li>5/666 Great South Road, Penrose, Auckland</li><li>Unit 3, 666 Great South Road, Penrose, Auckland</li></ul>"></i>
+                        </div>
+                        <label class="errorMessage" ng-show="pickup.hiddenAddressValue.$invalid && pickup.address1.$dirty">Invalid Address.</label>
+                        <label class="errorMessage" ng-show="pickup.address1.$error.required && pickup.address1.$touched">Your address is required.</label>
+                        <input type="text" class="form-control ui-autocomplete-input" placeholder="No., Street Address, Suburb, City" id="address1" name="address1"
+                               ng-model="checkOutOptions.customerAddressWorking"
+                               typeahead="address for address in checkOutOptions.onAddressFind()"
+                               typeahead-min-length="3"
+                               typeahead-wait-ms="150"
+                               typeahead-on-select="checkOutOptions.onAddressSelected($item, $model, $label)"
+                               ng-change="checkOutOptions.ResetOnInvalid(pickup.address1.$invalid)"
+                               autocomplete="off"
+                               ng-required="checkOutOptions.isDelivery">
+                        <input type="text"
+                               ng-model="checkOutOptions.customerAddress"
+                               class="ng-hide"
+                               id="hiddenAddressValue"
+                               name="hiddenAddressValue"
+                               ng-required="(checkOutOptions.customerAddressWorking.length>0 && pickup.address1.$dirty)" />
+                        <i class=" check-field fa fa-check-circle-o"
+                           ng-class="{ 'check-field-completed' : pickup.hiddenAddressValue.$valid && checkOutOptions.customerAddressWorking.length>0 }"
+                           ng-hide="pickup.hiddenAddressValue.$invalid || (pickup.address1.$touched && pickup.address1.$invalid)"></i>
+                        <i class="glyphicon glyphicon-exclamation-sign exclamation-mark"
+                           ng-show="pickup.hiddenAddressValue.$invalid ||(pickup.address1.$touched && pickup.address1.$invalid)"></i>
+                    </div>
+
+                    <div class="choose-district ng-hide container-fluid no-gutter" ng-show="checkOutOptions.isDelivery && checkOutOptions.isAllowDelivery && checkOutOptions.user.hasOwnProperty('firstName')">
+                        <label for="loggedInAddress">Your address <span>*</span></label>
+                        <label ng-show="pickup.userAddress.$touched && pickup.userAddress.$error.required" class="errorMessage">Address must be selected.</label>
+
+                        <select class="form-control"
+                                id="loggedInAddress" name="userAddress"
+                                ng-change="checkOutOptions.onAddressSelected(checkOutOptions.customerAddresses.fullAddress, checkOutOptions.customerAddresses)" ng-model="checkOutOptions.customerAddresses"
+                                ng-disabled="checkOutOptions.user.customerAddressList.length<=0"
+                                ng-model-options="{updateOn:'default blur', getterSetter: true}"
+                                ng-options="address.fullAddress for address in checkOutOptions.user.customerAddressList track by address.addressId"
+                                required>
+                            <option value="" selected>Please select</option>
+                        </select>
+                        <i ng-hide="pickup.userAddress.$touched && pickup.userAddress.$invalid" ng-class="{ 'check-field-completed' : pickup.userAddress.$valid}" class="check-field fa fa-check-circle-o"></i>
+                        <i ng-show="pickup.userAddress.$touched && pickup.userAddress.$invalid" class="glyphicon glyphicon-exclamation-sign exclamation-mark"></i>
+                    </div>
+
+                    <div class="choose-store" ng-hide="checkOutOptions.isDelivery && !checkOutOptions.isAllowDelivery">
+                        <label for="ChooseStore2CooseStore">
+                            <strong class="ng-hide" ng-show="checkOutOptions.isPickup">Choose </strong>
+                            <strong class="ng-hide" ng-show="checkOutOptions.isDelivery">Your </strong>
+                            Store <span>*</span>
+                            <a href="javascript:void(0);" class="fa fa-map-marker toggle-map ng-hide" ng-hide="checkOutOptions.stores.length<=0" ng-click="checkOutOptions.ShowMapToggle();" ga="['send','event','Checkout','Show Map','Checkout']"><i>{{checkOutOptions.isShowMap?"Hide":"Show"}} map</i></a>
+                        </label>
+                        <label ng-show="pickup.storeId.$touched && pickup.storeId.$error.required" class="errorMessage">Store must be selected.</label>
+                        <div id="map" class="google-map" ng-show="checkOutOptions.isShowMap">google map here</div>
+                        <select class="form-control"
+                                id="ChooseStore2CooseStore" name="storeId"
+                                ng-change="checkOutOptions.ChangeStore(store);checkOutOptions.ShowInfoWindowMap();"
+                                ng-model="store"
+                                ng-disabled="checkOutOptions.stores.length<1"
+                                ng-model-options="{updateOn:'default blur', getterSetter: true}"
+                                ng-options="store.storeName for store in checkOutOptions.stores track by store.storeId"
+                                required>
+                            <option value="">Please select</option>
+                        </select>
+                        <i ng-hide="pickup.storeId.$touched && pickup.storeId.$invalid" ng-class="{ 'check-field-completed' : pickup.storeId.$valid}" class="check-field fa fa-check-circle-o button-margin"></i>
+                        <i ng-show="pickup.storeId.$touched && pickup.storeId.$invalid" class="glyphicon glyphicon-exclamation-sign exclamation-mark button-margin"></i>
+
+                        <div class="select-time ng-hide" ng-show="checkOutOptions.pickupDates.length>0">
+                            <div class="store-close-info ng-hide" ng-show="(checkOutOptions.isStoreClosed && !checkOutOptions.isServiceNotAvailable) || !checkOutOptions.isValidTimeSlot">
+                                
+                                <span ng-if="checkOutOptions.isDayClosed"><i class="glyphicon glyphicon-info-sign"></i>&nbsp;&nbsp;&nbsp;{{checkOutOptions.store.storeName}} store is closed for today.</span>
+                                <span ng-if="!checkOutOptions.isDayClosed && checkOutOptions.isAfterClosingTime"><i class="glyphicon glyphicon-info-sign"></i>&nbsp;&nbsp;&nbsp;We're sorry; this store is now closed{{checkOutOptions.isPickup?"":" for delivery service"}}. A time for tomorrow can be selected.</span>
+                                <span ng-if="!checkOutOptions.isDayClosed && checkOutOptions.isBeforeOpenTime && !checkOutOptions.isDelivery"><i class="glyphicon glyphicon-info-sign"></i>&nbsp;&nbsp;&nbsp;We're sorry; this store is currently closed.</span>
+                                <span ng-if="!checkOutOptions.isDayClosed && checkOutOptions.isBeforeOpenTime && checkOutOptions.isDelivery"<i class="glyphicon glyphicon-info-sign"></i>>&nbsp;&nbsp;&nbsp;Delivery service for {{checkOutOptions.store.storeName}} store is available later today.</span>
+                                <span ng-if="!checkOutOptions.isValidTimeSlot && checkOutOptions.isDelivery"><i class="glyphicon glyphicon-info-sign"></i>&nbsp;&nbsp;&nbsp;No available time slot for selected date in {{checkOutOptions.store.storeName}} store.</span>
+                                
+                            </div>
+
+                            <div class="store-close-info ng-hide" ng-show="checkOutOptions.totalPrice < 10">
+                                <span><i class="glyphicon glyphicon-info-sign"></i> &nbsp;&nbsp;&nbsp;{{checkOutOptions.creditMessage}}</span>
+                            </div>
+
+                            <div class="pickupoption clearfix ng-hide" ng-show="checkOutOptions.isPickup">
+                                <label class="clearboth">Choose your pickup option</label>
+                                <div class="clearboth">
+                                    <p class="pull-left asspborder" ng-class="{'pickup-selected':checkOutOptions.isASAP && !checkOutOptions.isNotAllowASAP, 'disabled': checkOutOptions.isNotAllowASAP}" id="asappickup" ng-click="checkOutOptions.isNotAllowASAP || checkOutOptions.SetPickupOptionASAP()" ga="['send','event','Checkout','ASAP','Pickup Option']">
+                                        <span class="glyphicon glyphicon-ok pull-left pickup-icon"></span>
+                                        <span class="pull-left">ASAP</span>
+                                    </p>
+                                    <p class="pull-left" id="laterpickup" ng-class="{'pickup-selected':checkOutOptions.isLater}" ng-click="checkOutOptions.isLater || checkOutOptions.SetPickupOtptionLater()" ga="['send','event','Checkout','LATER','Pickup Option']">
+                                        <span class="glyphicon glyphicon-ok pull-left pickup-icon"></span>
+                                        <span class="pull-left">LATER</span>
+                                    </p>
+                                </div>
+                            </div>
+                            <!-- for debugging purpose {{checkOutOptions.selectedDate}}//{{checkOutOptions.selectedHour}}//{{checkOutOptions.formatedSelectedTime}}-->
+                            <div ng-hide="checkOutOptions.isServiceNotAvailable">
+                                <div class="deliverydatesection clearboth ng-hide" ng-show="(checkOutOptions.isLater || checkOutOptions.isDelivery) && checkOutOptions.pickupDates.length > 0 ">
+                                    <label for="ChooseDayDeliveryDatelabel">
+                                        {{checkOutOptions.isPickup?"Pickup":"Delivery"}} Date
+                                    </label>
+
+                                    <select id="ChooseDayDeliveryDatelabel" class="form-control deliverydate"
+                                            name="pickupDateOption"
+                                            ng-change="checkOutOptions.ChangeDate(true)"
+                                            ng-model="checkOutOptions.selectedDate"
+                                            ng-disabled="checkOutOptions.pickupDates.length<=0"
+                                            ng-model-options="{updateOn:'default blur', getterSetter: true}"
+                                            ng-options="date.dateValue as date.formatedValue for date in checkOutOptions.pickupDates"
+                                            ng-required="checkOutOptions.isLater"></select>
+                                </div>
+
+                                <div class="deliverydatesection ng-hide" ng-show="(checkOutOptions.isLater && checkOutOptions.isValidTimeSlot && checkOutOptions.isPickup && checkOutOptions.pickupDates.length > 0)">
+                                    <label for="ChooseTimePickupDatelabel">Approx. Time</label>
+
+                                    <select id="ChooseTimePickupDatelabel" class="form-control deliverydate"
+                                            name="pickupHourOption"
+                                            ng-change="checkOutOptions.ChangeHour()"
+                                            ng-model="checkOutOptions.selectedHour"
+                                            ng-model-options="{updateOn:'default blur', getterSetter: true}"
+                                            ng-options="date.timeValue as date.formatedValue for date in checkOutOptions.pickupHours"
+                                            ng-required="checkOutOptions.isLater"></select>
+                                </div>
+
+                                <div class="deliverydatesection ng-hide" ng-show="(checkOutOptions.isValidTimeSlot && checkOutOptions.isDelivery && checkOutOptions.pickupDates.length > 0)">
+                                    <label for="ChooseTimeDeliveryDatelabel">Time Slot</label>
+
+                                    <select id="ChooseTimeDeliveryDatelabel" class="form-control deliverydate"
+                                            name="deliveryHourOption"
+                                            ng-change="checkOutOptions.ChangeHour()"
+                                            ng-model="checkOutOptions.selectedHour"
+                                            ng-disabled="checkOutOptions.pickupDates.length<=0"
+                                            ng-model-options="{updateOn:'default blur', getterSetter: true}"
+                                            ng-options="date.timeValue as date.formatedValue for date in checkOutOptions.deliveryHours"
+                                            ng-required="checkOutOptions.isLater"></select>
+                                </div>
+                            </div>
+                            <div class="asappickup ng-hide" ng-show="checkOutOptions.isASAP && checkOutOptions.isPickup && !checkOutOptions.isNotAllowASAP">
+
+                                <div>Estimated collection time:</div>
+                                <div class="clearfix approxtime">{{ checkOutOptions.selectedHour| date:'dd-MM-yyyy hh:mm a'}} </div>
+
+
+                            </div>
+
+                            <div class="delivery-time-info" ng-show="checkOutOptions.isDelivery && !checkOutOptions.isServiceNotAvailable">
+                                <p>The delivery time slot is reserved for 5 minutes only. If you are not able to confirm the order within this timeframe, then the next delivery time slot will be allocated automatically.</p>
+                            </div>
+
+                        </div>
+                        <div ng-show="checkOutOptions.visibility">
+                            <div class="store-availble-continue" ng-show="checkOutOptions.store.hasOwnProperty('storeName') && !checkOutOptions.isServiceNotAvailable">
+                                <button type="button" class="btn btn-primary-cta btn-check-out" ng-disabled="checkOutOptions.invalidBasketAmount > 0 || !checkOutOptions.hasProductsInCart || !checkOutOptions.isValidTimeSlot || !checkOutOptions.store.hasOwnProperty('storeName')" ng-click="checkOutOptions.Continue()"
+                                        ga="['send', 'pageview', '/checkout/SelectPayment']">
+                                    Continue
+                                </button>
+                                <!--<a class="btn btn-primary-cta btn-continue-order" ng-disabled="checkOutOptions.invalidBasketAmount > 0 || checkOutOptions.totalPrice <= 0" ng-click="checkOutOptions.Continue()">Continue</a>-->
+                            </div>
+                        </div>
+                    </div>
+                    <div ng-show="checkOutOptions.visibility">
+                        <div class="store-details" ng-show="checkOutOptions.store.hasOwnProperty('storeName') && !checkOutOptions.isServiceNotAvailable">
+                            <h3>
+                                {{checkOutOptions.store.storeName}}
+                            </h3>
+                            <p>
+                                {{checkOutOptions.store.storeAddress.buildingName.length>0 ? checkOutOptions.store.storeAddress.buildingName +", ":"" }}
+                                {{checkOutOptions.store.storeAddress.buildingNumber.length>0 && checkOutOptions.store.storeAddress.buildingNumber !== "0" ? checkOutOptions.store.storeAddress.buildingNumber +" ":"" }}
+                                {{checkOutOptions.store.storeAddress.streetName.length>0 ? checkOutOptions.store.storeAddress.streetName +", ":""}}
+                                {{checkOutOptions.store.storeAddress.district.length>0 ? checkOutOptions.store.storeAddress.district +", ":""}}
+                                {{checkOutOptions.store.storeAddress.townCity}}
+                            </p>
+                            <p>Telephone: {{checkOutOptions.store.telephoneNumber}}</p>
+
+                            <h3>
+                                Opening Hours
+                            </h3>
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Day</th>
+                                        <th>Opening</th>
+                                        <th>Closing</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="ng-hide" ng-show="checkOutOptions.isPickup">
+                                    <tr ng-repeat="openingDay in checkOutOptions.store.openingHours">
+                                        <td>{{openingDay.dayOfWeek}}</td>
+                                        <td>
+                                            <span class="ng-hide" ng-show="openingDay.storeOpen">{{openingDay.collectionTimePeriods[0].openTime | limitTo:5}}</span>
+                                            <span class="ng-hide" ng-show="!openingDay.storeOpen">Closed</span>
+                                        </td>
+                                        <td>
+                                            <span class="ng-hide" ng-show="openingDay.storeOpen">{{openingDay.collectionTimePeriods[0].closeTime | limitTo:5}}</span>
+                                            <span class="ng-hide" ng-show="!openingDay.storeOpen">Closed</span>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                                <tbody class="ng-hide" ng-show="checkOutOptions.isDelivery">
+                                    <tr ng-repeat="openingDay in checkOutOptions.store.openingHours">
+                                        <td>{{openingDay.dayOfWeek}}</td>
+                                        <td>
+                                            <span class="ng-hide" ng-show="openingDay.storeOpen">{{openingDay.deliveryTimePeriods[0].openTime | limitTo:5}}</span>
+                                            <span class="ng-hide" ng-show="!openingDay.storeOpen">Closed</span>
+                                        </td>
+                                        <td>
+                                            <span class="ng-hide" ng-show="openingDay.storeOpen">{{openingDay.deliveryTimePeriods[0].closeTime | limitTo:5}}</span>
+                                            <span class="ng-hide" ng-show="!openingDay.storeOpen">Closed</span>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <!-- End-->
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-canel-cta" ng-click="checkOutOptions.Close();">Cancel</button>
+
+            <!--{{checkOutOptions.invalidBasketAmount > 0}} {{ !checkOutOptions.hasProductsInCart }} {{!checkOutOptions.validStores }} {{ !checkOutOptions.isValidTimeSlot}} -> {{checkOutOptions.store.hasOwnProperty('storeName')}}-->
+
+
+            <button type="button" class="btn btn-primary-cta btn-check-out"
+                    ng-disabled="checkOutOptions.invalidBasketAmount > 0 || !checkOutOptions.hasProductsInCart || !checkOutOptions.validStores || !checkOutOptions.isValidTimeSlot || !checkOutOptions.store.hasOwnProperty('storeName') || checkOutOptions.isServiceNotAvailable"
+                    ng-click="checkOutOptions.Continue()"
+                    ga="['send', 'pageview', '/checkout/SelectPayment']">
+                Continue
+            </button>
+        </div>
+    </form>
+
+</div>
+

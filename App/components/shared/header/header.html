@@ -1,0 +1,56 @@
+﻿<!-- Header Component -->
+<a id="top"></a>
+
+<div class="navbar-wrapper navbar-wrapper-position-one">
+    <div class="container">
+        <div class="navbar navbar-inverse navbar-static-top" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed navbar-toggle-open menuicon" ng-click="$spMenu.toggle()" >
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="menuicon-name">MENU</span>
+                    </button>
+                    <button type="button" class="navbar-toggle collapsed navbar-toggle-closed hide" ng-click="$spMenu.toggle()" style="float:left">
+                        <span class="glyphicon glyphicon-remove"></span>
+                        <div class="menuicon-close-name">MENU</div>
+                    </button>
+                    <a class="navbar-brand" href="/" target="_self">
+                        <img src="/Images/pizza-hut-logo.png" alt="Pizza Hut Logo" class="img-responsive" />
+                    </a>
+                </div>
+                <div class="navbar-collapse collapse">
+
+                    <!--Navigation List -->
+                    <ul class="nav navbar-nav">
+                        <li><a href="/order/pizzas" target="_self" title="menu">MENU</a></li>
+                        <li class="separator">|</li>
+                        <li><a href="/order/deals" target="_self">Deals</a></li>
+                        <li class="separator">|</li>
+						
+                    <!--StephenW - KFC	Start
+					<li><a target="_self" href="#" ng-click="header.trackAndRedirect('/opening-hours.html','Footer','Stores','Stores')">Stores</a></li>-->
+
+					 <li><a href="/order/deals" target="_self">Catering</a></li>
+                    	
+					<!--StephenW - KFC End-->	
+						
+						
+						
+                    <!--StephenW - add help to the top bar-->						
+						<li class="separator">|</li>
+                        <li><a target="_self" href="https://gem.desk.com/?b_id=13881">Help</a></li>
+                    <!--StephenW - add help to the top bar-->													
+												
+                    </ul>
+                    <!--  user welcome component -->
+                    <rb-welcome-user></rb-welcome-user>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
