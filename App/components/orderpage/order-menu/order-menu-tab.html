@@ -1,5 +1,4 @@
-﻿
-<!--<div class="container product-filter-dropdown">
+﻿<!--<div class="container product-filter-dropdown">
     <select ng-model="orderMenuTab.section" ng-change="orderMenuTab.selectSection(orderMenuTab.section)">
         <option value="pizzas">Pizzas</option>
         <option value="new-products">New</option>
@@ -11,31 +10,31 @@
 
 <div class="container product-filter">
     <div>
-        <button class="btn btn-filter btn-info btn-filter-pizzas" ng-class="{'filter-active': orderMenuTab.isSelected('pizzas')}" ng-click="orderMenuTab.selectSection('pizzas')">Pizzas</button>
-        <button ng-href="#" class="btn btn-filter btn-info btn-filter-new" ng-class="{'filter-active': orderMenuTab.isSelected('new-products')}" ng-click="orderMenuTab.selectSection('new-products')">New <rb-order-menu-section-count product-section="newproducts"></rb-order-menu-section-count></button>
-        <button ng-href="#" class="btn btn-filter btn-info btn-filter-deals" ng-class="{'filter-active': orderMenuTab.isSelected('deals') || orderMenuTab.isSelected('deal-detail')}" ng-click="orderMenuTab.selectSection('deals')">Deals</button>
-        <button ng-href="#" class="btn btn-filter btn-info btn-filter-sides" ng-class="{'filter-active': orderMenuTab.isSelected('sides')}" ng-click="orderMenuTab.selectSection('sides')">Sides</button>
+        <button class="btn btn-filter btn-info btn-filter-pizzas" ng-class="{'filter-active': orderMenuTab.isSelected('pizzas')}" ng-click="orderMenuTab.selectSection('pizzas')">Bucket Meals</button>
+        <button ng-href="#" class="btn btn-filter btn-info btn-filter-new" ng-class="{'filter-active': orderMenuTab.isSelected('new-products')}" ng-click="orderMenuTab.selectSection('new-products')">Individual Meals <rb-order-menu-section-count product-section="newproducts"></rb-order-menu-section-count></button>
+        <button ng-href="#" class="btn btn-filter btn-info btn-filter-deals" ng-class="{'filter-active': orderMenuTab.isSelected('deals') || orderMenuTab.isSelected('deal-detail')}" ng-click="orderMenuTab.selectSection('deals')">Burgers</button>
+        <button ng-href="#" class="btn btn-filter btn-info btn-filter-sides" ng-class="{'filter-active': orderMenuTab.isSelected('sides')}" ng-click="orderMenuTab.selectSection('sides')">Extras</button>
         <!--<button type="button" class="btn btn-filter btn-info btn-filter-favourites" ng-class="{'filter-active': order.isSelected('favourites')}" ng-click="order.selectSection('favourites')">My Favourites</button>-->
     </div>
 </div>
 
 <!-- List Pizza -->
 <section ng-if="orderMenuTab.isSelected('pizzas')">
-<rb-product-list header-class="product-list-header" header-title="Pizzas" product-tab="pizzas" has-filter="true" has-title="true"></rb-product-list>
+    <rb-product-list header-class="product-list-header" header-title="BUCKET MEALS" product-tab="pizzas" has-filter="true" has-title="true"></rb-product-list>
 </section>
 
 <!-- List What's New -->
 <section ng-if="orderMenuTab.isSelected('new-products')">
-<rb-product-list header-class="product-list-header" header-title="What's New" product-tab="newproducts" has-title="true"></rb-product-list>
+    <rb-product-list header-class="product-list-header" header-title="INDIVIDUAL MEALS" product-tab="newproducts" has-title="true"></rb-product-list>
 </section>
 
 <!-- List Deals -->
 <section ng-if="orderMenuTab.isSelected('deals')">
     <rb-order-sub-menu section-name="deals" left-caption="Pick Up deals"
                        right-caption="Delivery deals"
-                       left-url="pickup"
+                       left-url="delivery"
                        right-url="delivery">
-        <span name="title-container">Choose your <span class="alternate">PICK UP</span> or <span class="alternate">DELIVERY</span> deal</span>
+        <span name="title-container">BURGERS</span>
         <div name="left-content">
             <rb-product-list header-class="product-list-header-no-border-bg" header-title="Pickup Deals" product-tab="dealCollection" is-nested="true"></rb-product-list>
         </div>
@@ -47,25 +46,24 @@
 <!--<section ng-if="orderMenuTab.isSelected('deals')">
     <rb-product-list header-class="product-list-header" header-title="Choose your meal deal" product-tab="dealCollection" has-title="true"></rb-product-list>
 </section>-->
-
 <!-- List Sides -->
 <section ng-if="orderMenuTab.isSelected('sides')">
-<rb-order-sub-menu section-name="sides" left-caption="Food & Sauces"
-                   right-caption="Drink"
-                   left-url="foodandsauces"
-                   right-url="drinks">
-    <span name="title-container" class="alternate">Choose your sides</span>
-    <div name="left-content" class="sides-accordion-padding">
-        <rb-product-list header-class="product-list-header-no-border-bg sidestitle" header-title="Foods and Sauces" product-tab="sidesFoodsAndSauces" is-nested="true"></rb-product-list>
-    </div>
-    <div name="right-content" class="sides-accordion-padding">
-        <rb-product-list header-class="product-list-header-no-border-bg sidestitle" header-title="Drinks" product-tab="sidesDrinks" is-nested="true"></rb-product-list>
-    </div>
-</rb-order-sub-menu>
+    <rb-order-sub-menu section-name="sides" left-caption="WINGS & SNACKS"
+                       right-caption="DRINKS & SIDES"
+                       left-url="foodandsauces"
+                       right-url="drinks">
+        <span name="title-container" class="alternate">Choose your sides</span>
+        <div name="left-content" class="sides-accordion-padding">
+            <rb-product-list header-class="product-list-header-no-border-bg sidestitle" header-title="Foods and Sauces" product-tab="sidesFoodsAndSauces" is-nested="true"></rb-product-list>
+        </div>
+        <div name="right-content" class="sides-accordion-padding">
+            <rb-product-list header-class="product-list-header-no-border-bg sidestitle" header-title="Drinks" product-tab="sidesDrinks" is-nested="true"></rb-product-list>
+        </div>
+    </rb-order-sub-menu>
 </section>
 
 <!-- End Product List -->
 <!-- Deal details section -->
 <section ng-if="orderMenuTab.isSelected('deal-detail')">
-<rb-deal-detail></rb-deal-detail>
+    <rb-deal-detail></rb-deal-detail>
 </section>

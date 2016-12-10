@@ -3,7 +3,7 @@
         <button type="button" class="close" ng-click="checkoutPayment.CancelCheckout()" ga="['send','event','Checkout','Cancel','Payment']">
             <span aria-hidden="true" class="side-panel-close fa fa-times-circle-o"></span>
         </button>
-        <h1>Checkout {{"("+checkoutPayment.orderClass+")"}}</h1>
+        <h1>Checkout <!--{{"("+checkoutPayment.orderClass+")"}}--></h1>
         <div class="total">
             <p ng-show="checkoutPayment.isDelivery">
                 <strong>Price {{checkoutPayment.totalPrice | currency}} incl. delivery fee</strong>
@@ -127,14 +127,14 @@
                        ng-if="!new_customer_checkout.email_new.$valid && (new_customer_checkout.email_new.$touched )"></i>
                 </p>
                 <p>
-                    <label for="comment_new">Comment</label>
+                    <label for="comment_new">Delivery Instructions</label>
                     <input type="text" class="form-control" placeholder="Your Comments (48 characters  max)" id="comment_new" name="comment_new" ng-model="Comments" maxlength="48" ng-maxlength="48"></input>
                     <i class="glyphicon glyphicon-exclamation-sign exclamation-mark"
                        ng-show="!new_customer_checkout.comment_new.$valid"></i>
                 </p>
             </fieldset>
             <h2>Payment type</h2>
-            <div class="check-item">
+            <div class="check-item" ng-if="paymentionOption.paymentTypeId == 1">
                 <!--<p ng-show="checkoutPayment.CustomerInfo.hasOwnProperty('firstName')" ng-if="checkoutPayment.CustomerInfo.hasOwnProperty('firstName')">
                     {{checkoutPayment.creditCardMessage}}
                 </p>-->
@@ -146,14 +146,14 @@
             </div>
 
         </form>
-    <div class="modal-footer">
-        <button type="button" class="btn btn-canel-cta" data-dismiss="modal" ng-click="checkoutPayment.CancelCheckout()" ga="['send','event','Checkout','Cancel','Payment']">Cancel</button>
-        <button type="submit" class="btn btn-checkout-buynow "
-                ng-click="new_customer_checkout.$valid && checkoutPayment.buyNow()"
-                ng-disabled="!new_customer_checkout.$valid"
-                ga="['send', 'pageview', '/checkout/BuyNow']">
-            Place My Order
-        </button>
-    </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-canel-cta" data-dismiss="modal" ng-click="checkoutPayment.CancelCheckout()" ga="['send','event','Checkout','Cancel','Payment']">Cancel</button>
+            <button type="submit" class="btn btn-checkout-buynow "
+                    ng-click="new_customer_checkout.$valid && checkoutPayment.buyNow()"
+                    ng-disabled="!new_customer_checkout.$valid"
+                    ga="['send', 'pageview', '/checkout/BuyNow']">
+                Place My Order
+            </button>
+        </div>
     </div>
 </div>

@@ -6,10 +6,9 @@
             <option value="left">{{leftCaption}}</option>
             <option value="right">{{rightCaption}}</option>
         </select>-->
-
         <!-- Shown as full tabs in desktop view, and shown as single tab in mobile view. -->
         <tabset class="type-spliter" justified="true">
-            <tab active="orderSubMenu.isLeftTabActive" ng-click="orderSubMenu.load('left',true)">
+            <tab active="orderSubMenu.isLeftTabActive" ng-if="orderSubMenu.isLeftTabVisible" ng-click="orderSubMenu.load('left',true)">
                 <tab-heading>
                     {{leftCaption}}
                 </tab-heading>

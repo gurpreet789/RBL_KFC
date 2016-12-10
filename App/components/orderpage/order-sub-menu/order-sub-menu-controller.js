@@ -27,7 +27,7 @@
 
         // True indicate left tab is active, false for right tab.
         vm.isLeftTabActive=false;
-
+        vm.isLeftTabVisible = false;
         //
         vm.isRightTabActive = false;
   
@@ -38,7 +38,8 @@
         // selectedTab true indicate left tab.
         // selectedTab false indicate right tab.
         vm.load = function (selectedTab, triggerStateChange) {
-          
+            if (vm.sectionName != "deals")
+                vm.isLeftTabVisible = true;
             if (selectedTab == dropdownRightValueConstant) {
                 // Activate left tab.
                 vm.isLeftTabActive = false;

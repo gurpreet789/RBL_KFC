@@ -60,8 +60,8 @@
         checkOutVm.validStores = true;
         checkOutVm.OrderOption = vm.OrderOption;
         checkOutVm.OrderClass = vm.OrderClass;
-        checkOutVm.isPickup = true;
-        checkOutVm.isDelivery = false;
+        checkOutVm.isPickup = false;
+        checkOutVm.isDelivery = true;
 
         checkOutVm.stores = [];
         checkOutVm.store = {};
@@ -77,7 +77,7 @@
         checkOutVm.hasProductsInCart = vm.data.basketItems.length > 0;
         checkOutVm.deliveryPrice = vm.data.deliveryChargeAmount;
         checkOutVm.deliveryTotal = 0;
-        checkOutVm.isAllowDelivery = false;
+        checkOutVm.isAllowDelivery = true;
 
         checkOutVm.invalidBasketAmount = 1;
         checkOutVm.invalidProductsName = [];

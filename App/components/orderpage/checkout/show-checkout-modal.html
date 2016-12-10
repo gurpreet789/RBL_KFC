@@ -13,9 +13,9 @@
                     </p>
                 </div>
                 <div class="ng-hide" ng-show="!checkOutOptions.user.hasOwnProperty('firstName')">
-                    <h1 class="username checkoutpheaderpadding">PICK UP OR DELIVERY</h1>
+                    <h1 class="username checkoutpheaderpadding">DELIVERY</h1>
                     <p style="display: table; margin: auto; text-align: center">
-                        HAVE A PIZZA HUT ACCOUNT? <br />
+                        DO YOU HAVE A KFC ACCOUNT? <br />
                         <a class="btn-login" role="button" href="javascript:void(0)" data-toggle="modal" data-target="#login-dialog" data-dismiss="modal" ng-click="checkOutOptions.Close();" ga="['send','event','Checkout','Sign In','Login']">Sign in</a> to quickly access information saved to your account.
                     </p>
                 </div>
@@ -24,11 +24,11 @@
             <!-- Choose Pickup / Delivery-->
             <div class="checkoutHeadingBackground">
                 <div class="order-type">
-                    <div class="pickup" ng-class="{'order-type-selected':checkOutOptions.isPickup}" ng-click="checkOutOptions.SetPickup()" ga="['send','event','Checkout','Pickup','Checkout']">
+                    <!--<div class="pickup" ng-class="{'order-type-selected':checkOutOptions.isPickup}" ng-click="checkOutOptions.SetPickup()" ga="['send','event','Checkout','Pickup','Checkout']">
                         <span class="fa pickup-icon"></span>
                         <p class="pickUpText" style="clear:both">Pickup</p>
-                    </div>
-                    <div class="delivery" ng-class="{'order-type-selected':checkOutOptions.isDelivery}" ng-click="checkOutOptions.SetDelivery()" ga="['send','event','Checkout','Delivery','Checkout']">
+                    </div>-->
+                    <div class="delivery order-type-selected" ng-class="{'order-type-selected':checkOutOptions.isDelivery}" ng-click="checkOutOptions.SetDelivery()" ga="['send','event','Checkout','Delivery','Checkout']">
                         <span class="fa fa-automobile"></span>
                         <p class="pickUpText" style="clear:both;margin-bottom:0">
                             Delivery
