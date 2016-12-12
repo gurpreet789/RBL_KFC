@@ -23,11 +23,11 @@
         // Method which executes and data fetch controller logic and returns a promise.
         function initialise() {
             angular.element('.footer-backtotop').show();
-            // sets section name (pizzas, new-products, deals, etc).
+            // sets section name (bucket-meals, individual-meals, deals, etc).
             vm.section = common.$stateParams.sectionName;
 
             if (vm.section == null) {
-                vm.section = "pizzas";
+                vm.section = "bucket-meals";
             }
 
         }

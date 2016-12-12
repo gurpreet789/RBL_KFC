@@ -128,13 +128,13 @@
                 </p>
                 <p>
                     <label for="comment_new">Delivery Instructions</label>
-                    <input type="text" class="form-control" placeholder="Your Comments (48 characters  max)" id="comment_new" name="comment_new" ng-model="Comments" maxlength="48" ng-maxlength="48"></input>
+                    <input type="text" class="form-control" placeholder="Your Delivery Instructions (48 characters  max)" id="comment_new" name="comment_new" ng-model="Comments" maxlength="48" ng-maxlength="48"></input>
                     <i class="glyphicon glyphicon-exclamation-sign exclamation-mark"
                        ng-show="!new_customer_checkout.comment_new.$valid"></i>
                 </p>
             </fieldset>
             <h2>Payment type</h2>
-            <div class="check-item" ng-if="paymentionOption.paymentTypeId == 1">
+            <div class="check-item">
                 <!--<p ng-show="checkoutPayment.CustomerInfo.hasOwnProperty('firstName')" ng-if="checkoutPayment.CustomerInfo.hasOwnProperty('firstName')">
                     {{checkoutPayment.creditCardMessage}}
                 </p>-->

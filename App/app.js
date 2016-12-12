@@ -65,7 +65,7 @@ var OPEN_CART = "OPEN_CART";
         $urlRouterProvider
             //.when("/order", "/order/pizzas")// Default view for the order view
             //.otherwise("pagenotfound");
-            .when("/order", "/order/pizzas")// Default view for the order view
+            .when("/order", "/order/bucket-meals")// Default view for the order view
             .otherwise("pagenotfound");
 
         $stateProvider

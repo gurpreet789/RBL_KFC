@@ -1,4 +1,11 @@
-﻿/* General styles for all menus */
+﻿@font-face {
+  font-family: 'Pakenham-Bold';
+  src: url('../fonts/Pakenham-Bold.eot?#iefix') format('embedded-opentype'),  url('../fonts/Pakenham-Bold.woff') format('woff'), url('../fonts/Pakenham-Bold.ttf')  format('truetype'), url('../fonts/Pakenham-Bold.svg#Pakenham-Bold') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* General styles for all menus */
 .side-panel {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   background: #F0F0F0;

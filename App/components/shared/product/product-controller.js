@@ -37,7 +37,7 @@
         // initialise method.
         function initialise() {
             productService.FetchProducts(vm).then(function () {
-                if (vm.productTab == 'pizzas') {
+                if (vm.productTab == 'bucket-meals') {
                     InitFilter();
                 }
 

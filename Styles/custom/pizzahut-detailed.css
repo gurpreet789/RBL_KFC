@@ -1,4 +1,14 @@
-﻿/* Updated Detaid Design styles */
+﻿
+
+@font-face {
+  font-family: 'Pakenham-Bold';
+  src: url('../fonts/Pakenham-Bold.eot?#iefix') format('embedded-opentype'),  url('../fonts/Pakenham-Bold.woff') format('woff'), url('../fonts/Pakenham-Bold.ttf')  format('truetype'), url('../fonts/Pakenham-Bold.svg#Pakenham-Bold') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+/* Updated Detaid Design styles */
 /* #region Device size */
 /* #endregion Device size */
 /* #region Color */
@@ -232,7 +242,7 @@ select:focus {
 .primary-order-now {
   padding: 20px 50px;
   margin: 30px auto;
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: 'Pakenham-Bold', "Source Sans Pro", sans-serif;
   font-size: 30px;
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -504,7 +514,7 @@ legend {
 }
 .navbar-inverse .navbar-nav > li > a {
   color: #FFF;
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: 'Pakenham-Bold', "Source Sans Pro", sans-serif;
   font-size: 20px;
   text-transform: uppercase;
 }
@@ -536,7 +546,7 @@ a.btn-log-in {
   border-radius: 0 !important;
   height: 60px;
   line-height: 60px;
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: 'Pakenham-Bold', "Source Sans Pro", sans-serif;
   font-size: 21px;
   text-transform: uppercase;
   padding: 0 20px !important;
@@ -627,7 +637,8 @@ a.btn-log-in:hover {
 .ui-widget,
 .ui-widget input,
 .ui-widget textarea {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  /*font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;*/
+   font-family: 'Pakenham-Bold', "Source Sans Pro", sans-serif;
   font-size: 14px;
 }
 .ui-menu .ui-menu-item a.ui-corner-all {
@@ -667,7 +678,7 @@ a.btn-log-in:hover {
 }
 .homepage-promo .container h1,
 .homepage-promo .container h2 {
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: 'Pakenham-Bold', "Source Sans Pro", sans-serif;
   text-transform: uppercase;
   margin: 0;
 }
@@ -785,7 +796,7 @@ p.add-cart-to-favourites span.fa-heart {
 .my-account h2,
 .my-account h3 {
   text-align: center;
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: 'Pakenham-Bold', "Source Sans Pro", sans-serif;
   font-size: 38px;
 }
 .general-content h2,
@@ -1064,7 +1075,8 @@ p.add-cart-to-favourites span.fa-heart {
 }
 .toggle-map i {
   font-size: 14px;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  /*font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;*/
+   font-family: 'Pakenham-Bold', "Source Sans Pro", sans-serif;
   font-style: normal;
   margin-left: 5px;
 }
@@ -1122,7 +1134,7 @@ p.add-cart-to-favourites span.fa-heart {
 .product-filter div a {
   border: none;
   outline: none;
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: 'Pakenham-Bold', "Source Sans Pro", sans-serif;
   font-size: 21px;
   border-radius: 0;
   margin: 0 0;
@@ -1150,7 +1162,7 @@ p.add-cart-to-favourites span.fa-heart {
 }
 .container.product-filter-dropdown > select {
   font-size: 22px;
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: 'Pakenham-Bold', "Source Sans Pro", sans-serif;
   width: 100%;
   margin-top: 15px;
   margin-bottom: 5px;
@@ -1160,7 +1172,8 @@ p.add-cart-to-favourites span.fa-heart {
 }
 /* #endregion product filder */
 .btn-filter span {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  /*font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;*/
+   font-family: 'Pakenham-Bold', "Source Sans Pro", sans-serif;
   color: #fff;
   background-color: #EA262E;
   padding: 4px 8px;
@@ -1174,7 +1187,7 @@ p.add-cart-to-favourites span.fa-heart {
 }
 .product h2,
 .product h3 {
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: 'Pakenham-Bold', "Source Sans Pro", sans-serif;
   margin-top: 5px;
 }
 .product h2 {
@@ -1310,7 +1323,8 @@ p.flip-me,
 .btn-quick-order,
 .description {
   text-align: center !important;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  /*font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;*/
+   font-family: 'Pakenham-Bold', "Source Sans Pro", sans-serif;
   font-style: normal;
   font-size: 14px;
   line-height: normal;
@@ -1550,7 +1564,7 @@ a.PromoLink {
   text-decoration: none!important;
 }
 .promotion h1 {
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: 'Pakenham-Bold', "Source Sans Pro", sans-serif;
   text-transform: uppercase;
 }
 .promotion div div {
@@ -1694,7 +1708,8 @@ a.PromoLink {
 .edit-group a i {
   margin-left: 5px;
   font-style: normal;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  /*font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;*/
+   font-family: 'Pakenham-Bold', "Source Sans Pro", sans-serif;
   font-size: 13px;
 }
 .edit-group span + strong + span + a,
@@ -2018,7 +2033,7 @@ a.PromoLink {
 .modal-content h1,
 .modal-content h2,
 .modal-content h3 {
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: 'Pakenham-Bold', "Source Sans Pro", sans-serif;
   font-size: 28px;
   text-transform: uppercase;
   margin-top: 10px;
@@ -2245,7 +2260,7 @@ textarea.form-control {
   text-align: center;
   padding: 15px 0;
   color: #b2b2b2;
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: 'Pakenham-Bold', "Source Sans Pro", sans-serif;
   background: none;
 }
 .deal-detail .panel-group {
@@ -2261,7 +2276,7 @@ textarea.form-control {
   text-align: center;
   padding: 15px 0;
   color: #b2b2b2;
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: 'Pakenham-Bold', "Source Sans Pro", sans-serif;
 }
 .deal-accordion .deal-detail-header.active h1 {
   background-color: #ffffff;
@@ -2294,7 +2309,7 @@ textarea.form-control {
   width: 100%;
 }
 .order-sub-menu .order-sub-menu-border > .type-spliter > .nav-tabs {
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: 'Pakenham-Bold', "Source Sans Pro", sans-serif;
   font-size: 23px;
   margin-left: -15px;
   margin-right: -15px;
@@ -2329,7 +2344,7 @@ textarea.form-control {
 @media only screen and (min-width: 480px) {
   .order-sub-menu > .order-sub-menu-border > h1 {
     display: block;
-    font-family: 'Source Sans Pro', sans-serif;
+    font-family: 'Pakenham-Bold', "Source Sans Pro", sans-serif;
     font-size: 32px;
     margin-bottom: 30px;
     margin-top: 35px;
@@ -2434,7 +2449,7 @@ textarea.form-control {
     border-radius: 0 !important;
     height: 60px;
     line-height: 60px;
-    font-family: 'Source Sans Pro', sans-serif;
+    font-family: 'Pakenham-Bold', "Source Sans Pro", sans-serif;
     font-size: 18px;
     text-transform: uppercase;
     padding: 0 20px !important;
@@ -3364,7 +3379,8 @@ i.myaccount-check-field-completed {
   width: 21px;
 }
 body {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  /*font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;*/
+  font-family: 'Pakenham-Bold', "Source Sans Pro", sans-serif;
   position: relative;
   overflow-x: hidden;
   background: #302e2f url("/Images/background_200X200.jpg") repeat scroll left top;
@@ -3550,7 +3566,7 @@ h3.accordion-title {
   max-width: 545px;
 }
 .desc-404 {
-  font-family: "Source Sans Pro" !important;
+  font-family: "Pakenham-Bold","Source Sans Pro" !important;
   font-size: 16px;
   padding-left: 0;
 }
@@ -3567,7 +3583,7 @@ h3.accordion-title {
   letter-spacing: 2px;
 }
 .title-404 h1 {
-  font-family: "Source Sans Pro" !important;
+  font-family: "Pakenham-Bold","Source Sans Pro" !important;
   font-size: 85px;
   font-style: normal;
 }

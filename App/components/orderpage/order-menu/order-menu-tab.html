@@ -1,7 +1,7 @@
 ﻿<!--<div class="container product-filter-dropdown">
     <select ng-model="orderMenuTab.section" ng-change="orderMenuTab.selectSection(orderMenuTab.section)">
         <option value="pizzas">Pizzas</option>
-        <option value="new-products">New</option>
+        <option value="individual-meals">New</option>
         <option value="deals">Deals</option>
         <option value="sides">Sides</option>
         <option value="favourites">My Favourites</option>
@@ -10,8 +10,8 @@
 
 <div class="container product-filter">
     <div>
-        <button class="btn btn-filter btn-info btn-filter-pizzas" ng-class="{'filter-active': orderMenuTab.isSelected('pizzas')}" ng-click="orderMenuTab.selectSection('pizzas')">Bucket Meals</button>
-        <button ng-href="#" class="btn btn-filter btn-info btn-filter-new" ng-class="{'filter-active': orderMenuTab.isSelected('new-products')}" ng-click="orderMenuTab.selectSection('new-products')">Individual Meals <rb-order-menu-section-count product-section="newproducts"></rb-order-menu-section-count></button>
+        <button class="btn btn-filter btn-info btn-filter-pizzas" ng-class="{'filter-active': orderMenuTab.isSelected('bucket-meals')}" ng-click="orderMenuTab.selectSection('bucket-meals')">Bucket Meals</button>
+        <button ng-href="#" class="btn btn-filter btn-info btn-filter-new" ng-class="{'filter-active': orderMenuTab.isSelected('individual-meals')}" ng-click="orderMenuTab.selectSection('individual-meals')">Individual Meals <rb-order-menu-section-count product-section="individual-meals"></rb-order-menu-section-count></button>
         <button ng-href="#" class="btn btn-filter btn-info btn-filter-deals" ng-class="{'filter-active': orderMenuTab.isSelected('deals') || orderMenuTab.isSelected('deal-detail')}" ng-click="orderMenuTab.selectSection('deals')">Burgers</button>
         <button ng-href="#" class="btn btn-filter btn-info btn-filter-sides" ng-class="{'filter-active': orderMenuTab.isSelected('sides')}" ng-click="orderMenuTab.selectSection('sides')">Extras</button>
         <!--<button type="button" class="btn btn-filter btn-info btn-filter-favourites" ng-class="{'filter-active': order.isSelected('favourites')}" ng-click="order.selectSection('favourites')">My Favourites</button>-->
@@ -19,12 +19,12 @@
 </div>
 
 <!-- List Pizza -->
-<section ng-if="orderMenuTab.isSelected('pizzas')">
+<section ng-if="orderMenuTab.isSelected('bucket-meals')">
     <rb-product-list header-class="product-list-header" header-title="BUCKET MEALS" product-tab="pizzas" has-filter="true" has-title="true"></rb-product-list>
 </section>
 
 <!-- List What's New -->
-<section ng-if="orderMenuTab.isSelected('new-products')">
+<section ng-if="orderMenuTab.isSelected('individual-meals')">
     <rb-product-list header-class="product-list-header" header-title="INDIVIDUAL MEALS" product-tab="newproducts" has-title="true"></rb-product-list>
 </section>
 

@@ -45,8 +45,8 @@
         vm.cartheight = 0;
         vm.overLayheight = 0;
         vm.isEnabled = true;
-        vm.CartNoItems = vm.ItemsInCart="/Images/icon-cart.png";
-        vm.CartHasItems = "/Images/icon-cart-selected.png";
+        vm.CartNoItems = vm.ItemsInCart="/Images/icon-cart.jpg";
+        vm.CartHasItems = "/Images/icon-cart-selected.jpg";
 
         // initialises the controller.
         initialise();

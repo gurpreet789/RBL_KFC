@@ -64,7 +64,7 @@
 
         $scope.initialize = function () {
             if (vm.model.newProductCount == null) {
-                ProductService.GetProductCount('newproducts').then(function (data) {
+                ProductService.GetProductCount('individual-meals').then(function (data) {
                     vm.model.newProductCount = data;
                 });
             }
