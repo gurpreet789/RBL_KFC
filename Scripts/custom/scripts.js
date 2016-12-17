@@ -403,7 +403,7 @@ $(document).ready(function () {
 
         if ($(this).text() == "Remove from deal") {
 
-            $(this).closest(".card").find(".btn-customise").text("Add to deal");
+            $(this).closest(".card").find(".btn-customise").text("Add");
         }
         else {
             $(this).closest(".card").find(".btn-customise").text("Remove from deal");

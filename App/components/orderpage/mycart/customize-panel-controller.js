@@ -286,7 +286,7 @@
         };
 
         vm.updateCartButton = function () {
-            vm.cartButtonLabel = vm.isDeal ? "Add to deal" : "Add to cart";
+            vm.cartButtonLabel = vm.isDeal ? "Add" : "Add to cart";
         };
 
         vm.completeCustomise = function () {

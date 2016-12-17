@@ -1,8 +1,8 @@
 ﻿@font-face {
-  font-family: 'Pakenham-Bold';
-  src: url('../fonts/Pakenham-Bold.eot?#iefix') format('embedded-opentype'),  url('../fonts/Pakenham-Bold.woff') format('woff'), url('../fonts/Pakenham-Bold.ttf')  format('truetype'), url('../fonts/Pakenham-Bold.svg#Pakenham-Bold') format('svg');
-  font-weight: normal;
-  font-style: normal;
+    font-family: 'Pakenham-Bold';
+    src: url('../fonts/Pakenham-Bold.eot?#iefix') format('embedded-opentype'), url('../fonts/Pakenham-Bold.woff') format('woff'), url('../fonts/Pakenham-Bold.ttf') format('truetype'), url('../fonts/Pakenham-Bold.svg#Pakenham-Bold') format('svg');
+    font-weight: normal;
+    font-style: normal;
 }
 
 html {
@@ -131,7 +131,7 @@ select:focus {
 
 .btn-primary-cta:link, .btn-primary-cta {
     color: #fff;
-    background: #ef3e42;
+    background: #c3102f;
     border-right: 1px solid #822824;
     border-left: 1px solid #c3140e;
     border-bottom: 1px solid #822824;
@@ -146,7 +146,7 @@ select:focus {
 
 .btn-primary-cta:hover {
     color: #000;
-    background-color: #ffcaa6;
+    background-color: #fef2e3;
 }
 
 .btn-canel-cta {
@@ -176,7 +176,7 @@ select:focus {
     color: #fff;
     font-weight: bold;
     cursor: default;
-    background-color: #ffcaa6;
+    background-color: #fef2e3;
 }
 
     .btn-saved, .btn-saved:focus :hover {
@@ -192,7 +192,7 @@ select:focus {
 .default-toppings button.btn-selected, .extra-toppings button.btn-extra-topping {
     color: #fff;
     background: #ff9b00;
-    background: #d71800;
+    background: #c3102f;
     border: 1px solid #fff;
 }
 
@@ -213,7 +213,7 @@ select:focus {
 }
 
 .navbar-inverse {
-    background-color: #eb272e;
+    background-color: #c3102f;
     border-color: transparent;
 }
 
@@ -242,12 +242,12 @@ select:focus {
     padding: 20px 50px;
     margin: 30px auto;
     font-family: 'Pakenham-Bold','Source Sans Pro',sans-serif;
-    font-size: 30px;
+    font-size: 32px;
     text-transform: uppercase;
     letter-spacing: .05em;
     border-radius: 0;
     color: #fff;
-    background-color: #ef3e42;
+    background-color: #c3102f;
     border-right: 1px solid #822824;
     border-left: 1px solid #c3140e;
     border-bottom: 1px solid #822824;
@@ -256,7 +256,7 @@ select:focus {
 
     .primary-order-now:hover, .primary-order-now:focus {
         color: #000;
-        background: #ffcaa6;
+        background: #fef2e3;
     }
 
 .float-right {
@@ -291,7 +291,7 @@ select:focus {
     .side-panel .total p {
         margin: 0;
         padding: 5px 0;
-        font-size: 18px;
+        font-size: 20px;
         float: right;
     }
 
@@ -345,18 +345,18 @@ table.cart-total {
     }
 
         table.cart-total tbody tr td span.fa, .voucher-applied span.fa {
-            font-size: 18px;
+            font-size: 20px;
             cursor: pointer;
         }
 
     table.cart-total tbody tr td {
         font-weight: bold;
-        font-size: 14px;
+        font-size: 16px;
     }
 
     table.cart-total tbody tr.description td {
         font-weight: normal;
-        font-size: 12px;
+        font-size: 14px;
     }
 
     table.cart-total tbody tr td a, table.cart-total tbody tr td span:hover {
@@ -373,13 +373,13 @@ table.cart-total {
 
     table.cart-total tr th, table.cart-total tfoot td {
         font-weight: bold;
-        font-size: 16px;
+        font-size: 18px;
     }
 
     table.cart-total td {
         border-top: none;
         font-weight: bold;
-        font-size: 13px;
+        font-size: 15px;
     }
 
     table.cart-total tr.description td {
@@ -429,13 +429,13 @@ table.cart-total {
     .btn-add-products:hover {
         color: #000;
         text-decoration: none;
-        background-color: #ffcaa6;
+        background-color: #fef2e3;
         border: 1px solid #cba77b;
     }
 
 .btn-warning, .btn-check-out {
     color: #fff;
-    background: #ef3e42;
+    background: #c3102f;
     border-right: 1px solid #822824;
     border-left: 1px solid #c3140e;
     border-bottom: 1px solid #822824;
@@ -445,7 +445,7 @@ table.cart-total {
 
     .btn-check-out:hover {
         color: #3f1a01 !important;
-        background: #ffcaa6 !important;
+        background: #fef2e3 !important;
         border: 1px solid #ff934a !important;
     }
 
@@ -507,7 +507,7 @@ table.select-pizza-options tr td label {
 
 .cart .voucher-error {
     color: #f00;
-    font-size: 13px;
+    font-size: 15px;
     font-weight: normal;
 }
 
@@ -546,17 +546,17 @@ legend {
 .navbar-inverse .navbar-nav > li > a {
     color: #fff;
     font-family: 'Pakenham-Bold','Source Sans Pro',sans-serif;
-    font-size: 20px;
-    text-transform: uppercase;
+    font-size: 22px;
+    /*text-transform: uppercase;*/
 }
 
 .navbar-inverse .navbar-nav > li.separator {
     padding-top: 12px;
     font-weight: bold;
-    text-transform: uppercase;
+    /*text-transform: uppercase;*/
     padding-left: 18px;
     padding-right: 18px;
-    font-size: 18px;
+    font-size: 20px;
 }
 
 .navbar-inverse .navbar-nav > li > a:hover {
@@ -565,7 +565,7 @@ legend {
 
 .navbar-nav span {
     margin-right: 5px;
-    font-size: 22px;
+    font-size: 24px;
 }
 
 .login-logout {
@@ -582,7 +582,7 @@ a.btn-log-in {
     height: 60px;
     line-height: 60px;
     font-family: 'Pakenham-Bold', "Source Sans Pro", sans-serif;
-    font-size: 21px;
+    font-size: 23px;
     text-transform: uppercase;
     padding: 0 20px !important;
     margin-right: 0;
@@ -624,7 +624,7 @@ a.btn-log-in {
 .emailValidation, .forgotpasswordValidation {
     color: #ffabae;
     margin: 0 0 5px;
-    font-size: 20px;
+    font-size: 22px;
 }
 
 .exclamation-mark {
@@ -638,7 +638,7 @@ a.btn-log-in {
     left: 5px;
     color: #19a5a1;
     margin: 0 0 0 5px;
-    font-size: 28px;
+    font-size: 30px;
 }
 
 @media only screen and (max-width:480px) {
@@ -647,13 +647,13 @@ a.btn-log-in {
     }
 
     .order-type > div p.pickUpText {
-        font-size: 14px !important;
+        font-size: 16px !important;
     }
 }
 
 @media only screen and (min-width:480px) {
     .exclamation-mark {
-        font-size: 20px;
+        font-size: 22px;
     }
 }
 
@@ -682,7 +682,7 @@ a.btn-log-in {
 
     .ui-widget, .ui-widget input, .ui-widget textarea {
         font-family: 'Pakenham-Bold', "Source Sans Pro", sans-serif;
-        font-size: 14px;
+        font-size: 16px;
     }
 
 .ui-menu .ui-menu-item a.ui-corner-all {
@@ -732,16 +732,16 @@ a.btn-log-in {
     }
 
     .homepage-promo .container h1 {
-        font-size: 28px;
+        font-size: 30px;
     }
 
     .homepage-promo .container h2 {
-        font-size: 44px;
+        font-size: 46px;
         margin: 5px 0 10px 0;
     }
 
     .homepage-promo .container p {
-        font-size: 12px;
+        font-size: 14px;
     }
 
         .homepage-promo .container p:last-child {
@@ -750,11 +750,11 @@ a.btn-log-in {
             position: absolute;
             left: 0;
             bottom: 10px;
-            font-size: 14px;
+            font-size: 16px;
         }
 
             .homepage-promo .container p:last-child span {
-                background-color: #eb272e;
+                background-color: #c3102f;
                 padding: 5px 30px;
                 position: relative;
                 bottom: -9px;
@@ -770,7 +770,7 @@ a.btn-log-in {
 .homepage-promo .caption {
     display: table;
     margin: 0 auto;
-    background-color: #eb272e;
+    background-color: #c3102f;
     border: 1px solid #f4cab8;
     position: relative;
 }
@@ -813,7 +813,7 @@ a.btn-log-in {
 }
 
 p.add-to-favourites, p.add-cart-to-favourites, p.add-custom-to-favourites {
-    font-size: 16px;
+    font-size: 18px;
     line-height: normal;
     overflow: visible;
     cursor: pointer;
@@ -826,14 +826,14 @@ p.add-cart-to-favourites, p.add-custom-to-favourites {
 
     p.add-to-favourites span, p.add-cart-to-favourites span, p.add-custom-to-favourites span {
         margin-right: 5px;
-        font-size: 16px;
+        font-size: 18px;
     }
 
         p.add-to-favourites span.fa-heart, p.add-cart-to-favourites span.fa-heart {
             color: #eb262e;
             bottom: -8px;
             margin-right: 5px;
-            font-size: 22px;
+            font-size: 24px;
             display: -webkit-inline-box;
             line-height: 13px;
         }
@@ -845,12 +845,13 @@ p.add-cart-to-favourites, p.add-custom-to-favourites {
     .product-list h1, .my-account-header h1, .general-content h1, .general-content h2, .general-content h3, .my-account h2, .my-account h3 {
         text-align: center;
         font-family: 'Pakenham-Bold','Source Sans Pro',sans-serif;
-        font-size: 38px;
+        font-size: 40px;
+        color: #251a05;
     }
 
     .general-content h2, .general-content h3, .my-account h2, .my-account h3 {
         text-align: left;
-        font-size: 22px;
+        font-size: 24px;
         padding-left: 0;
     }
 
@@ -975,12 +976,12 @@ p.add-cart-to-favourites, p.add-custom-to-favourites {
 
 .product-list-header h1, .my-account-header h1, .general-content h1 {
     display: inline-block;
-    font-size: 26px;
-    text-transform: uppercase;
+    font-size: 28px;
+    /*text-transform: uppercase;*/
     margin: 0;
     padding: 15px 0;
     vertical-align: middle;
-    color: #fff;
+    color: #251a05;
 }
 
 .product-list-header select {
@@ -1028,33 +1029,33 @@ p.add-cart-to-favourites, p.add-custom-to-favourites {
     .order-type p {
         text-transform: uppercase;
         font-weight: bold;
-        font-size: 15px;
+        font-size: 17px;
     }
 
     .order-type > div a, .order-type > div a:hover {
         text-decoration: none !important;
         display: table;
         text-align: left;
-        font-size: 16px;
+        font-size: 18px;
         width: 100%;
     }
 
     .order-type > div span {
         display: block;
-        font-size: 30px;
+        font-size: 32px;
         margin: 0 0 5px;
     }
 
     .order-type > div i {
         margin: 0 10px 2px 0;
         color: #e9e9e9;
-        font-size: 26px;
+        font-size: 28px;
         vertical-align: middle;
     }
 
     .order-type > div.order-type-selected i {
         color: #19a5a1;
-        font-size: 21px;
+        font-size: 23px;
     }
 
         .order-type > div.order-type-selected i.selected {
@@ -1089,7 +1090,7 @@ p.add-cart-to-favourites, p.add-custom-to-favourites {
 }
 
 .choose-store label .fa-map-marker {
-    font-size: 24px !important;
+    font-size: 26px !important;
     color: #19a5a1;
     top: 0 !important;
 }
@@ -1140,7 +1141,7 @@ p.add-cart-to-favourites, p.add-custom-to-favourites {
     }
 
     .toggle-map i {
-        font-size: 14px;
+        font-size: 16px;
         font-family: 'Pakenham-Bold', "Source Sans Pro", sans-serif;
         font-style: normal;
         margin-left: 5px;
@@ -1209,7 +1210,7 @@ p.add-cart-to-favourites, p.add-custom-to-favourites {
             border: none;
             outline: none;
             font-family: 'Pakenham-Bold','Source Sans Pro',sans-serif;
-            font-size: 21px;
+            font-size: 23px;
             border-radius: 0;
             margin: 0 0;
             padding: 20px 20px;
@@ -1230,11 +1231,11 @@ p.add-cart-to-favourites, p.add-custom-to-favourites {
 
 .product-filter div button:hover, .product-filter div button.filter-all, .product-filter div button.filter-active {
     color: #000;
-    background-color: #fecaa1;
+    background-color: #fef2e3;
 }
 
 .container.product-filter-dropdown > select {
-    font-size: 22px;
+    font-size: 24px;
     font-family: 'Pakenham-Bold','Source Sans Pro',sans-serif;
     width: 100%;
     margin-top: 15px;
@@ -1250,7 +1251,7 @@ p.add-cart-to-favourites, p.add-custom-to-favourites {
     background-color: #ea262e;
     padding: 4px 8px;
     margin-left: 8px;
-    font-size: 12px;
+    font-size: 14px;
     top: -5px;
     position: relative;
 }
@@ -1262,17 +1263,18 @@ p.add-cart-to-favourites, p.add-custom-to-favourites {
     .product h2, .product h3 {
         font-family: 'Pakenham-Bold','Source Sans Pro',sans-serif;
         margin-top: 5px;
+        color: #251a05;
     }
 
     .product h2 {
-        font-size: 20px;
+        font-size: 22px;
         margin: 8px 0 5px 0;
-        color: #cba77b;
+        color: #251a05;
     }
 
     .product h3 {
-        font-size: 24px;
-        color: #fff;
+        font-size: 26px;
+        color: #251a05;
     }
 
 .product-selected {
@@ -1288,7 +1290,7 @@ p.add-cart-to-favourites, p.add-custom-to-favourites {
 }
 
     .toppings-filter button {
-        font-size: 12px;
+        font-size: 14px;
         margin: 0 8px 8px 0;
         position: relative;
         padding-right: 35px;
@@ -1298,7 +1300,7 @@ p.add-cart-to-favourites, p.add-custom-to-favourites {
             position: absolute;
             top: 6px;
             right: 6px;
-            font-size: 22px;
+            font-size: 24px;
             color: #fff;
             text-shadow: none !important;
         }
@@ -1308,13 +1310,13 @@ p.add-cart-to-favourites, p.add-custom-to-favourites {
 }
 
 .front.flip-me {
-    font-size: 16px;
+    font-size: 18px;
     line-height: normal;
 }
 
 .front .flip-me {
     margin: 30px 0 0 -15px;
-    color: #fff;
+    color: #251a05;
 }
 
     .front .flip-me:hover {
@@ -1352,7 +1354,7 @@ p.add-cart-to-favourites, p.add-custom-to-favourites {
         -o-transition: .5s;
         transform-style: preserve-3d;
         transition: .5s;
-        background: none 0 0 repeat scroll rgba(0,0,0,.2);
+        background: none 0 0 repeat scroll rgba(242, 238, 235, 0.8);
     }
 
         .flip .card .face {
@@ -1400,7 +1402,7 @@ p.flip-me, .add-to-favourites, .add-to-favourites i, .btn-customise, .btn-order,
     text-align: center !important;
     font-family: 'Pakenham-Bold', "Source Sans Pro", sans-serif;
     font-style: normal;
-    font-size: 14px;
+    font-size: 16px;
     line-height: normal;
 }
 
@@ -1413,8 +1415,8 @@ p.flip-me {
 }
 
 .flip-me span {
-    color: #a6a6a6;
-    font-size: 21px;
+    color: #251a05;
+    font-size: 23px;
     position: relative;
     top: 4px;
     left: 3px;
@@ -1433,7 +1435,7 @@ p.flip-me {
 
 .back .flip-me {
     float: right;
-    font-size: 16px;
+    font-size: 18px;
     line-height: normal;
     cursor: pointer;
     right: 8px;
@@ -1452,10 +1454,11 @@ p.flip-me {
 .back .description {
     border-top: 1px solid #bcbcbc;
     padding: 10px;
-    font-size: 13px;
+    font-size: 15px;
     line-height: normal;
     padding-bottom: 50%;
     cursor: pointer;
+    color: #251a05;
 }
 
     .back .description p, .back .description ul li {
@@ -1480,7 +1483,7 @@ p.flip-me {
 .btn-customise {
     margin-right: 10px;
     color: #cba77b;
-    font-size: 14px;
+    font-size: 16px;
     display: inline-block;
     text-decoration: none;
     position: relative;
@@ -1494,7 +1497,7 @@ p.flip-me {
     .btn-customise:hover, .btn-customise:focus {
         color: #000;
         text-decoration: none;
-        background-color: #ffcaa6;
+        background-color: #fef2e3;
         border: 1px solid #cba77b;
     }
 
@@ -1504,18 +1507,18 @@ a.btn-quick-order, a.btn-order, a.btn-deal, .btn-checkout-buynow {
     border-left: 1px solid #c3140e;
     border-bottom: 1px solid #822824;
     border-top: 1px solid #c3140e;
-    background: #ef3e42;
+    background: #c3102f;
 }
 
     a.btn-quick-order:hover, a.btn-order:hover, .btn-checkout-buynow:hover, a.btn-deal:hover {
         color: #000;
-        background: #ffcaa6;
+        background: #fef2e3;
         border: 1px solid #ff934a;
     }
 
     a.btn-quick-order span, a.btn-order span, a.btn-deal span {
         margin-right: 5px;
-        font-size: 18px;
+        font-size: 20px;
     }
 
 .btn-order, .btn-deal {
@@ -1527,7 +1530,7 @@ a.btn-quick-order, a.btn-order, a.btn-deal, .btn-checkout-buynow {
     text-transform: uppercase;
     margin: 0;
     padding: 15px 0;
-    font-size: 34px !important;
+    font-size: 36px !important;
 }
 
     .edit-deal span {
@@ -1544,7 +1547,7 @@ a.btn-quick-order, a.btn-order, a.btn-deal, .btn-checkout-buynow {
 
 .choose-deals .product .deal-select {
     display: none;
-    font-size: 30px;
+    font-size: 32px;
     margin-right: 10px;
     color: #5cb85c;
 }
@@ -1576,11 +1579,11 @@ a.btn-quick-order, a.btn-order, a.btn-deal, .btn-checkout-buynow {
 
 .receipt .btn-print-receipt {
     float: right;
-    font-size: 14px;
+    font-size: 16px;
 }
 
     .receipt .btn-print-receipt i {
-        font-size: 22px;
+        font-size: 24px;
         margin-right: 10px;
     }
 
@@ -1599,7 +1602,7 @@ a.btn-quick-order, a.btn-order, a.btn-deal, .btn-checkout-buynow {
 
     .delivery-info span i {
         font-style: normal;
-        font-size: 16px;
+        font-size: 18px;
     }
 
 .receipt .share-details label {
@@ -1626,7 +1629,7 @@ a.btn-quick-order, a.btn-order, a.btn-deal, .btn-checkout-buynow {
 
 .receipt table.cart-total thead tr th {
     font-weight: normal;
-    font-size: 14px;
+    font-size: 16px;
     background-color: #efefef;
 }
 
@@ -1665,7 +1668,7 @@ a.PromoLink {
 .promotion div div {
     float: right;
     color: #fff;
-    font-size: 16px;
+    font-size: 18px;
     text-decoration: none;
 }
 
@@ -1673,8 +1676,8 @@ a.PromoLink {
         position: relative;
         margin: 0 0 0 10px;
         bottom: -5px;
-        font-size: 28px;
-        color: #ef3e42;
+        font-size: 30px;
+        color: #fff;
     }
 
     .promotion div div:hover {
@@ -1682,15 +1685,16 @@ a.PromoLink {
     }
 
 .promotion h1 {
-    font-size: 28px;
+    font-size: 30px;
 }
 
 .promotion p {
-    font-size: 14px;
+    font-size: 16px;
 }
 
 .promotion.happy-hour, .promotion.catering, .order-type > div {
-    background: url("/images/promo_background.png") repeat scroll top left;
+    /*background: url("/images/promo_background.png") repeat scroll top left;*/
+    background-color: #7c6954;
 }
 
 .promotion .promotion-icon {
@@ -1711,7 +1715,7 @@ a.PromoLink {
 }
 
     .my-account .last-order h2 {
-        font-size: 34px;
+        font-size: 36px;
         text-transform: uppercase;
     }
 
@@ -1752,16 +1756,16 @@ a.PromoLink {
     padding-right: 0;
     margin-right: 0;
     color: #ffabae;
-    font-size: 14px;
+    font-size: 16px;
 }
 
 @media only screen and (min-width:480px) {
     .my-account h3 {
-        font-size: 22px;
+        font-size: 24px;
     }
 
     .my-account .edit-group span.exclamation-mark {
-        font-size: 18px;
+        font-size: 20px;
     }
 }
 
@@ -1786,7 +1790,7 @@ a.PromoLink {
 
         .edit-group label span {
             color: #ed0003;
-            font-size: 26px;
+            font-size: 28px;
             line-height: 1px;
             margin-left: 5px;
             top: 10px;
@@ -1809,7 +1813,7 @@ a.PromoLink {
             }
 
     .edit-group span, .edit-group a {
-        font-size: 18px;
+        font-size: 20px;
         margin-right: 10px;
         text-decoration: none;
         color: #5a5a5a;
@@ -1823,13 +1827,13 @@ a.PromoLink {
             margin-left: 5px;
             font-style: normal;
             font-family: 'Pakenham-Bold', "Source Sans Pro", sans-serif;
-            font-size: 13px;
+            font-size: 15px;
         }
 
     .edit-group span + strong + span + a, .edit-group span + strong + span {
         float: right;
         margin-right: 20px;
-        font-size: 22px;
+        font-size: 24px;
         margin-top: 9px;
     }
 
@@ -1843,7 +1847,7 @@ a.PromoLink {
     }
 
     .edit-group span .errorMessage {
-        font-size: 14px;
+        font-size: 16px;
     }
 
 .wrapper-footer {
@@ -1853,7 +1857,7 @@ a.PromoLink {
 }
 
 .back-to-top {
-    font-size: 14px !important;
+    font-size: 16px !important;
     padding: 6px 12px 2px 12px !important;
     background-color: #5a5a5a;
     float: right;
@@ -1871,7 +1875,7 @@ a.PromoLink {
 }
 
 .back-to-top i {
-    font-size: 18px;
+    font-size: 20px;
 }
 
 .back-to-top a {
@@ -1912,32 +1916,32 @@ a.PromoLink {
 
     .say-hello span {
         line-height: 18px;
-        color: #fff;
+        color: #251a05;
         text-align: left;
         margin-top: 24px;
-        font-size: 14px;
+        font-size: 16px;
         font-weight: bold;
     }
 
-.fa-facebook-square, .fa-instagram {
+.fa-twitter-square, .fa-facebook-square, .fa-instagram {
     padding-left: 6px;
     top: 6px;
     position: relative;
 }
 
 .say-hello a {
-    color: #fff;
-    font-size: 18px;
+    color: #251a05;
+    font-size: 20px;
     margin: 0;
     text-decoration: none;
 }
 
     .say-hello a.fa {
-        font-size: 32px;
+        font-size: 34px;
     }
 
     .say-hello a.fa-facebook {
-        font-size: 19px;
+        font-size: 21px;
         color: #5a5a5a;
         background-color: #fff;
         border-radius: 5px;
@@ -1945,7 +1949,7 @@ a.PromoLink {
     }
 
     .say-hello a.fa-youtube {
-        color: #fff;
+        color: #251a05;
         padding-left: 6px;
         top: 4px;
         position: relative;
@@ -1957,7 +1961,7 @@ a.PromoLink {
 }
 
 .get-offers {
-    color: #fff;
+    color: #251a05;
     max-width: 100%;
     margin-bottom: 5px;
     font-weight: 700;
@@ -1971,7 +1975,7 @@ a.PromoLink {
 .get-offers .btn-quick-order {
     margin-left: 17px;
     padding: 8px 20px;
-    background: #ef3e42;
+    background: #c3102f;
     border-right: 1px solid #822824;
     border-left: 1px solid #c3140e;
     border-bottom: 1px solid #822824;
@@ -1980,8 +1984,8 @@ a.PromoLink {
 }
 
     .get-offers .btn-quick-order:hover {
-        color: #000;
-        background: #ffcaa6;
+        color: #251a05;
+        background: #fef2e3;
         border: 1px solid #ff934a;
     }
 
@@ -2013,7 +2017,7 @@ a.PromoLink {
 }
 
 .get-offers .btn-submit-email {
-    color: #fff;
+    color: #251a05;
     background-color: #922022;
     border-radius: 0;
     padding: 6px 30px;
@@ -2024,16 +2028,16 @@ a.PromoLink {
 }
 
     .get-offers i:first-child {
-        font-size: 22px;
+        font-size: 24px;
         position: relative;
         top: 2px;
-        color: #fff;
+        color: #251a05;
     }
 
 .footer-row-2 ul, .footer-row-2 ul li {
     padding: 0;
     list-style: none;
-    color: #fff;
+    color: #251a05;
 }
 
 .footer-row-2 ul {
@@ -2046,7 +2050,7 @@ a.PromoLink {
     .footer-row-2 ul li {
         float: left;
         margin-right: 20px;
-        font-size: 11px;
+        font-size: 13px;
     }
 
         .footer-row-2 ul li:last-child {
@@ -2054,7 +2058,7 @@ a.PromoLink {
         }
 
         .footer-row-2 ul li a {
-            color: #fff;
+            color: #251a05;
         }
 
     .footer-row-2 ul + ul {
@@ -2068,7 +2072,7 @@ a.PromoLink {
         }
 
 .purchase-history span {
-    font-size: 12px;
+    font-size: 14px;
     width: 80px;
     float: left;
     margin-right: 20px;
@@ -2097,22 +2101,22 @@ a.PromoLink {
 }
 
     .modal .close span {
-        font-size: 32px;
+        font-size: 34px;
         text-align: center;
         vertical-align: middle;
     }
 
     .modal .close:hover {
-        color: #eb272e;
+        color: #c3102f;
     }
 
 .modal-header .login-social {
-    font-size: 13px;
+    font-size: 15px;
     margin: 10px 0;
 }
 
     .modal-header .login-social a {
-        font-size: 13px;
+        font-size: 15px;
         margin: 10px 0;
     }
 
@@ -2121,7 +2125,7 @@ a.PromoLink {
         }
 
     .modal-header .login-social span {
-        font-size: 28px;
+        font-size: 30px;
         margin-right: 10px;
         vertical-align: middle;
     }
@@ -2135,7 +2139,7 @@ a.PromoLink {
     width: 100%;
     margin: 0;
     padding: 5px 0;
-    font-size: 18px;
+    font-size: 20px;
     font-weight: bold;
 }
 
@@ -2201,7 +2205,7 @@ a.PromoLink {
 
     .modal-content h1, .modal-content h2, .modal-content h3 {
         font-family: 'Pakenham-Bold','Source Sans Pro',sans-serif;
-        font-size: 28px;
+        font-size: 30px;
         text-transform: uppercase;
         margin-top: 10px;
         color: #323232;
@@ -2214,14 +2218,14 @@ a.PromoLink {
     }
 
     .modal-content h2, .modal-content h3 {
-        font-size: 22px;
+        font-size: 24px;
         border-top: 1px solid #b8b8b8;
         padding: 10px 0;
         margin-bottom: 0;
     }
 
     .modal-content h3 {
-        font-size: 18px;
+        font-size: 20px;
     }
 
     .modal-content label {
@@ -2238,7 +2242,7 @@ a.PromoLink {
 
         .modal-content label span {
             color: #ed0003;
-            font-size: 26px;
+            font-size: 28px;
             line-height: 1px;
             margin-left: 5px;
             top: 10px;
@@ -2246,7 +2250,7 @@ a.PromoLink {
         }
 
         .modal-content a, .modal-content label a {
-            color: #19a5a1;
+            color: #c3102f;
             font-weight: normal;
         }
 
@@ -2275,7 +2279,7 @@ a.PromoLink {
 }
 
 .check-item span, .check-item i {
-    font-size: 16px;
+    font-size: 18px;
     margin-right: 5px;
 }
 
@@ -2288,7 +2292,7 @@ a.PromoLink {
 .check-item p i {
     display: none;
     color: #5cb85c;
-    font-size: 24px;
+    font-size: 26px;
     margin-left: 0;
 }
 
@@ -2296,7 +2300,7 @@ a.PromoLink {
     color: #ddd;
     left: 0;
     position: relative;
-    font-size: 28px;
+    font-size: 30px;
     display: inline;
     margin: 0 0 0 5px;
     vertical-align: middle;
@@ -2333,7 +2337,7 @@ a.PromoLink {
 
 .modal-content p.error i.check-field {
     color: #ffabae;
-    font-size: 18px;
+    font-size: 20px;
     margin-left: 8px;
 }
 
@@ -2354,7 +2358,7 @@ a.PromoLink {
     position: relative;
     left: 35px;
     top: 7px;
-    font-size: 16px;
+    font-size: 18px;
 }
 
 .modal-content p.no-payment-type-info {
@@ -2373,11 +2377,11 @@ a.PromoLink {
     }
 
     .exclamation-mark {
-        font-size: 22px;
+        font-size: 24px;
     }
 
     #form_forgot_password .exclamation-mark {
-        font-size: 24px;
+        font-size: 26px;
     }
 
     .padding-desktop {
@@ -2416,7 +2420,7 @@ input[type="text"], input[type="email"], input[type="password"], select.form-con
     }
 
 .deal-item .deal-close:hover {
-    color: #eb272e;
+    color: #c3102f;
     cursor: pointer;
 }
 
@@ -2439,7 +2443,7 @@ input[type="text"], input[type="email"], input[type="password"], select.form-con
     }
 
     .deal-detail ul li {
-        font-size: 26px;
+        font-size: 28px;
         text-transform: uppercase;
         margin: 0;
         vertical-align: middle;
@@ -2457,7 +2461,7 @@ input[type="text"], input[type="email"], input[type="password"], select.form-con
 .deal-accordion .deal-detail-header h1 {
     border: none;
     display: block;
-    font-size: 26px;
+    font-size: 28px;
     text-transform: uppercase;
     margin: 0;
     vertical-align: middle;
@@ -2492,7 +2496,7 @@ input[type="text"], input[type="email"], input[type="password"], select.form-con
 .order-sub-menu > .order-sub-menu-border > .type-selector {
     border-radius: 5px;
     border: 1px solid #b2b2b2;
-    font-size: 22px;
+    font-size: 24px;
     margin-top: 5px;
     margin-bottom: 20px;
     padding-left: 10px;
@@ -2501,10 +2505,10 @@ input[type="text"], input[type="email"], input[type="password"], select.form-con
 
 .order-sub-menu .order-sub-menu-border > .type-spliter > .nav-tabs {
     font-family: 'Pakenham-Bold','Source Sans Pro',sans-serif;
-    font-size: 23px;
+    font-size: 25px;
     margin-left: -15px;
     margin-right: -15px;
-    text-transform: uppercase;
+    /*text-transform: uppercase;*/
     width: auto;
 }
 
@@ -2524,7 +2528,8 @@ input[type="text"], input[type="email"], input[type="password"], select.form-con
 }
 
 .order-sub-menu > .order-sub-menu-border > .type-spliter > .nav-tabs > li.active a {
-    background: rgba(15,14,12,.4);
+    /*background: rgba(15,14,12,.4);*/
+    background:#7c6954;
     outline: 0;
     color: #cba77b;
     border-bottom: solid 1px #cba77b;
@@ -2539,14 +2544,15 @@ input[type="text"], input[type="email"], input[type="password"], select.form-con
     .order-sub-menu > .order-sub-menu-border > h1 {
         display: block;
         font-family: 'Pakenham-Bold','Source Sans Pro',sans-serif;
-        font-size: 32px;
+        font-size: 34px;
         margin-bottom: 30px;
         margin-top: 35px;
         text-align: center;
+        color: #251a05;
     }
 
         .order-sub-menu > .order-sub-menu-border > h1 .alternate {
-            color: #fff;
+            color: #251a05;
         }
 
     .order-sub-menu > .order-sub-menu-border > .type-selector {
@@ -2568,7 +2574,8 @@ input[type="text"], input[type="email"], input[type="password"], select.form-con
             }
 
             .order-sub-menu > .order-sub-menu-border > .type-spliter > .nav-tabs > li > a {
-                background: rgba(63,59,61,.5);
+                /*background: rgba(63,59,61,.5);*/
+                background:#7c6954;
                 color: #fff;
                 border: none;
                 opacity: .6;
@@ -2643,11 +2650,11 @@ input[type="text"], input[type="email"], input[type="password"], select.form-con
         }
 
             .homepage-promo .container h1 {
-                font-size: 20px;
+                font-size: 22px;
             }
 
             .homepage-promo .container h2 {
-                font-size: 36px;
+                font-size: 38px;
             }
 
     .btn-logout {
@@ -2659,7 +2666,7 @@ input[type="text"], input[type="email"], input[type="password"], select.form-con
         height: 60px;
         line-height: 60px;
         font-family: 'Pakenham-Bold','Source Sans Pro',sans-serif;
-        font-size: 18px;
+        font-size: 20px;
         text-transform: uppercase;
         padding: 0 20px !important;
         margin-right: 0;
@@ -2668,7 +2675,7 @@ input[type="text"], input[type="email"], input[type="password"], select.form-con
 
         a.btn-log-in:hover, .btn-logout:hover {
             color: #000 !important;
-            background: #ffcaa6;
+            background: #fef2e3;
         }
 
     a.btn-log-out {
@@ -2935,16 +2942,16 @@ input[type="text"], input[type="email"], input[type="password"], select.form-con
             }
 
         .homepage-promo .container h1 {
-            font-size: 28px;
+            font-size: 30px;
         }
 
         .homepage-promo .container h2 {
-            font-size: 44px;
+            font-size: 46px;
             margin: 5px 0 10px 0;
         }
 
         .homepage-promo .container p {
-            font-size: 12px;
+            font-size: 14px;
         }
 
     .promotion div {
@@ -3017,7 +3024,7 @@ input[type="text"], input[type="email"], input[type="password"], select.form-con
 
 .topping-lmit {
     display: block;
-    color: #d71800;
+    color: #c3102f;
 }
 
 #forgotpassword .modal-body {
@@ -3037,7 +3044,7 @@ h3.accordion-title {
     text-align: center;
     color: #fff;
     padding-top: 9px;
-    font-size: 18px;
+    font-size: 20px;
     margin-top: 6px;
     padding-bottom: 5px;
     display: table;
@@ -3049,7 +3056,7 @@ h3.accordion-title {
         color: #cba778;
         border-bottom: #cba778 1px solid;
         padding-top: 9px;
-        font-size: 18px;
+        font-size: 20px;
         margin-top: 6px;
         padding-bottom: 5px;
         display: table;
@@ -3061,7 +3068,7 @@ h3.accordion-title {
         text-align: center;
         color: #cba778;
         padding-top: 9px;
-        font-size: 18px;
+        font-size: 20px;
         margin-top: 6px;
         padding-bottom: 5px;
         display: table;
@@ -3106,13 +3113,14 @@ i.custom-check {
     display: table;
     margin-bottom: 8px;
     margin-top: 6px;
+    color: #251a05;
 }
 
 .check-selected {
     color: #cba77b;
     display: inline-block;
     font: normal normal normal 14px/1 FontAwesome;
-    font-size: 20px !important;
+    font-size: 22px !important;
     text-rendering: auto;
     -webkit-font-smoothing: antialiased;
 }
@@ -3120,7 +3128,7 @@ i.custom-check {
 .check-selected-tab {
     color: #19a5a1;
     font: normal normal normal 14px/1 FontAwesome;
-    font-size: 32px;
+    font-size: 34px;
     text-rendering: auto;
     -webkit-font-smoothing: antialiased;
     padding-left: 2px;
@@ -3141,7 +3149,7 @@ i.custom-check {
 }
 
 .deal-delete {
-    font-size: 32px;
+    font-size: 34px;
     cursor: pointer;
     color: #f00;
     padding-left: 4px;
@@ -3178,7 +3186,7 @@ i.custom-check {
     .deal-delete-popup span {
         display: inline-block;
         padding: 6px 10px;
-        font-size: 24px;
+        font-size: 26px;
         color: initial;
     }
 
@@ -3188,7 +3196,7 @@ i.custom-check {
 }
 
 .deal-count {
-    font-size: 18px;
+    font-size: 20px;
 }
 
 .order-sub-menu > .order-sub-menu-border > .type-spliter > .nav-tabs > li {
@@ -3363,7 +3371,7 @@ a.get-offers-anchor {
 }
 
     a.get-offers-anchor:hover {
-        color: #fff;
+        color: #251a05;
         text-decoration: underline;
     }
 
@@ -3402,7 +3410,7 @@ a.get-offers-anchor {
 
 i.myaccount-check-field {
     color: #302e2f;
-    font-size: 24px;
+    font-size: 26px;
     display: block;
     float: right;
     margin-top: 4px;
@@ -3463,7 +3471,7 @@ i.myaccount-check-field-completed {
     color: #ffabae;
     display: inline;
     float: none;
-    font-size: 24px;
+    font-size: 26px;
     left: 0;
     padding: 0;
     position: relative;
@@ -3483,7 +3491,7 @@ i.myaccount-check-field-completed {
 }
 
 #address-list ul li a {
-    font-size: 14px !important;
+    font-size: 16px !important;
 }
 
 .ng-invalid-typeahead {
@@ -3712,7 +3720,7 @@ i.myaccount-check-field-completed {
 
 .addressHelperText span, .addressHelperText i {
     color: #808080;
-    font-size: 12px;
+    font-size: 14px;
     line-height: 20px;
     margin: 0;
 }
@@ -3783,7 +3791,7 @@ body {
 
 .order-type > div {
     float: left;
-    font-size: 18px;
+    font-size: 20px;
     cursor: pointer;
     color: #fff;
     height: 97px;
@@ -3834,15 +3842,20 @@ body {
     padding: 20px 0;
     margin: 0;
     cursor: pointer;
-    font-size: 20px;
+    font-size: 22px;
 }
 
 .modal-content h1.no-borderbottom {
     border-bottom: none;
 }
 
-.wrapper-promo-blocks, .order-type-background, .container.product-filter, .checkoutHeadingBackground, .wrapper-order-now {
-    background: url("/images/grey-bg.png") repeat scroll top left;
+.wrapper-promo-blocks, .order-type-background, .checkoutHeadingBackground {
+    /*background: url("/images/grey-bg.png") repeat scroll top left;*/
+    cursor: pointer;
+}
+
+.wrapper-order-now, .container.product-filter {
+    background-color: #7c6954;
     cursor: pointer;
 }
 
@@ -3857,7 +3870,8 @@ body {
 
 .product-list-homepage .product-list h1 {
     padding-bottom: 11px;
-    text-transform: uppercase;
+    /*text-transform: uppercase;*/
+    color: #251a05;
 }
 
 .redcolortext {
@@ -3877,7 +3891,7 @@ body {
 }
 
 .order-sub-menu-border .nav-tabs .check-field-completed {
-    font-size: 26px;
+    font-size: 28px;
     color: #19a5a1;
 }
 
@@ -3886,7 +3900,7 @@ body {
         width: 87%;
         background-color: #302e2f;
         border-radius: 0 !important;
-        color: #fff;
+        color: #251a05;
         border: solid 1px #a6a6a6;
         clear: both;
     }
@@ -3946,11 +3960,11 @@ body {
 }
 
     .inset-404 h2 {
-        font-size: 18pt;
+        font-size: 20pt;
     }
 
         .inset-404 h2 span {
-            font-size: 24pt;
+            font-size: 26pt;
         }
 
     .inset-404 hr {
@@ -3969,14 +3983,14 @@ body {
 
 .desc-404 {
     font-family: 'Pakenham-Bold',"Source Sans Pro" !important;
-    font-size: 16px;
+    font-size: 18px;
     padding-left: 0;
 }
 
     .desc-404 a {
-        font-size: 18px;
+        font-size: 20px;
         padding: 5px 15px;
-        color: #ffcaa6;
+        color: #fef2e3;
         text-decoration: none;
     }
 
@@ -3988,7 +4002,7 @@ body {
 
 .title-404 h1 {
     font-family: 'Pakenham-Bold',"Source Sans Pro" !important;
-    font-size: 85px;
+    font-size: 87px;
     font-style: normal;
 }
 
@@ -4002,15 +4016,31 @@ body {
     }
 
     .desc-404 {
-        font-size: 14px;
+        font-size: 16px;
         padding: 0 20px;
     }
 
     .title-404 h1 {
-        font-size: 30px;
+        font-size: 32px;
     }
 
     .title-404 h2 {
-        font-size: 18px;
+        font-size: 20px;
     }
+}
+
+.logo {
+    background: url(../../images/sprite.png) no-repeat;
+    display: block;
+    position: absolute;
+    width: 96px;
+    height: 28px;
+    background-position: 0 0;
+    left: 51px;
+    top: 26px;
+}
+
+#map_deliveryAreas {
+    height: 400px;
+    width: 100%;
 }

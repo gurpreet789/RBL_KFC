@@ -76,7 +76,7 @@ body {
   padding: 20px 5px; }
 
 h1 {
-  font-size: 32px;
+  font-size: 34px;
   font-weight: bold;
   line-height: 56px;
   text-transform: uppercase; }
@@ -100,7 +100,7 @@ h1 {
 
 .island {
   color: #404041;
-  font-size: 25px;
+  font-size: 27px;
   font-weight: bold;
   line-height: 28px;
   padding: 0 6px 10px 6px;
@@ -110,7 +110,7 @@ h1 {
   background: #C71D28;
   border-bottom: 4px solid #8D0E18;
   color: #fff;
-  font-size: 23px;
+  font-size: 25px;
   font-weight: bold;
   height: 28px;
   line-height: 28px;
@@ -135,20 +135,20 @@ h1 {
   color: #fff; }
   .col1 .location {
     float: left;
-    font-size: 10px; }
+    font-size: 12px; }
   .col1 .phone {
     float: right;
-    font-size: 10px;
+    font-size: 12px;
     text-align: right; }
   .col1 .address {
     clear: both;
     display: block;
-    font-size: 8px;
+    font-size: 10x;
     padding-top: 2px; }
 
 .col2 {
   color: #000;
-  font-size: 9px;
+  font-size: 11x;
   height: auto;
   line-height: 12px;
   padding: 4px 0; }
@@ -159,10 +159,10 @@ h1 {
   font-family: 'Pakenham-Bold', "Source Sans Pro", sans-serif; }
 
 h2 {
-  font-size: 30px;
+  font-size: 32px;
   font-weight: bold; }
   h2 span {
-    font-size: 22px;
+    font-size: 24px;
     font-weight: normal; }
 
 .allergen-info .wrapper {
@@ -177,7 +177,7 @@ table {
     background: #fff;
     border-left: 1px solid #231F20;
     color: #231F20;
-    font-size: 13px;
+    font-size: 15px;
     font-weight: 600;
     padding: 10px 5px;
     vertical-align: middle; }
@@ -189,19 +189,19 @@ table {
   table th[scope="row"] {
     background: #fff;
     color: #231F20;
-    font-size: 12px;
+    font-size: 14px;
     line-height: 15px;
     padding: 10px;
     text-align: left;
     vertical-align: middle; }
   table td {
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 700;
     padding: 10px;
     vertical-align: middle; }
 
 .half-width p {
-  font-size: 16px;
+  font-size: 18px;
   line-height: 19px;
   margin-bottom: 12px; }
 
@@ -216,7 +216,7 @@ table {
     border-bottom: 1px dotted #fff;
     padding: 6px 0; }
     .key-wrapper .key p {
-      font-size: 12px;
+      font-size: 14px;
       line-height: 15px;
       margin-bottom: 6px; }
     .key-wrapper .key strong {
@@ -238,25 +238,25 @@ table {
       background: #231F20;
       border: 1px solid #fff;
       color: #fff;
-      font-size: 8px;
+      font-size: 10x;
       font-weight: 700;
       padding: 4px 1px; }
     .nutritional-info table th[scope="row"] {
       background: #fff;
       border: 1px solid #231F20;
       color: #231F20;
-      font-size: 11px;
+      font-size: 13px;
       font-weight: 700;
       text-align: center; }
     .nutritional-info table tr:nth-child(even) {
       background: #D1D3D4; }
     .nutritional-info table td {
       border: 1px solid #231F20;
-      font-size: 11px;
+      font-size: 13px;
       font-weight: 400; }
 
 .footer {
-  font-size: 12px;
+  font-size: 14px;
   font-weight: bold;
   line-height: 15px; }
   .footer ul {
@@ -269,7 +269,7 @@ table {
   body {
     padding: 18px 40px; }
   h1 {
-    font-size: 40px; }
+    font-size: 42px; }
   .logo-wrapper {
     height: 56px; }
   .pull-left {
@@ -323,13 +323,13 @@ table {
   table th[scope="row"] {
     background: transparent;
     color: #fff;
-    font-size: 16px;
+    font-size: 18px;
     line-height: 19px;
     padding: 12px 10px;
     width: 155px; }
   table td {
     border-left: 1px solid #fff;
-    font-size: 16px;
+    font-size: 18px;
     padding: 12px 10px; }
   .half-width {
     clear: left;
@@ -372,19 +372,19 @@ table {
     max-width: 1200px;
     width: 80%; }
   .key-wrapper .key p {
-    font-size: 16px;
+    font-size: 18px;
     line-height: 19px; } }
 
 @media only screen and (min-width: 1200px) {
   .nutritional-info {
     padding: 18px 40px; }
     .nutritional-info table th[scope="col"] {
-      font-size: 11px;
+      font-size: 13px;
       padding: 4px 2px; }
     .nutritional-info table th[scope="row"] {
-      font-size: 11px; }
+      font-size: 13px; }
     .nutritional-info table td {
-      font-size: 11px; } }
+      font-size: 13px; } }
 
 /*
 Max width before this PARTICULAR table gets nasty
@@ -607,3 +607,5 @@ and also iPads specifically.
 @media only screen and (min-width: 768px) {
   th[scope="row"] {
     position: static !important; } }
+
+

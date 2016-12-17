@@ -151,7 +151,7 @@
                                 <span ng-if="checkOutOptions.isDayClosed"><i class="glyphicon glyphicon-info-sign"></i>&nbsp;&nbsp;&nbsp;{{checkOutOptions.store.storeName}} store is closed for today.</span>
                                 <span ng-if="!checkOutOptions.isDayClosed && checkOutOptions.isAfterClosingTime"><i class="glyphicon glyphicon-info-sign"></i>&nbsp;&nbsp;&nbsp;We're sorry; this store is now closed{{checkOutOptions.isPickup?"":" for delivery service"}}. A time for tomorrow can be selected.</span>
                                 <span ng-if="!checkOutOptions.isDayClosed && checkOutOptions.isBeforeOpenTime && !checkOutOptions.isDelivery"><i class="glyphicon glyphicon-info-sign"></i>&nbsp;&nbsp;&nbsp;We're sorry; this store is currently closed.</span>
-                                <span ng-if="!checkOutOptions.isDayClosed && checkOutOptions.isBeforeOpenTime && checkOutOptions.isDelivery"<i class="glyphicon glyphicon-info-sign"></i>>&nbsp;&nbsp;&nbsp;Delivery service for {{checkOutOptions.store.storeName}} store is available later today.</span>
+                                <span ng-if="!checkOutOptions.isDayClosed && checkOutOptions.isBeforeOpenTime && checkOutOptions.isDelivery"><i class="glyphicon glyphicon-info-sign"></i>&nbsp;&nbsp;&nbsp;Delivery service for {{checkOutOptions.store.storeName}} store is available later today.</span>
                                 <span ng-if="!checkOutOptions.isValidTimeSlot && checkOutOptions.isDelivery"><i class="glyphicon glyphicon-info-sign"></i>&nbsp;&nbsp;&nbsp;No available time slot for selected date in {{checkOutOptions.store.storeName}} store.</span>
                                 
                             </div>

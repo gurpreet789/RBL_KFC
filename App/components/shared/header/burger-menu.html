@@ -15,59 +15,19 @@
         <i class="pull-right fa fa-angle-right" />
     </li>
     <li ng-click="selectSection('individual-meals')">
-        <a>New</a>
+        <a>Individual Meals</a>
         &nbsp;
-        <span class="display-num" ng-if="burgermenu.model.newProductCount >0"> {{burgermenu.model.newProductCount}}</span>
         <i class="pull-right fa fa-angle-right" />
     </li>
-    <li ng-class="{'opened' : burgermenu.model.isDealOpened}">
-        <accordion close-others="oneAtATime">
-            <accordion-group is-open="status.open">
-                <accordion-heading>
-                    <h3 ng-click="DealOpened()">
-                        <span class="accordion-title">
-                            Deals
-                        </span>
-                        <i class="pull-right fa" ng-class="{'fa fa-angle-up': status.open, 'fa fa-angle-down': !status.open}"></i>
-                    </h3>
-                </accordion-heading>
-
-                <div ng-click="subMenu('deals','pickup')" class="submenu-height">
-                    <a class="paddingbottom">Pickup deals</a>
-                    <i class="pull-right fa fa-angle-right" />
-                </div>
-                <div ng-click="subMenu('deals','delivery')" class="submenu-item-padding">
-                    <a class="paddingbottom">Delivery deals</a>
-                    <i class="pull-right fa fa-angle-right" />
-                </div>
-            </accordion-group>
-        </accordion>
-    </li>
-    <!--<li ng-click="selectSection('deals')">
-        <a>Deals</a>
+    <li ng-click="selectSection('deals')">
+        <a>Burgers</a>
+        &nbsp;
         <i class="pull-right fa fa-angle-right" />
-    </li>-->
-    <li style="border-bottom:none" class="no-close">
-        <accordion close-others="oneAtATime">
-            <accordion-group is-open="status.open">
-                <accordion-heading>
-                    <h3>
-                        <span class="accordion-title">
-                            Sides
-                        </span>
-                        <i class="pull-right fa" ng-class="{'fa fa-angle-up': status.open, 'fa fa-angle-down': !status.open}"></i>
-                    </h3>
-                </accordion-heading>
-                <div ng-click="subMenu('sides','foodandsauces')" class="submenu-height">
-                    <a class="paddingbottom">WINGS & SNACKS</a>
-                    <i class="pull-right fa fa-angle-right" />
-                </div>
-                <div ng-click="subMenu('sides','drinks')" class="submenu-item-padding">
-                    <a class="paddingbottom">DRINKS & SIDES</a>
-                    <i class="pull-right fa fa-angle-right" />
-                </div>
-            </accordion-group>
-        </accordion>
+    </li>
+    <li ng-click="selectSection('sides')">
+        <a>Extras</a>
+        &nbsp;
+        <i class="pull-right fa fa-angle-right" />
     </li>
     <li class="menu-item stores-menu textcolor bottom-link">
         <a target="_self" href="#" ng-click="burgermenu.trackAndRedirect('/opening-hours.html','Footer','Stores','Stores')">Stores </a>

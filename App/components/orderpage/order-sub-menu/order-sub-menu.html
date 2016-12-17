@@ -14,12 +14,13 @@
                 </tab-heading>
                 <div ng-multi-transclude="left-content"></div>
             </tab>
-            <tab active="orderSubMenu.isRightTabActive" ng-click="orderSubMenu.load('right',true)" >
+            <tab active="orderSubMenu.isRightTabActive" ng-if="orderSubMenu.isRightTabVisible" ng-click="orderSubMenu.load('right',true)">
                 <tab-heading>
                     {{rightCaption}}
                 </tab-heading>
                 <div ng-multi-transclude="right-content"></div>
             </tab>
         </tabset>
+        <div ng-multi-transclude="right-content"></div>
     </div>
 </div>

@@ -14,18 +14,17 @@
         <button ng-href="#" class="btn btn-filter btn-info btn-filter-new" ng-class="{'filter-active': orderMenuTab.isSelected('individual-meals')}" ng-click="orderMenuTab.selectSection('individual-meals')">Individual Meals <rb-order-menu-section-count product-section="individual-meals"></rb-order-menu-section-count></button>
         <button ng-href="#" class="btn btn-filter btn-info btn-filter-deals" ng-class="{'filter-active': orderMenuTab.isSelected('deals') || orderMenuTab.isSelected('deal-detail')}" ng-click="orderMenuTab.selectSection('deals')">Burgers</button>
         <button ng-href="#" class="btn btn-filter btn-info btn-filter-sides" ng-class="{'filter-active': orderMenuTab.isSelected('sides')}" ng-click="orderMenuTab.selectSection('sides')">Extras</button>
-        <!--<button type="button" class="btn btn-filter btn-info btn-filter-favourites" ng-class="{'filter-active': order.isSelected('favourites')}" ng-click="order.selectSection('favourites')">My Favourites</button>-->
     </div>
 </div>
 
 <!-- List Pizza -->
 <section ng-if="orderMenuTab.isSelected('bucket-meals')">
-    <rb-product-list header-class="product-list-header" header-title="BUCKET MEALS" product-tab="pizzas" has-filter="true" has-title="true"></rb-product-list>
+    <rb-product-list header-class="product-list-header" header-title="Bucket Meals" product-tab="pizzas" has-filter="true" has-title="true"></rb-product-list>
 </section>
 
 <!-- List What's New -->
 <section ng-if="orderMenuTab.isSelected('individual-meals')">
-    <rb-product-list header-class="product-list-header" header-title="INDIVIDUAL MEALS" product-tab="newproducts" has-title="true"></rb-product-list>
+    <rb-product-list header-class="product-list-header" header-title="Individual Meals" product-tab="newproducts" has-title="true"></rb-product-list>
 </section>
 
 <!-- List Deals -->
@@ -34,7 +33,7 @@
                        right-caption="Delivery deals"
                        left-url="delivery"
                        right-url="delivery">
-        <span name="title-container">BURGERS</span>
+        <span name="title-container">Burgers</span>
         <div name="left-content">
             <rb-product-list header-class="product-list-header-no-border-bg" header-title="Pickup Deals" product-tab="dealCollection" is-nested="true"></rb-product-list>
         </div>
@@ -48,8 +47,8 @@
 </section>-->
 <!-- List Sides -->
 <section ng-if="orderMenuTab.isSelected('sides')">
-    <rb-order-sub-menu section-name="sides" left-caption="WINGS & SNACKS"
-                       right-caption="DRINKS & SIDES"
+    <rb-order-sub-menu section-name="sides" left-caption="Wings & Snacks"
+                       right-caption="Drinks & Sides"
                        left-url="foodandsauces"
                        right-url="drinks">
         <span name="title-container" class="alternate">Choose your sides</span>
@@ -66,4 +65,26 @@
 <!-- Deal details section -->
 <section ng-if="orderMenuTab.isSelected('deal-detail')">
     <rb-deal-detail></rb-deal-detail>
+</section>
+
+
+<!-- List Deals -->
+<section ng-if="orderMenuTab.isSelected('deliverArea')">
+    <div id="map_deliveryAreas" class="map_deliveryAreas"></div>
+    <script>
+        function initMap() {
+            var uluru = { lat: -25.363, lng: 131.044 };
+            var map = new google.maps.Map(document.getElementById('map_deliveryAreas'), {
+                zoom: 4,
+                center: uluru
+            });
+            var marker = new google.maps.Marker({
+                position: uluru,
+                map: map
+            });
+        }
+    </script>
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCsm6M64oDCngNgv4xKZ4-cwPAzT_BgrKk&callback=initMap">
+    </script>
 </section>

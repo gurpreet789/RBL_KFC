@@ -30,6 +30,7 @@
         vm.isLeftTabVisible = false;
         //
         vm.isRightTabActive = false;
+        vm.isRightTabVisible = false;
   
         vm.leftUrl = $scope.leftUrl;
         vm.rightUrl = $scope.rightUrl;
@@ -38,12 +39,14 @@
         // selectedTab true indicate left tab.
         // selectedTab false indicate right tab.
         vm.load = function (selectedTab, triggerStateChange) {
-            if (vm.sectionName != "deals")
+            if (vm.sectionName != "deals") {
                 vm.isLeftTabVisible = true;
+                vm.isRightTabVisible = true;
+            }
             if (selectedTab == dropdownRightValueConstant) {
                 // Activate left tab.
                 vm.isLeftTabActive = false;
-                vm.isRightTabActive = true;
+                vm.isRightTabActive = true;                
 
                 productService.TabSelection[vm.sectionName] = dropdownRightValueConstant;
                 vm.selectedType = productService.TabSelection[vm.sectionName];

@@ -36,6 +36,7 @@
 
         // initialise method.
         function initialise() {
+            //alert(vm.productTab);
             productService.FetchProducts(vm).then(function () {
                 if (vm.productTab == 'bucket-meals') {
                     InitFilter();
@@ -45,10 +46,11 @@
                     common.$timeout(function () {
                         if ($rootScope.categoryIdLoaded == undefined || $rootScope.CategoryID == undefined || $rootScope.CategoryID == null) {
                             contentService.GetCategoryID().then(function (data) {
+                                
                                 $rootScope.categoryIdLoaded = true;
                                 vm.CategoryID = $rootScope.CategoryID = data;
                                 product.enableOrderNow = product.productKeyValuePairList.categoryId != $rootScope.CategoryID;
-
+                                console.log(product);
                                 if (product.productType === 3) {
                                     if (product.displayOrder > 0) {
                                         vm.productListLive.push(product);
@@ -60,7 +62,7 @@
                             });
                         } else {
                             product.enableOrderNow = product.productKeyValuePairList.categoryId != $rootScope.CategoryID;
-
+                            console.log(product);
                             if (product.productType === 3) {
                                 if (product.displayOrder > 0) {
                                     vm.productListLive.push(product);

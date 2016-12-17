@@ -16,7 +16,7 @@
         top: 0;
         left: 0;
         height: 0;
-        background-color: #EB272E;
+        background-color: #c3102f;
         border-right: 3px solid #922022;
     }
     #sp-page {
@@ -65,12 +65,12 @@
 
 
     #sp-nav.panel-title, #sp-nav .panel, #sp-nav .panel-title, #sp-nav span.accordion-title {
-        background-color: #EB272E !important;
+        background-color: #c3102f !important;
     }
 
     #sp-nav ul li {
         padding: 17px;
-        font-size: 15px;
+        font-size: 17px;
         letter-spacing: 1px;
         text-decoration: none;
         color: #dddddd;
@@ -95,7 +95,7 @@
     #sp-nav ul li.burger-title p{
         position: absolute;
         bottom: 0;
-        font-size: 20px;
+        font-size: 22px;
         font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
         font-weight: 200;
     }
@@ -126,7 +126,7 @@
     }
 
     #sp-nav ul li i.fa {
-        font-size: 16pt;
+        font-size: 18pt;
     }
 
     #sp-nav .panel-body {
@@ -147,7 +147,7 @@
     }
 
     #sp-nav .panel-title {
-        font-size: 16px;
+        font-size: 18px;
         font-weight: 700;
     }
 
@@ -157,7 +157,7 @@
 
     .navbar-inverse .navbar-toggle:hover,
     .navbar-inverse .navbar-toggle:focus {
-        background-color: #eb272e;
+        background-color: #c3102f;
     }
 
     #sp-nav .panel {
@@ -177,11 +177,11 @@
     }
 
     .glyphicon-remove {
-        font-size: 18px;
+        font-size: 20px;
     }
     #sp-nav .menu-item a:active, a:hover{text-decoration:none;}
     .menuicon-close-name {
-        font-size: 8px;
+        font-size: 10px;
     }
 
     .navbar-toggle {
@@ -190,14 +190,14 @@
 
     .menuicon {
         color: #FFF;
-        font-size: 6px;
+        font-size: 8px;
         float: left;
     }
 
     .menuicon-name {
         top: 4px;
         position: relative;
-        font-size: 8px;
+        font-size: 10px;
     }
 
     .menuicon-span {
@@ -233,7 +233,7 @@
         #sp-nav .login-logout .btn-log-in {
             margin-top: 0;
             padding: 17px;
-            font-size: 16px;
+            font-size: 18px;
             letter-spacing: 1px;
             text-decoration: none;
             color: #dddddd;
@@ -251,7 +251,7 @@
     #sp-nav h3 {
         margin: 0;
         font-weight: 700;
-        font-size: 16px;
+        font-size: 18px;
     }
 
     .navbar-toggle:focus {
