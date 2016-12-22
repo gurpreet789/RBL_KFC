@@ -11,9 +11,10 @@
 <div class="container product-filter">
     <div>
         <button type="button" class="btn btn-filter btn-info btn-filter-pizzas" ng-class="{'filter-active': orderMenuTab.isSelected('bucket-meals')}" ng-click="orderMenuTab.selectSection('bucket-meals')">Bucket Meals</button>
-        <button type="button" class="btn btn-filter btn-info btn-filter-new" ng-class="{'filter-active': orderMenuTab.isSelected('individual-meals')}" ng-click="orderMenuTab.selectSection('individual-meals')">Individual Meals<rb-order-menu-section-count product-section="individual-meals"></rb-order-menu-section-count></button>
-        <button type="button" class="btn btn-filter btn-info btn-filter-deals" ng-class="{'filter-active': orderMenuTab.isSelected('deals') || orderMenuTab.isSelected('deal-detail')}" ng-click="orderMenuTab.selectSection('deals')">Burgers</button>
+        <button type="button" class="btn btn-filter btn-info btn-filter-new" ng-class="{'filter-active': orderMenuTab.isSelected('individual-meals')}" ng-click="orderMenuTab.selectSection('individual-meals')">Individual Meals</button>
+        <button type="button" class="btn btn-filter btn-info btn-filter-burgers" ng-class="{'filter-active': orderMenuTab.isSelected('burgers') || orderMenuTab.isSelected('burger-detail')}" ng-click="orderMenuTab.selectSection('burgers')">Burgers</button>
         <button type="button" class="btn btn-filter btn-info btn-filter-sides" ng-class="{'filter-active': orderMenuTab.isSelected('sides')}" ng-click="orderMenuTab.selectSection('sides')">Extras</button>
+        <button type="button" class="btn btn-filter btn-info btn-filter-deals" ng-class="{'filter-active': orderMenuTab.isSelected('deals') || orderMenuTab.isSelected('deal-detail')}" ng-click="orderMenuTab.selectSection('deals')">Deals</button>
         <!--<button type="button" class="btn btn-filter btn-info btn-filter-favourites" ng-class="{'filter-active': order.isSelected('favourites')}" ng-click="order.selectSection('favourites')">My Favourites</button>-->
     </div>
 </div>

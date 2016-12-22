@@ -39,10 +39,11 @@
         // selectedTab true indicate left tab.
         // selectedTab false indicate right tab.
         vm.load = function (selectedTab, triggerStateChange) {
-            if (vm.sectionName != "deals") {
+            if (vm.sectionName == "sides") {
                 vm.isLeftTabVisible = true;
                 vm.isRightTabVisible = true;
             }
+            //|| vm.sectionName != "burgers"
             if (selectedTab == dropdownRightValueConstant) {
                 // Activate left tab.
                 vm.isLeftTabActive = false;

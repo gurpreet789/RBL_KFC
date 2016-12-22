@@ -93,6 +93,7 @@ button {
     background: #C4C4C4;
     border: 1px solid #9E9E9E;
     border-radius: 2px !important;
+    font-size: 20px;
 }
 
 .ie input::-ms-clear {
@@ -123,10 +124,10 @@ input[type="search"]:focus,
 input[type="tel"]:focus,
 input[type="color"]:focus,
 .uneditable-input:focus {
-    border: 1px solid #26BCBD;
+    border: 1px solid #94887a;
     box-shadow: none;
     -webkit-box-shadow: none !important;
-    box-shadow: 0 0 2px #26BCBD !important;
+    box-shadow: 0 0 2px #94887a !important;
     outline: 0 none !important;
     /* fix for Android ICS */
     -webkit-user-modify: read-write-plaintext-only;
@@ -282,8 +283,8 @@ select:focus {
 }
 
 .primary-order-now {
-    padding: 20px 50px;
-    margin: 30px auto;
+    padding: 7px 25px;
+    margin: 7px auto;
     font-family: 'Pakenham-Bold', "Source Sans Pro", sans-serif;
     font-size: 32px;
     text-transform: uppercase;
@@ -336,7 +337,7 @@ select:focus {
     .side-panel .total p {
         margin: 0;
         padding: 5px 0;
-        font-size: 20px;
+        font-size: 25px;
         float: right;
     }
 
@@ -354,7 +355,7 @@ select:focus {
     margin-right: 0;
     background-color: transparent;
     border: none;
-    color: #19a5a1;
+    color: #c3102f;
     font-weight: bold;
 }
 
@@ -402,7 +403,7 @@ table.cart-total {
 
     table.cart-total tbody tr td {
         font-weight: bold;
-        font-size: 16px;
+        font-size: 23px;
     }
 
     table.cart-total tbody tr.description td {
@@ -426,7 +427,7 @@ table.cart-total {
     table.cart-total tr th,
     table.cart-total tfoot td {
         font-weight: bold;
-        font-size: 18px;
+        font-size: 23px;
     }
 
     table.cart-total td {
@@ -605,17 +606,17 @@ legend {
 .navbar-inverse .navbar-nav > li > a {
     color: #FFF;
     font-family: 'Pakenham-Bold', "Source Sans Pro", sans-serif;
-    font-size: 22px;
+    font-size: 30px;
     /*text-transform: uppercase;*/
 }
 
 .navbar-inverse .navbar-nav > li.separator {
-    padding-top: 12px;
+    padding-top: 3px;
     font-weight: bold;
     /*text-transform: uppercase;*/
     padding-left: 18px;
     padding-right: 18px;
-    font-size: 20px;
+    font-size: 30px;
 }
 
 .navbar-inverse .navbar-nav > li > a:hover {
@@ -696,7 +697,7 @@ a.btn-log-in {
 
 #validationsuccess {
     left: 5px;
-    color: #19A5A1;
+    color: #c3102f;
     margin: 0 0 0 5px;
     font-size: 30px;
 }
@@ -763,7 +764,7 @@ a.btn-log-in {
     }
 /* #endregion Login */
 .homepage-promo {
-    height: 350px;
+    height: 150px;
     overflow: hidden;
     position: relative;
 }
@@ -1073,7 +1074,7 @@ p.add-custom-to-favourites {
 .my-account-header h1,
 .general-content h1 {
     display: inline-block;
-    font-size: 28px;
+    font-size: 40px;
     /*text-transform: uppercase;*/
     margin: 0;
     padding: 15px 0;
@@ -1154,7 +1155,7 @@ p.add-custom-to-favourites {
     }
 
     .order-type > div.order-type-selected i {
-        color: #19a5a1;
+        color: #c3102f;
         font-size: 23px;
     }
 
@@ -1202,7 +1203,7 @@ p.add-custom-to-favourites {
 
 .choose-store label .fa-map-marker {
     font-size: 26px !important;
-    color: #19a5a1;
+    color: #c3102f;
     top: 0px !important;
     /* position: relative; */
 }
@@ -1249,7 +1250,7 @@ p.add-custom-to-favourites {
 .delivery-selected {
     color: #fff !important;
     background: #26BCBD !important;
-    border: 1px solid #19a5a1 !important;
+    border: 1px solid #c3102f !important;
 }
 
 .toggle-map {
@@ -1555,7 +1556,7 @@ p.flip-me,
     /*font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;*/
     font-family: 'Pakenham-Bold', "Source Sans Pro", sans-serif;
     font-style: normal;
-    font-size: 16px;
+    font-size: 22px;
     line-height: normal;
 }
 
@@ -1611,7 +1612,7 @@ p.flip-me {
 .back .description {
     border-top: 1px solid #BCBCBC;
     padding: 10px;
-    font-size: 15px;
+    font-size: 20px;
     line-height: normal;
     padding-bottom: 50%;
     cursor: pointer;
@@ -1642,13 +1643,13 @@ p.flip-me {
 .btn-customise {
     margin-right: 10px;
     color: #cba77b;
-    font-size: 16px;
+    font-size: 22px;
     display: inline-block;
     text-decoration: none;
     position: relative;
     padding: 10px 20px;
     border: solid 1px;
-    top: 1px;
+    top: 3px;
     border-radius: 2px !important;
     cursor: pointer;
 }
@@ -1874,7 +1875,7 @@ a.PromoLink {
 .promotion.catering,
 .order-type > div {
     /*background: url("/images/promo_background.png") repeat scroll top left;*/
-    background-color: #7c6954;
+    background-color: #94887a;
 }
 
 .promotion .promotion-icon {
@@ -1911,7 +1912,7 @@ a.PromoLink {
     }
 
 .account-item-selected {
-    color: #19a5a1;
+    color: #c3102f;
     border-bottom: 1px solid #666;
 }
 
@@ -2111,7 +2112,7 @@ a.PromoLink {
         color: #251a05;
         text-align: left;
         margin-top: 24px;
-        font-size: 16px;
+        font-size: 19px;
         font-weight: bold;
     }
 
@@ -2245,7 +2246,7 @@ a.PromoLink {
     .footer-row-2 ul li {
         float: left;
         margin-right: 20px;
-        font-size: 13px;
+        font-size: 18px;
     }
 
         .footer-row-2 ul li:last-child {
@@ -2453,7 +2454,7 @@ a.PromoLink {
 
         .modal-content a,
         .modal-content label a {
-            color: #19a5a1;
+            color: #c3102f;
             font-weight: normal;
         }
 
@@ -2533,11 +2534,11 @@ a.PromoLink {
 }
 
 .modal-content i.check-field-completed {
-    color: #19a5a1;
+    color: #c3102f;
 }
 
 #pickupForm i.check-field-completed {
-    color: #cba77b;
+    color: #c3102f;
 }
 
 .modal-content p.error i.check-field {
@@ -2560,7 +2561,7 @@ a.PromoLink {
 }
 
 .modal-content .check-item p i.check-item-selected {
-    color: #19a5a1;
+    color: #c3102f;
 }
 
 .modal-content .payment-type p span {
@@ -2610,7 +2611,7 @@ a.PromoLink {
     .modal-content input[type="password"],
     .modal-content input[type="email"] {
         width: 90%;
-        width: calc((100%) - 35px);
+        width: calc((100%) - 36px);
     }
 
     .modal-content label.errorMessage {
@@ -2760,7 +2761,7 @@ textarea.form-control {
 
 .order-sub-menu > .order-sub-menu-border > .type-spliter > .nav-tabs > li.active a {
     /*background: rgba(15, 14, 12, 0.4);*/
-    background:#7c6954;
+    background:#94887a;
     outline: 0;
     color: #cba77b;
     border-bottom: solid 1px #cba77b;
@@ -2775,9 +2776,9 @@ textarea.form-control {
     .order-sub-menu > .order-sub-menu-border > h1 {
         display: block;
         font-family: 'Pakenham-Bold', "Source Sans Pro", sans-serif;
-        font-size: 34px;
-        margin-bottom: 30px;
-        margin-top: 35px;
+        font-size: 40px;
+        /*margin-bottom: 30px;
+        margin-top: 35px;*/
         text-align: center;
         color: #251a05;
     }
@@ -2806,7 +2807,7 @@ textarea.form-control {
 
             .order-sub-menu > .order-sub-menu-border > .type-spliter > .nav-tabs > li > a {
                 /*background: rgba(63, 59, 61, 0.5);*/
-                background:#7c6954;
+                background:#94887a;
                 color: #fff;
                 border: none;
                 opacity: 0.6;
@@ -3057,7 +3058,7 @@ display: none;
     }
 
     .homepage-promo {
-        margin-top: -81px;
+        margin-top: -101px;
         height: 315px;
     }
 
@@ -3181,7 +3182,7 @@ display: none;
     }
 
     .homepage-promo {
-        height: 335px;
+        height: 150px;
     }
 
         .homepage-promo img {
@@ -3378,7 +3379,7 @@ i.custom-check {
 }
 
 .check-selected-tab {
-    color: #19A5A1;
+    color: #c3102f;
     font: normal normal normal 14px/1 FontAwesome;
     font-size: 34px;
     text-rendering: auto;
@@ -3650,8 +3651,8 @@ a.get-offers-anchor {
     padding: 12px 35px;
     border-radius: 4px !important;
     font-weight: 700;
-    background: #1FA3A0;
-    border: 1px solid #1FA3A0;
+    background: #c3102f;
+    border: 1px solid #c3102f;
 }
 
     .btn-checkout-buynow:hover {
@@ -3660,8 +3661,8 @@ a.get-offers-anchor {
         padding: 12px 35px;
         border-radius: 4px !important;
         font-weight: 700;
-        background: #1FA3A0;
-        border: 1px solid #1FA3A0;
+        background: #c3102f;
+        border: 1px solid #c3102f;
         color: black;
     }
 
@@ -3678,14 +3679,14 @@ i.myaccount-check-field {
 }
 
 i.myaccount-check-field-completed {
-    color: #19a5a1;
+    color: #c3102f;
 }
 
 .btn-search-district {
     padding: 6px 8px;
     font-weight: normal !important;
     color: #FFF !important;
-    background: #19a5a1 !important;
+    background: #c3102f !important;
     border: none;
 }
 
@@ -3885,6 +3886,7 @@ i.myaccount-check-field-completed {
 
 .contentholder {
     padding: 0 10px;
+    color: #251a05;
 }
 
 @media only screen and (max-device-width: 768px) {
@@ -4042,7 +4044,7 @@ body {
     display: block;
     width: 100%;
     border-bottom: 1px solid #BCBCBC;
-    color: #FFFFFF;
+    color: #251a05;
     margin-bottom: 20px;
     padding: 20px !important;
     text-align: left !important;
@@ -4124,7 +4126,7 @@ body {
 }
 
 .wrapper-order-now, .container.product-filter {
-    background-color: #7c6954;
+    background-color: #94887a;
     cursor: pointer;
 }
 
@@ -4162,7 +4164,7 @@ h3.accordion-title {
 
 .order-sub-menu-border .nav-tabs .check-field-completed {
     font-size: 28px;
-    color: #19a5a1;
+    color: #c3102f;
 }
 
 @media only screen and (min-width: 320px) and (max-width: 767px) {
@@ -4251,6 +4253,7 @@ h3.accordion-title {
     position: relative;
     margin: auto;
     max-width: 545px;
+    color: #251a05;
 }
 
 .desc-404 {
@@ -4287,6 +4290,7 @@ h3.accordion-title {
     .title-404,
     .desc-404 {
         max-width: 283px;
+        color: #251a05;
     }
 
     .desc-404 {

@@ -2,6 +2,7 @@
     'use strict';
 
     var rbPromoListDirective = function (OPTIMISATION) {
+        
         return {
 
             // restrict to element use only 

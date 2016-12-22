@@ -139,9 +139,9 @@
                     {{checkoutPayment.creditCardMessage}}
                 </p>-->
                 <p ng-click="checkoutPayment.choosePayment(paymentionOption.paymentTypeId)" ng-repeat="paymentionOption in checkoutPayment.paymentOptions" ga="['send','event','Checkout','{{paymentionOption.paymentType}}','Payment']">
-                    <i class="fa fa-check-circle-o"
-                       ng-class="{ 'check-item-selected': paymentionOption.paymentTypeId == checkoutPayment.selectedPaymentMethod }"></i>
-                    <span>{{paymentionOption.paymentType}}</span><span ng-if="paymentionOption.paymentTypeId == 2">(Fee {{checkoutPayment.mobileEFTPOSCharge | currency}})</span>
+                    <i class="fa fa-check-circle-o" ng-if="paymentionOption.paymentTypeId==1"
+                       ng-class="{ 'check-item-selected': paymentionOption.paymentTypeId == 1 }"></i>
+                    <span ng-if="paymentionOption.paymentTypeId==1">{{paymentionOption.paymentType}}</span><span ng-if="paymentionOption.paymentTypeId == 2">(Fee {{checkoutPayment.mobileEFTPOSCharge | currency}})</span>
                 </p>
             </div>
 

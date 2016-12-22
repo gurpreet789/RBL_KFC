@@ -15,6 +15,7 @@
 
     // angular controller for this component.
     function productListController($scope, productService, productActionService, filterService, $rootScope, common, contentService) {
+        
         // sets vm for this controller.
         var vm = this;
 
@@ -41,7 +42,7 @@
                 if (vm.productTab == 'bucket-meals') {
                     InitFilter();
                 }
-
+                console.log(vm.productList);
                 angular.forEach(vm.productList, function (product, index) {
                     common.$timeout(function () {
                         if ($rootScope.categoryIdLoaded == undefined || $rootScope.CategoryID == undefined || $rootScope.CategoryID == null) {

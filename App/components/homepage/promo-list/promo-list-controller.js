@@ -11,6 +11,7 @@
 
     // content controller
     function rbPromoListController($scope, common, contentService, $rootScope) {
+        
         // sets vm for this controller.
         var vm = this;
         vm.model = {};

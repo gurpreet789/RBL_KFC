@@ -3,6 +3,7 @@
 
     // angular directive for product list component. 
     var productListDirective = function (OPTIMISATION) {
+        console.log("productListDirective started.");
         return {
             // restrict to element use only 
             restrict: 'E',

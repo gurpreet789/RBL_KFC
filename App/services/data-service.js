@@ -27,7 +27,9 @@
         // execute get data from api controller
         function getDataFromAPI(apiString, params) {
             //$log.logDebug(serviceId + ' getDataFromAPI', 'Executing [apiString: %s, params: %s ]', [apiString, JSON.stringify(params)]);
-
+            debugger;
+            console.log(apiString);
+            console.log(params);
             vm.apiString = apiString;
             return $http.get(apiString, params)
                 .then(onAPIDataFetchComplete)
@@ -80,7 +82,8 @@
         // execute post data to api controller
         function postDataToAPI(apiString, data, params) {
             //$log.logDebug(serviceId + ' postDataToAPI', 'Executing [apiString: %s, data: %s, params: %s ]', [apiString, JSON.stringify(data), JSON.stringify(params)]);
-
+            debugger;
+            
             vm.apiString = apiString;
             return $http.post(apiString, data, params)
                 .then(onAPIDataFetchComplete)

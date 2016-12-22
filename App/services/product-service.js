@@ -22,9 +22,10 @@
         };
 
         function FetchProducts(vm) {
-
+            debugger;
+            console.log(productDataCollection);
             var productCollectionItem = productDataCollection[vm.productTab];
- 
+            console.log(productCollectionItem);
             if (productCollectionItem !== undefined) {
                 var deferred = common.$q.defer();
                 deferred.resolve(setVMStateAfterProductFetch(vm, productCollectionItem));

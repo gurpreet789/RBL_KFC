@@ -79,6 +79,7 @@ a, a:before, button {
     background: #c4c4c4;
     border: 1px solid #9e9e9e;
     border-radius: 2px !important;
+    font-size: 20px;
 }
 
 .ie input::-ms-clear {
@@ -91,10 +92,10 @@ input[type="checkbox"], input[type="radio"] {
 }
 
 .form-control:focus, .bootstrap-select, textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[type="datetime"]:focus, input[type="datetime-local"]:focus, input[type="date"]:focus, input[type="month"]:focus, input[type="time"]:focus, input[type="week"]:focus, input[type="number"]:focus, input[type="email"]:focus, input[type="url"]:focus, input[type="search"]:focus, input[type="tel"]:focus, input[type="color"]:focus, .uneditable-input:focus {
-    border: 1px solid #26bcbd;
+    border: 1px solid #94887a;
     box-shadow: none;
     -webkit-box-shadow: none !important;
-    box-shadow: 0 0 2px #26bcbd !important;
+    box-shadow: 0 0 2px #94887a !important;
     outline: 0 none !important;
     -webkit-user-modify: read-write-plaintext-only;
 }
@@ -239,8 +240,8 @@ select:focus {
 }
 
 .primary-order-now {
-    padding: 20px 50px;
-    margin: 30px auto;
+    padding: 7px 25px;
+    margin: 7px auto;
     font-family: 'Pakenham-Bold','Source Sans Pro',sans-serif;
     font-size: 32px;
     text-transform: uppercase;
@@ -291,7 +292,7 @@ select:focus {
     .side-panel .total p {
         margin: 0;
         padding: 5px 0;
-        font-size: 20px;
+        font-size: 25px;
         float: right;
     }
 
@@ -309,7 +310,7 @@ select:focus {
     margin-right: 0;
     background-color: transparent;
     border: none;
-    color: #19a5a1;
+    color: #c3102f;
     font-weight: bold;
 }
 
@@ -351,7 +352,7 @@ table.cart-total {
 
     table.cart-total tbody tr td {
         font-weight: bold;
-        font-size: 16px;
+        font-size: 23px;
     }
 
     table.cart-total tbody tr.description td {
@@ -373,7 +374,7 @@ table.cart-total {
 
     table.cart-total tr th, table.cart-total tfoot td {
         font-weight: bold;
-        font-size: 18px;
+        font-size: 23px;
     }
 
     table.cart-total td {
@@ -546,17 +547,17 @@ legend {
 .navbar-inverse .navbar-nav > li > a {
     color: #fff;
     font-family: 'Pakenham-Bold','Source Sans Pro',sans-serif;
-    font-size: 22px;
+    font-size: 30px;
     /*text-transform: uppercase;*/
 }
 
 .navbar-inverse .navbar-nav > li.separator {
-    padding-top: 12px;
+    padding-top: 3px;
     font-weight: bold;
     /*text-transform: uppercase;*/
     padding-left: 18px;
     padding-right: 18px;
-    font-size: 20px;
+    font-size: 30px;
 }
 
 .navbar-inverse .navbar-nav > li > a:hover {
@@ -636,7 +637,7 @@ a.btn-log-in {
 
 #validationsuccess {
     left: 5px;
-    color: #19a5a1;
+    color: #c3102f;
     margin: 0 0 0 5px;
     font-size: 30px;
 }
@@ -696,7 +697,7 @@ a.btn-log-in {
     }
 
 .homepage-promo {
-    height: 350px;
+    height: 150px;
     overflow: hidden;
     position: relative;
 }
@@ -976,7 +977,7 @@ p.add-cart-to-favourites, p.add-custom-to-favourites {
 
 .product-list-header h1, .my-account-header h1, .general-content h1 {
     display: inline-block;
-    font-size: 28px;
+    font-size: 40px;
     /*text-transform: uppercase;*/
     margin: 0;
     padding: 15px 0;
@@ -1054,7 +1055,7 @@ p.add-cart-to-favourites, p.add-custom-to-favourites {
     }
 
     .order-type > div.order-type-selected i {
-        color: #19a5a1;
+        color: #c3102f;
         font-size: 23px;
     }
 
@@ -1091,7 +1092,7 @@ p.add-cart-to-favourites, p.add-custom-to-favourites {
 
 .choose-store label .fa-map-marker {
     font-size: 26px !important;
-    color: #19a5a1;
+    color: #c3102f;
     top: 0 !important;
 }
 
@@ -1127,7 +1128,7 @@ p.add-cart-to-favourites, p.add-custom-to-favourites {
 .delivery-selected {
     color: #fff !important;
     background: #26bcbd !important;
-    border: 1px solid #19a5a1 !important;
+    border: 1px solid #c3102f !important;
 }
 
 .toggle-map {
@@ -1402,7 +1403,7 @@ p.flip-me, .add-to-favourites, .add-to-favourites i, .btn-customise, .btn-order,
     text-align: center !important;
     font-family: 'Pakenham-Bold', "Source Sans Pro", sans-serif;
     font-style: normal;
-    font-size: 16px;
+    font-size: 22px;
     line-height: normal;
 }
 
@@ -1454,7 +1455,7 @@ p.flip-me {
 .back .description {
     border-top: 1px solid #bcbcbc;
     padding: 10px;
-    font-size: 15px;
+    font-size: 20px;
     line-height: normal;
     padding-bottom: 50%;
     cursor: pointer;
@@ -1483,13 +1484,13 @@ p.flip-me {
 .btn-customise {
     margin-right: 10px;
     color: #cba77b;
-    font-size: 16px;
+    font-size: 22px;
     display: inline-block;
     text-decoration: none;
     position: relative;
     padding: 10px 20px;
     border: solid 1px;
-    top: 1px;
+    top: 3px;
     border-radius: 2px !important;
     cursor: pointer;
 }
@@ -1694,7 +1695,7 @@ a.PromoLink {
 
 .promotion.happy-hour, .promotion.catering, .order-type > div {
     /*background: url("/images/promo_background.png") repeat scroll top left;*/
-    background-color: #7c6954;
+    background-color: #94887a;
 }
 
 .promotion .promotion-icon {
@@ -1730,7 +1731,7 @@ a.PromoLink {
     }
 
 .account-item-selected {
-    color: #19a5a1;
+    color: #c3102f;
     border-bottom: 1px solid #666;
 }
 
@@ -1919,7 +1920,7 @@ a.PromoLink {
         color: #251a05;
         text-align: left;
         margin-top: 24px;
-        font-size: 16px;
+        font-size: 19px;
         font-weight: bold;
     }
 
@@ -2050,7 +2051,7 @@ a.PromoLink {
     .footer-row-2 ul li {
         float: left;
         margin-right: 20px;
-        font-size: 13px;
+        font-size: 18px;
     }
 
         .footer-row-2 ul li:last-child {
@@ -2328,11 +2329,11 @@ a.PromoLink {
 }
 
 .modal-content i.check-field-completed {
-    color: #19a5a1;
+    color: #c3102f;
 }
 
 #pickupForm i.check-field-completed {
-    color: #cba77b;
+    color: #c3102f;
 }
 
 .modal-content p.error i.check-field {
@@ -2351,7 +2352,7 @@ a.PromoLink {
 }
 
 .modal-content .check-item p i.check-item-selected {
-    color: #19a5a1;
+    color: #c3102f;
 }
 
 .modal-content .payment-type p span {
@@ -2393,7 +2394,7 @@ a.PromoLink {
 @media only screen and (min-width:480px) {
     .modal-content select, .modal-content textarea, .modal-content input[type="text"], .modal-content input[type="password"], .modal-content input[type="email"] {
         width: 90%;
-        width: calc((100%) - 35px);
+        width: calc((100%) - 36px);
     }
 
     .modal-content label.errorMessage {
@@ -2529,7 +2530,7 @@ input[type="text"], input[type="email"], input[type="password"], select.form-con
 
 .order-sub-menu > .order-sub-menu-border > .type-spliter > .nav-tabs > li.active a {
     /*background: rgba(15,14,12,.4);*/
-    background:#7c6954;
+    background:#94887a;
     outline: 0;
     color: #cba77b;
     border-bottom: solid 1px #cba77b;
@@ -2544,9 +2545,9 @@ input[type="text"], input[type="email"], input[type="password"], select.form-con
     .order-sub-menu > .order-sub-menu-border > h1 {
         display: block;
         font-family: 'Pakenham-Bold','Source Sans Pro',sans-serif;
-        font-size: 34px;
-        margin-bottom: 30px;
-        margin-top: 35px;
+        font-size: 40px;
+        /*margin-bottom: 30px;
+        margin-top: 35px;*/
         text-align: center;
         color: #251a05;
     }
@@ -2575,7 +2576,7 @@ input[type="text"], input[type="email"], input[type="password"], select.form-con
 
             .order-sub-menu > .order-sub-menu-border > .type-spliter > .nav-tabs > li > a {
                 /*background: rgba(63,59,61,.5);*/
-                background:#7c6954;
+                background:#94887a;
                 color: #fff;
                 border: none;
                 opacity: .6;
@@ -2809,7 +2810,7 @@ input[type="text"], input[type="email"], input[type="password"], select.form-con
     }
 
     .homepage-promo {
-        margin-top: -81px;
+        margin-top: -101px;
         height: 315px;
     }
 
@@ -2900,6 +2901,8 @@ input[type="text"], input[type="email"], input[type="password"], select.form-con
 
 .get-offers input, .get-offers span {
     float: left;
+    line-height:22px;
+    font-size:19px;
 }
 
 .disabled {
@@ -2929,7 +2932,7 @@ input[type="text"], input[type="email"], input[type="password"], select.form-con
     }
 
     .homepage-promo {
-        height: 335px;
+        height: 150px;
     }
 
         .homepage-promo img {
@@ -3126,7 +3129,7 @@ i.custom-check {
 }
 
 .check-selected-tab {
-    color: #19a5a1;
+    color: #c3102f;
     font: normal normal normal 14px/1 FontAwesome;
     font-size: 34px;
     text-rendering: auto;
@@ -3393,8 +3396,8 @@ a.get-offers-anchor {
     padding: 12px 35px;
     border-radius: 4px !important;
     font-weight: 700;
-    background: #1fa3a0;
-    border: 1px solid #1fa3a0;
+    background: #c3102f;
+    border: 1px solid #c3102f;
 }
 
     .btn-checkout-buynow:hover {
@@ -3403,8 +3406,8 @@ a.get-offers-anchor {
         padding: 12px 35px;
         border-radius: 4px !important;
         font-weight: 700;
-        background: #1fa3a0;
-        border: 1px solid #1fa3a0;
+        background: #c3102f;
+        border: 1px solid #c3102f;
         color: #000;
     }
 
@@ -3421,14 +3424,14 @@ i.myaccount-check-field {
 }
 
 i.myaccount-check-field-completed {
-    color: #19a5a1;
+    color: #c3102f;
 }
 
 .btn-search-district {
     padding: 6px 8px;
     font-weight: normal !important;
     color: #fff !important;
-    background: #19a5a1 !important;
+    background: #c3102f !important;
     border: none;
 }
 
@@ -3626,6 +3629,7 @@ i.myaccount-check-field-completed {
 
 .contentholder {
     padding: 0 10px;
+    color: #251a05;
 }
 
 @media only screen and (max-device-width:768px) {
@@ -3779,7 +3783,7 @@ body {
     display: block;
     width: 100%;
     border-bottom: 1px solid #bcbcbc;
-    color: #fff;
+    color: #251a05;
     margin-bottom: 20px;
     padding: 20px !important;
     text-align: left !important;
@@ -3855,7 +3859,7 @@ body {
 }
 
 .wrapper-order-now, .container.product-filter {
-    background-color: #7c6954;
+    background-color: #94887a;
     cursor: pointer;
 }
 
@@ -3892,7 +3896,7 @@ body {
 
 .order-sub-menu-border .nav-tabs .check-field-completed {
     font-size: 28px;
-    color: #19a5a1;
+    color: #c3102f;
 }
 
 @media only screen and (min-width:320px) and (max-width:767px) {
